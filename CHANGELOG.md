@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## [2.1.2]
+### Removed
+- Deprecated `@angular/http` by [gnowland](https://github.com/gnowland)
+
 ## [2.1.1]
 ### Fixed
 - Two-way binding for [(model)] by [jrquick17](https://github.com/jrquick17)

@@ -419,6 +419,7 @@ Run `npm install` to get packages required for the demo and then run `ionic serv
 * [bushybuffalo](https://github.com/bushybuffalo)
 * [jrquick17](https://github.com/jrquick17)
 * [kadoshms](https://github.com/kadoshms)
+* [gnowland](https://github.com/gnowland)
 
 ## Deploy ##
 
