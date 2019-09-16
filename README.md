@@ -188,7 +188,7 @@ export class AppModule {}
               labelAttribute = 'name';
               formValueAttribute = 'numericCode';
             
-              constructor(private http:Http) {
+              constructor(private http:HttpClient) {
               
               }
             
@@ -294,7 +294,7 @@ export class AppModule {}
                       
                       formValueAttribute = ''
                     
-                      constructor(private http:Http) {
+                      constructor(private http:HttpClient) {
                          ...
                       }
                     
@@ -473,7 +473,7 @@ Run `npm install` to get packages required for the demo and then run `ionic serv
     export class CompleteTestService implements AutoCompleteService {
       formValueAttribute = ""
     
-      constructor(private http:Http) {
+      constructor(private http:HttpClient) {
       
       }
     
