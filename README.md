@@ -178,32 +178,34 @@ export class AppModule {}
             ```
             import {Injectable} from '@angular/core';
             import {map} from 'rxjs/operators';
-            
+
             import {HttpClient} from '@angular/common/http';
-            
+
             import {AutoCompleteService} from 'ionic4-auto-complete';
-            
+
             @Injectable()
             export class CompleteTestService implements AutoCompleteService {
               labelAttribute = 'name';
               formValueAttribute = 'numericCode';
-            
-              constructor(private http:Http) {
+
+              constructor(private http:HttpClient) {
               
               }
-            
+
               getResults(keyword:string) {
-                 return this.http.get('https://restcountries.eu/rest/v1/name/' + keyword).map(
-                    (result) => {
-                       return result.json().filter(
+                 if (!keyword) { return false; }
+
+                 return this.http.get('https://restcountries.eu/rest/v2/name/' + keyword).pipe(map(
+                    (result: any[]) => {
+                       return result.filter(
                           (item) => {
-                             item.name.toLowerCase().startsWith(
+                             return item.name.toLowerCase().startsWith(
                                 keyword.toLowerCase()
                              );
                           }
                        );
                     }
-                 );
+                 ));
               }
             }
             ```
