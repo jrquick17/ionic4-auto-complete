@@ -6,11 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.1.4]
+### Removed
+- Removed deprecated `HttpClient` by [gnowland](https://github.com/gnowland)
+
 ## [Released]
 
 ## [2.1.3]
 ### Removed
-- Deprecated `@angular/http` by [gnowland](https://github.com/gnowland)
+- Remove deprecated `@angular/http` by [gnowland](https://github.com/gnowland)
 
 ## [2.1.2]
 ### Fixed
