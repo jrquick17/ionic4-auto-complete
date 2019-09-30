@@ -193,17 +193,19 @@ export class AppModule {}
               }
             
               getResults(keyword:string) {
-                 return this.http.get('https://restcountries.eu/rest/v1/name/' + keyword).map(
-                    (result) => {
-                       return result.json().filter(
+                 if (!keyword) { return false; }
+
+                 return this.http.get('https://restcountries.eu/rest/v2/name/' + keyword).pipe(map(
+                    (result: any[]) => {
+                       return result.filter(
                           (item) => {
-                             item.name.toLowerCase().startsWith(
+                             return item.name.toLowerCase().startsWith(
                                 keyword.toLowerCase()
                              );
                           }
                        );
                     }
-                 );
+                 ));
               }
             }
             ```
