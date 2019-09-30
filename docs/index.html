@@ -207,17 +207,19 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
     }
 
     getResults(keyword:string) {
-       return this.http.get(&#39;https://restcountries.eu/rest/v1/name/&#39; + keyword).map(
-          (result) =&gt; {
-             return result.json().filter(
+       if (!keyword) { return false; }
+
+       return this.http.get(&#39;https://restcountries.eu/rest/v2/name/&#39; + keyword).pipe(map(
+          (result: any[]) =&gt; {
+             return result.filter(
                 (item) =&gt; {
-                   item.name.toLowerCase().startsWith(
+                   return item.name.toLowerCase().startsWith(
                       keyword.toLowerCase()
                    );
                 }
              );
           }
-       );
+       ));
     }
   }</code></pre></div><ul>
 <li>Once the form is submitted the <code>country</code> is the selected country&#39;s <strong>numericCode</strong> while the displayed name is the <code>labelAttribute</code>.</li>
@@ -467,7 +469,6 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 </li>
 <li><h4 id="test">Test</h4>
 <ul>
-<li>Update <code>dist/package.json</code> to have <code>dependencies</code> to match root <code>package.json</code>.</li>
 <li>Copy <code>dist/</code> contents into <code>demo/node_modules/ionic4-auto-complete/</code><ul>
 <li>Run from root:  <code>cp -fr dist/* demo/node_modules/ionic4-auto-complete/</code></li>
 </ul>
