@@ -638,7 +638,9 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     if (enteredText !== this.formValue) {
       this.formValue = enteredText;
 
-      this.selected = this.multi ? [] : null;
+      if (!this.multi) {
+        this.selected = this.multi ? [] : null;
+      }
     }
 
     if (this.onChangeCallback) {
