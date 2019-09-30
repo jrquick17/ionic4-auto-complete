@@ -193,7 +193,7 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 <div><pre class="line-numbers"><code class="language-none">  import {Injectable} from &#39;&#64;angular/core&#39;;
   import {map} from &#39;rxjs/operators&#39;;
 
-  import {Http} from &#39;&#64;angular/http&#39;;
+  import {HttpClient} from &#39;&#64;angular/common/http&#39;;
 
   import {AutoCompleteService} from &#39;ionic4-auto-complete&#39;;
 
@@ -202,7 +202,7 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
     labelAttribute = &#39;name&#39;;
     formValueAttribute = &#39;numericCode&#39;;
 
-    constructor(private http:Http) {
+    constructor(private http:HttpClient) {
 
     }
 
@@ -298,7 +298,7 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 <ul>
 <li><p>Simply set <code>formValueAttribute</code> to empty string:</p>
 <div><pre class="line-numbers"><code class="language-none">  import {AutoCompleteService} from &#39;ionic4-auto-complete&#39;;
-  import {HttpClient} from &#39;&#64;angular/http&#39;;
+  import {HttpClient} from &#39;&#64;angular/common/http&#39;;
   import {Injectable} from &quot;&#64;angular/core&quot;;
   import &#39;rxjs/add/operator/map&#39;
 
@@ -308,7 +308,7 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 
     formValueAttribute = &#39;&#39;
 
-    constructor(private http:Http) {
+    constructor(private http:HttpClient) {
        ...
     }
 
@@ -446,6 +446,7 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 <li><a href="https://github.com/bushybuffalo">bushybuffalo</a></li>
 <li><a href="https://github.com/jrquick17">jrquick17</a></li>
 <li><a href="https://github.com/kadoshms">kadoshms</a></li>
+<li><a href="https://github.com/gnowland">gnowland</a></li>
 </ul>
 <h2 id="deploy">Deploy</h2>
 <ul>
@@ -454,20 +455,29 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 <li>Run <code>npm run docs:build</code></li>
 </ul>
 </li>
-<li><h3 id="build">Build</h3>
-<ul>
-<li>Run <code>gulp build</code> from root.</li>
-</ul>
-</li>
 <li><h4 id="update-version">Update Version</h4>
 <ul>
 <li>Update version <code>package.json</code> files in both the root and <code>dist/</code> directory following <a href="https://semver.org/">Semantic Versioning (2.0.0)</a>.</li>
+</ul>
+</li>
+<li><h3 id="build">Build</h3>
+<ul>
+<li>Run <code>npm run build</code> from root.</li>
+</ul>
+</li>
+<li><h4 id="test">Test</h4>
+<ul>
 <li>Update <code>dist/package.json</code> to have <code>dependencies</code> to match root <code>package.json</code>.</li>
+<li>Copy <code>dist/</code> contents into <code>demo/node_modules/ionic4-auto-complete/</code><ul>
+<li>Run from root:  <code>cp -fr dist/* demo/node_modules/ionic4-auto-complete/</code></li>
+</ul>
+</li>
+<li>Run <code>ionic serve</code> from <code>demo/</code></li>
+<li>Run <code>ionic build --prod</code> from <code>demo/</code></li>
 </ul>
 </li>
 <li><h4 id="npm-release">NPM Release</h4>
 <ul>
-<li>Add <code>@NgModule()</code> annotations (from <code>index.ts</code>) to <code>dist/index.d.ts</code> (<a href="https://github.com/jrquick17/ionic4-auto-complete/issues/11">workaround for issue</a>)</li>
 <li>Run <code>npm publish</code> from <code>dist/</code> directory.</li>
 </ul>
 </li>
@@ -487,7 +497,7 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 <p>  The auto-complete component allows you to use templates for customize the display of each suggestion. But in many cases, the default template is good. However, you need to concatenate several fields (like firstname and lastname) to produce a full label. In that case, you can declare a method named <code>getItemLabel</code> instead of using <code>labelAttribute</code>.</p>
 <p>  For example, we want to display the country name and the population:</p>
 <div><pre class="line-numbers"><code class="language-none">  import {AutoCompleteService} from &#39;ionic4-auto-complete&#39;;
-  import { Http } from &#39;&#64;angular/http&#39;;
+  import {HttpClient} from &#39;&#64;angular/common/http&#39;;
   import {Injectable} from &quot;&#64;angular/core&quot;;
   import &#39;rxjs/add/operator/map&#39;
 
@@ -495,7 +505,7 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
   export class CompleteTestService implements AutoCompleteService {
     formValueAttribute = &quot;&quot;
 
-    constructor(private http:Http) {
+    constructor(private http:HttpClient) {
 
     }
 
