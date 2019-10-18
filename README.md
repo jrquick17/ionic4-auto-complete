@@ -376,6 +376,7 @@ export class AppModule {}
     
             * `[template]` (TemplateRef) - custom template reference for your auto complete items (see below).
             * `[showResultsFirst]` (boolean) - for small lists it might be nicer to show all options on first tap (you might need to modify your service to handle an empty `keyword`).
+            * `[maxResults]` (number) - limits the max number of suggestions shown (Default `8`).
             * `[alwaysShowList]` (boolean) - always show the list - defaults to false).
             * `[hideListOnSelection]` (boolean) - if allowing multiple selections, it might be nice not to dismiss the list after each selection - defaults to true).
 

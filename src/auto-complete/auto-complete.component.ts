@@ -27,6 +27,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @Input() public hideListOnSelection:boolean = true;
   @Input() public keyword:string;
   @Input() public location:string = 'auto';
+  @Input() public maxResults:number = 8;
   @Input() public multi:boolean = false;
   @Input() public name:string = '';
   @Input() public options:AutoCompleteOptions = new AutoCompleteOptions();
