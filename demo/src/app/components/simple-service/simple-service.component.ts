@@ -27,7 +27,8 @@ export class SimpleServiceComponent {
     this.options.type = 'add-friend.svg';
   }
 
-  itemSelected(item:string) {
-    console.log('Item selected:' +  item[this.provider.labelAttribute]);
+  on(output, event):void {
+    console.log(output);
+    // console.log(event);
   }
 }

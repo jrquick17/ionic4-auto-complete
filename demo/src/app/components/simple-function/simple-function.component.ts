@@ -29,4 +29,9 @@ export class SimpleFunctionComponent {
     this.options.searchIcon = 'assets/icons/add-user.svg';
     this.options.type = 'search';
   }
+
+  on(output, event):void {
+    console.log(output);
+    // console.log(event);
+  }
 }

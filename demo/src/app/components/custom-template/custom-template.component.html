@@ -11,9 +11,18 @@
 </ng-template>
 
 <ion-auto-complete [(model)]="selected"
-                   (itemSelected)="itemSelected($event)"
                    [eager]="true"
                    [multi]="false"
                    [dataProvider]="provider"
                    [disabled]="false"
-                   [template]="withFlags"></ion-auto-complete>
+                   [template]="withFlags"
+                   (blur)="on('blur', $event)"
+                   (autoFocus)="on('autoFocus', $event)"
+                   (autoBlur)="on('autoBlur', $event)"
+                   (focus)="on('focus', $event)"
+                   (ionAutoInput)="on('ionAutoInput', $event)"
+                   (itemsChange)="on('itemsChange', $event)"
+                   (itemsHidden)="on('itemsHidden', $event)"
+                   (itemRemoved)="on('itemRemoved', $event)"
+                   (itemSelected)="on('itemSelected', $event)"
+                   (itemsShown)="on('itemsShown', $event)"></ion-auto-complete>
