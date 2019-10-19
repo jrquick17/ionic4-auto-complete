@@ -4,6 +4,7 @@
   "scripts": {
     "publish": "npm publish dist",
     "build": "ng-packagr -p package.json && cp src/scss/auto-complete.scss dist/auto-complete.scss && cp -r src/assets dist/assets",
+    "build:demo": "npm run build && cd demo && cp -fr ../dist/* node_modules/ionic4-auto-complete/ && ionic serve",
     "docs": "npm run docs:build",
     "docs:build": "compodoc -p tsconfig.json -n ionic4-auto-complete -d docs --hideGenerator",
     "docs:serve": "npm run docs:build -- -s",
