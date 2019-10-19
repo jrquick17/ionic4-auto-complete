@@ -399,6 +399,7 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 <ul>
 <li><code>[template]</code> (TemplateRef) - custom template reference for your auto complete items (see below).</li>
 <li><code>[showResultsFirst]</code> (boolean) - for small lists it might be nicer to show all options on first tap (you might need to modify your service to handle an empty <code>keyword</code>).</li>
+<li><code>[maxResults]</code> (number) - limits the max number of suggestions shown (Default <code>8</code>).</li>
 <li><code>[alwaysShowList]</code> (boolean) - always show the list - defaults to false).</li>
 <li><code>[hideListOnSelection]</code> (boolean) - if allowing multiple selections, it might be nice not to dismiss the list after each selection - defaults to true).</li>
 </ul>
@@ -491,6 +492,7 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 <h3 id="future-plans">Future Plans</h3>
 <ul>
 <li>Add max and minimum options (for multi)</li>
+<li>Boolean values of showCancelButton are deprecated. Please use &quot;never&quot; instead of &quot;false&quot;.</li>
 </ul>
 <h2 id="faq">FAQ</h2>
 <ul>
@@ -562,6 +564,7 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
             var COMPODOC_CURRENT_PAGE_DEPTH = 0;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
             var COMPODOC_CURRENT_PAGE_URL = 'index.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="./js/libs/custom-elements.min.js"></script>
