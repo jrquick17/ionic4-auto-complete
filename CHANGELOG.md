@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Updated
 - Included console logs in the demo for testing `Output()` events by [jrquick17](https://github.com/jrquick17)
+- Deprecated fields for IonSearchBar's `showCancelButton` by [jrquick17](https://github.com/jrquick17)
 
 ### Fixed
 - Build command updated to include assets by [jrquick17](https://github.com/jrquick17)

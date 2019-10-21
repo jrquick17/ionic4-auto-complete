@@ -47,7 +47,9 @@
                [cancelButtonText]="options.cancelButtonText == null ? defaultOpts.cancelButtonText : options.cancelButtonText"
                [clearIcon]="options.clearIcon == null ? defaultOpts.clearIcon : options.clearIcon"
                [color]="options.color == null ? null : options.color"
-               [showCancelButton]="options.showCancelButton == null ? defaultOpts.showCancelButton : options.showCancelButton"
+               [showCancelButton]="options.showCancelButton == null ?
+                                        (defaultOpts.showCancelButton ? 'always' : 'never') :
+                                        (options.showCancelButton ? 'always' : 'never')"
                [debounce]="options.debounce == null ? defaultOpts.debounce : options.debounce"
                [placeholder]="options.placeholder == null ? defaultOpts.placeholder : options.placeholder"
                [autocomplete]="options.autocomplete == null ? defaultOpts.autocomplete : options.autocomplete"

@@ -456,7 +456,6 @@ Run `npm install` to get packages required for the demo and then run `ionic serv
 ### Future Plans ###
 
 * Add max and minimum options (for multi)
-* Boolean values of showCancelButton are deprecated. Please use "never" instead of "false".
 
 ## FAQ ##
 
