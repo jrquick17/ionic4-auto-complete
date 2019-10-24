@@ -6,6 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.2.1]
+### Added
+- `maxResults` to allow limiting number of suggestions by [jrquick17](https://github.com/jrquick17)
+- `build:demo` command to make testing easier by [jrquick17](https://github.com/jrquick17)
+- `enableBrowserAutocomplete` to allow enabling/disabling browser autocomplete by [jrquick17](https://github.com/jrquick17)
+
 ## [2.2.0]
 ### Added
 - `maxResults` to allow limiting number of suggestions by [jrquick17](https://github.com/jrquick17)

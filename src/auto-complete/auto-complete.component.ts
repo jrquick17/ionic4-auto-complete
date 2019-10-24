@@ -20,6 +20,7 @@ import {AutoCompleteService} from '../auto-complete.service';
 })
 export class AutoCompleteComponent implements AfterViewChecked, ControlValueAccessor {
   @Input() public alwaysShowList:boolean;
+  @Input() public enableBrowserAutoComplete:boolean = false;
   @Input() public dataProvider:AutoCompleteService|Function;
   @Input() public disabled:boolean = false;
   @Input() public exclude:any[] = [];
