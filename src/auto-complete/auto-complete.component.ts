@@ -512,12 +512,14 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
   public removeExcluded(suggestions:any[]):any[] {
     const excludedCount = this.exclude.length;
-    const suggestionCount = this.suggestions.length;
 
     for (let i = 0; i < excludedCount; i++) {
-      const exclude = this.exclude[i];
+      let excludeLabel = this.exclude[i];
+      if (typeof excludeLabel === 'object') {
+        excludeLabel = this.getLabel(excludeLabel);
+      }
 
-      const excludeLabel = this.getLabel(exclude);
+      const suggestionCount = suggestions.length;
 
       for (let j = 0; j < suggestionCount; j++) {
         const suggestedLabel = this.getLabel(
@@ -526,6 +528,8 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
         if (excludeLabel === suggestedLabel) {
           suggestions.splice(j, 1);
+
+          break;
         }
       }
     }

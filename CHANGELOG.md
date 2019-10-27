@@ -6,11 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [Released]
+
 ## [2.2.1]
 ### Added
 - `maxResults` to allow limiting number of suggestions by [jrquick17](https://github.com/jrquick17)
 - `build:demo` command to make testing easier by [jrquick17](https://github.com/jrquick17)
 - `enableBrowserAutocomplete` to allow enabling/disabling browser autocomplete by [jrquick17](https://github.com/jrquick17)
+
+### Changed
+- Allow exclude to be objects with labels or just the label directly by [jrquick17](https://github.com/jrquick17)
 
 ### Fixed
 - Automatically remove item from array if not multi by [jrquick17](https://github.com/jrquick17)
@@ -30,8 +35,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Build command updated to include assets by [jrquick17](https://github.com/jrquick17)
 
-## [Released]
-
 ## [2.1.5]
 ### Removed
 - Removed deprecated by [gnowland](https://github.com/gnowland)
@@ -39,6 +42,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.1.4]
 ### Fixed
 - Multi select getting cleared on search by [jrquick17](https://github.com/jrquick17)
+
 ### Removed
 - Removed deprecated `HttpClient` by [gnowland](https://github.com/gnowland)
 
@@ -59,6 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.1.0]
 ### Changed
 - Use ng-packagr to handle building the npm dist by [jrquick17](https://github.com/jrquick17)
+
 ### Removed
 - Gulp by [jrquick17](https://github.com/jrquick17)
 
@@ -70,6 +75,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added `frontIcon` to selection chips by [jrquick17](https://github.com/jrquick17)
 - Added eager loading option by [jrquick17](https://github.com/jrquick17)
+
 ### Changed
 - Use `ion-chip` for selection instead of `ion-button` by [jrquick17](https://github.com/jrquick17)
 - Made `removeIcon` optional within selection by [jrquick17](https://github.com/jrquick17)
@@ -77,8 +83,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.8.1] 
 ### Added
 - Added interface for data provider by [jrquick17](https://github.com/jrquick17)
+
 ### Changed
 - Updated dependencies by [jrquick17](https://github.com/jrquick17)
+
 ### Fixed
 - Fixed error with ionic production builds using AOT by [jrquick17](https://github.com/jrquick17)
 
@@ -86,6 +94,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Added color options by [jrquick17](https://github.com/jrquick17)
 - Added multi select to the demo by [jrquick17](https://github.com/jrquick17)
+
 ### Changed
 - Updated dependencies by [jrquick17](https://github.com/jrquick17)
 - Updated to Gulp 4 by [jrquick17](https://github.com/jrquick17)
