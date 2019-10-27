@@ -2,14 +2,16 @@
   "name": "ionic4-auto-complete",
   "version": "2.2.1",
   "scripts": {
-    "publish": "npm publish dist",
     "build": "ng-packagr -p package.json && cp src/scss/auto-complete.scss dist/auto-complete.scss && cp -r src/assets dist/assets",
-    "build:demo": "npm run build && cd demo && cp -fr ../dist/* node_modules/ionic4-auto-complete/ && ionic serve",
+    "build:demo": "npm run build && cd demo && cp -fr ../dist/* node_modules/ionic4-auto-complete/ && cd ..",
+    "build-run:demo": "npm run build:demo && npm run run:demo",
     "docs": "npm run docs:build",
     "docs:build": "compodoc -p tsconfig.json -n ionic4-auto-complete -d docs --hideGenerator",
     "docs:serve": "npm run docs:build -- -s",
     "docs:watch": "npm run docs:build -- -s -w",
     "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
+    "publish": "npm publish dist",
+    "run:demo": "cd demo && ionic serve",
     "test": "tsc && karma start"
   },
   "ngPackage": {
