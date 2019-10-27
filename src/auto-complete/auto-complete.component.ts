@@ -319,7 +319,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    *
    * @param selection
    */
-  public getLabel(selection:any):string {
+  public getLabel(selection:any|any[]):string {
     if (selection == null || typeof this.dataProvider === 'function') {
       return '';
     }
@@ -329,6 +329,14 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
     if (this.dataProvider.getItemLabel) {
       value = this.dataProvider.getItemLabel(value);
+    }
+
+    if (!this.multi && typeof value !== 'undefined' && Object.prototype.toString.call(value) === '[object Array]') {
+      if (value.length === 0) {
+        return '';
+      } else {
+        value = value[0];
+      }
     }
 
     if (typeof value === 'object' && attr) {
