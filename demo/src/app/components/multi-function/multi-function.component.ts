@@ -12,20 +12,28 @@ import {SimpleFunction} from '../../services/simple-function.service';
   ]
 })
 export class MultiFunctionComponent {
-  public options:AutoCompleteOptions;
+  public excludedOptions:AutoCompleteOptions;
+  public selectedOptions:AutoCompleteOptions;
 
+  public excluded:string[] = [];
   public selected:string[] = [];
 
   constructor(
-      public provider:SimpleFunction
+    public provider:SimpleFunction
   ) {
-    this.options = new AutoCompleteOptions();
+    this.selectedOptions = new AutoCompleteOptions();
+    this.selectedOptions.autocomplete = 'on';
+    this.selectedOptions.debounce = 750;
+    this.selectedOptions.placeholder = 'Filter and select multiple..';
+    this.selectedOptions.searchIcon = 'assets/icons/add-user.svg';
+    this.selectedOptions.type = 'search';
 
-    this.options.autocomplete = 'on';
-    this.options.debounce = 750;
-    this.options.placeholder = 'Filter and select multiple..';
-    this.options.searchIcon = 'assets/icons/add-user.svg';
-    this.options.type = 'search';
+    this.excludedOptions = new AutoCompleteOptions();
+    this.excludedOptions.autocomplete = 'on';
+    this.excludedOptions.debounce = 750;
+    this.excludedOptions.placeholder = 'Filter and select multiple to exclude..';
+    this.excludedOptions.searchIcon = 'assets/icons/add-user.svg';
+    this.excludedOptions.type = 'search';
   }
 
   on(output, event):void {
