@@ -5,7 +5,7 @@
                  [src]="attrs.data.flag"></ion-img>
 
         <ion-text>
-            {{ attrs.data.name | boldprefix:attrs.keyword }} ({{ attrs.data.nativeName }})
+            <span [innerHtml]="attrs.data.name | boldprefix:attrs.keyword"></span> ({{ attrs.data.nativeName }})
         </ion-text>
     </ion-item>
 </ng-template>
