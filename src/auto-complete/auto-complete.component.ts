@@ -21,6 +21,7 @@ import {AutoCompleteService} from '../auto-complete.service';
 export class AutoCompleteComponent implements AfterViewChecked, ControlValueAccessor {
   @Input() public alwaysShowList:boolean;
   @Input() public enableBrowserAutoComplete:boolean = false;
+  @Input() public clearInvalidInput:boolean = true;
   @Input() public dataProvider:AutoCompleteService|Function;
   @Input() public disabled:boolean = false;
   @Input() public exclude:any[] = [];
@@ -449,6 +450,12 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * Fired when the input focused
    */
   onBlur(event):void {
+    if (this.clearInvalidInput) {
+      if (this.selected === null) {
+        this.keyword = '';
+      }
+    }
+
     event = this._reflectName(event);
 
     this.autoBlur.emit(event);

@@ -13,6 +13,7 @@
 <ion-auto-complete [(model)]="selected"
                    [eager]="true"
                    [multi]="false"
+                   [clearInvalidInput]="true"
                    [dataProvider]="provider"
                    [disabled]="false"
                    [template]="withFlags"
