@@ -14,7 +14,7 @@ import {SimpleService} from '../../services/simple-service.service';
 export class CustomTemplateComponent {
   public options:AutoCompleteOptions;
 
-  public selected:string = '';
+  public selected:string[] = [];
 
   constructor(
       public provider:SimpleService

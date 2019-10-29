@@ -32,7 +32,7 @@
            [clearInput]="options.clearInput == null ? defaultOpts.clearInput : options.clearInput"
            [color]="options.color == null ? null : options.color"
            [mode]="options.mode == null ? defaultOpts.mode : options.mode"
-           [disabled]="disabled"
+           [disabled]="disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected)"
            [ngClass]="{ 'hidden': !useIonInput, 'loading': isLoading }"
            (ionFocus)="onFocus($event)"
            (ionBlur)="onBlur($event)"></ion-input>
@@ -60,7 +60,7 @@
                [searchIcon]="options.searchIcon == null ? defaultOpts.searchIcon : options.searchIcon"
                [spellcheck]="options.spellcheck == null ? defaultOpts.spellcheck : options.spellcheck"
                [type]="options.type == null ? defaultOpts.type : options.type"
-               [ngClass]="{ 'hidden': useIonInput, 'loading': isLoading, 'disabled': disabled }"
+               [ngClass]="{ 'hidden': useIonInput, 'loading': isLoading, 'disabled': disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected) }"
                (ionClear)="clearValue(true)"
                (ionFocus)="onFocus($event)"
                (ionBlur)="onBlur($event)"></ion-searchbar>
@@ -69,7 +69,7 @@
     <span [innerHTML]='attrs.label | boldprefix:attrs.keyword'></span>
 </ng-template>
 
-<ul *ngIf="!disabled && suggestions.length > 0 && showList"
+<ul *ngIf="!(disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected)) && suggestions.length > 0 && showList"
     [ngStyle]="getStyle()">
     <li *ngFor="let suggestion of suggestions| slice:0:maxResults;"
         (click)="handleSelectTap($event, suggestion)"

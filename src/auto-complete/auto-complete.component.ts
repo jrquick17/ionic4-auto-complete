@@ -30,6 +30,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @Input() public keyword:string;
   @Input() public location:string = 'auto';
   @Input() public maxResults:number = 8;
+  @Input() public maxSelected:number = null;
   @Input() public multi:boolean = false;
   @Input() public name:string = '';
   @Input() public options:AutoCompleteOptions = new AutoCompleteOptions();
@@ -590,20 +591,22 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
       this.hideItemList();
     }
 
-    if (this.multi) {
-      this.clearValue();
+    if (this.maxSelected !== null && this.selected.length <= this.maxSelected) {
+      if (this.multi) {
+        this.clearValue();
 
-      this.selected.push(selection);
-      this.itemsChange.emit(this.selected);
-    } else {
-      this.selection = selection;
+        this.selected.push(selection);
+        this.itemsChange.emit(this.selected);
+      } else {
+        this.selection = selection;
 
-      this.selected = [selection];
-      this.itemsChange.emit(selection);
+        this.selected = [selection];
+        this.itemsChange.emit(selection);
+      }
+
+      this.itemSelected.emit(selection);
+      this.modelChange.emit(this.selected);
     }
-
-    this.itemSelected.emit(selection);
-    this.modelChange.emit(this.selected);
   }
 
   /**

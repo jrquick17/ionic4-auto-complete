@@ -12,10 +12,11 @@
 
 <ion-auto-complete [(model)]="selected"
                    [eager]="true"
-                   [multi]="false"
+                   [multi]="true"
                    [clearInvalidInput]="true"
                    [dataProvider]="provider"
                    [disabled]="false"
+                   [maxSelected]="3"
                    [template]="withFlags"
                    (blur)="on('blur', $event)"
                    (autoFocus)="on('autoFocus', $event)"
