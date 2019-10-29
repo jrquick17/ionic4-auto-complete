@@ -6,12 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [Released]
+
 ## [2.3.0]
 ### Added
 - `clearInvalidInput` automatically clear the input if a user does not select an item by [jrquick17](https://github.com/jrquick17)
 - `maxSelected` allows setting the maximum allowed number of items that can be selected by [jrquick17](https://github.com/jrquick17)
-
-## [Released]
 
 ## [2.2.1]
 ### Added
