@@ -1,4 +1,15 @@
-import {Component, Input, Output, EventEmitter, TemplateRef, ViewChild, HostListener, ElementRef, AfterViewChecked} from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  Input,
+  Output,
+  EventEmitter,
+  TemplateRef,
+  ViewChild,
+  HostListener,
+  ElementRef,
+  AfterViewChecked
+} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 import {from, Observable, Subject} from 'rxjs';
@@ -18,7 +29,7 @@ import {AutoCompleteService} from '../auto-complete.service';
   selector:    'ion-auto-complete',
   templateUrl: 'auto-complete.component.html'
 })
-export class AutoCompleteComponent implements AfterViewChecked, ControlValueAccessor {
+export class AutoCompleteComponent implements AfterViewChecked, ControlValueAccessor, DoCheck {
   @Input() public alwaysShowList:boolean;
   @Input() public enableBrowserAutoComplete:boolean = false;
   @Input() public clearInvalidInput:boolean = true;
@@ -107,6 +118,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   private onChangeCallback:Function|false = false;
 
   public defaultOpts:AutoCompleteOptions;
+  public hasFocus:boolean = false;
   public isLoading:boolean = false;
   public formValue:any;
   public selected:any[];
@@ -165,6 +177,36 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     if (this.showListChanged) {
       this.showListChanged = false;
       this.showList ? this.itemsShown.emit() : this.itemsHidden.emit();
+    }
+  }
+
+  ngDoCheck() {
+    if (!this.hasFocus) {
+      if (this.clearInvalidInput && this.selected === null) {
+        if (this.keyword !== '') {
+          this.keyword = '';
+        }
+
+        if (this.inputElem && this.inputElem.nativeElement) {
+          if (this.inputElem.nativeElement.children && this.inputElem.nativeElement.children.length !== 0) {
+            if (this.inputElem.nativeElement.children[0].children && this.inputElem.nativeElement.children[0].children.length !== 0) {
+              if (this.inputElem.nativeElement.children[0].children[0].value) {
+                this.inputElem.nativeElement.children[0].children[0].value = '';
+              }
+            }
+          }
+        }
+
+        if (this.searchbarElem && this.searchbarElem.nativeElement) {
+          if (this.searchbarElem.nativeElement.children && this.searchbarElem.nativeElement.children.length !== 0) {
+            if (this.searchbarElem.nativeElement.children[0].children && this.searchbarElem.nativeElement.children[0].children.length !== 0) {
+              if (this.searchbarElem.nativeElement.children[0].children[0].value) {
+                this.searchbarElem.nativeElement.children[0].children[0].value = '';
+              }
+            }
+          }
+        }
+      }
     }
   }
 
@@ -439,6 +481,8 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * Fired when the input focused
    */
   onFocus(event:any):void {
+    this.hasFocus = true;
+
     this.getItems();
 
     event = this._reflectName(event);
@@ -451,11 +495,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * Fired when the input focused
    */
   onBlur(event):void {
-    if (this.clearInvalidInput) {
-      if (this.selected === null) {
-        this.keyword = '';
-      }
-    }
+    this.hasFocus = false;
 
     event = this._reflectName(event);
 
