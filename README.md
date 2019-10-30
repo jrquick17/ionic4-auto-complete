@@ -1,5 +1,9 @@
 # ionic4-auto-complete
 
+[![npm](https://img.shields.io/npm/l/ionic4-auto-complete.svg)](https://www.npmjs.com/package/ionic4-auto-complete/)
+[![npm](https://img.shields.io/npm/dt/ionic4-auto-complete.svg)](https://www.npmjs.com/package/ionic4-auto-complete)
+[![npm](https://img.shields.io/npm/dm/ionic4-auto-complete.svg)](https://www.npmjs.com/package/ionic4-auto-complete)
+
 ![](example.gif)
 
 ## Index ##
@@ -332,7 +336,6 @@ export class AppModule {}
     * Options include, but not limited to:
         * `color` - (default is `null`)
         * `debounce` - (default is `250`)
-        * `autocomplete` - ("on" and "off")
         * `type` - ("text", "password", "email", "number", "search", "tel", "url". Default "search".)
         * `placeholder` - (default "Search")
 
