@@ -12,6 +12,7 @@
     "lint": "tslint --type-check --project tsconfig.json src/**/*.ts",
     "publish": "npm publish dist",
     "run:demo": "cd demo && ionic serve",
+    "shipit": "npm run lint && npm run build:demo && npm run docs:build && npm publish",
     "test": "tsc && karma start"
   },
   "ngPackage": {
