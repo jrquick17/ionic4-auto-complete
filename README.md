@@ -21,7 +21,8 @@
 
 This is a component based on Ionic's search-bar component, with the addition of auto-complete ability. This component is super simple and light-weight. Just provide the data, and let the fun begin. This package is compatible with Angular 2+ and Ionic 2+. 
 
-* Visit the [demo](https://ionic4-auto-complete.jrquick.com) to see it in action!
+* Try out [the demo](https://ionic4-auto-complete.jrquick.com) to see it in action!
+* Checkout [my other Ionic/Angular project](https://github.com/jrquick17/ionic4-tooltips) to add tooltips to your project!
 * Visit [my website](https://jrquick.com) for other cool projects!
 
 ## Setup
