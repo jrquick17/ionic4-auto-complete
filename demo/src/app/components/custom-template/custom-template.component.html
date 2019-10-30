@@ -1,4 +1,18 @@
-<ng-template #withFlags let-attrs="attrs">
+<ng-template #empty
+             let-attrs="attrs">
+    <ion-text class="ion-text-right">That country does not exist!</ion-text>
+</ng-template>
+
+<ng-template #selection
+             let-attrs="attrs">
+        <ion-img class="flag ion-float-left ion-margin-horizontal"
+                 style="height: 50px;"
+                 [slot]="'start'"
+                 [src]="attrs.data.flag"></ion-img>
+</ng-template>
+
+<ng-template #suggestions
+             let-attrs="attrs">
     <ion-item>
         <ion-img class="flag"
                  [slot]="'start'"
@@ -16,7 +30,9 @@
                    [dataProvider]="provider"
                    [disabled]="false"
                    [maxSelected]="3"
-                   [template]="withFlags"
+                   [template]="suggestions"
+                   [emptyTemplate]="empty"
+                   [selectionTemplate]="selection"
                    (blur)="on('blur', $event)"
                    (autoFocus)="on('autoFocus', $event)"
                    (autoBlur)="on('autoBlur', $event)"

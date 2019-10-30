@@ -124,6 +124,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   public isLoading:boolean = false;
   public formValue:any;
   public selected:any[];
+  public selection:any;
   public suggestions:any[];
   public promise;
 
@@ -142,7 +143,6 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
   private _showList:boolean;
 
-  private selection:any;
   private showListChanged:boolean = false;
 
   /**

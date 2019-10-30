@@ -1,32 +1,37 @@
 <ng-template #defaultSelection
              let-attrs="attrs">
-    <div *ngFor="let item of selected"
-         class="selected-items">
-        <ion-chip class="{{ removeButtonClasses }}"
-                  [color]="removeButtonColor"
-                  [outline]="true"
-                  (click)="removeItem(item)">
-            <ion-icon *ngIf="frontIcon"
-                      [name]="frontIcon"
-                      [slot]="'start'"
-                      color="primary"></ion-icon>
+    <ion-chip class="{{ attrs.removeButtonClasses }}"
+              [color]="attrs.removeButtonColor"
+              [outline]="true">
+        <ion-icon *ngIf="frontIcon"
+                  [name]="frontIcon"
+                  [slot]="'start'"
+                  color="primary"></ion-icon>
 
-            <ion-label>{{ getLabel(item) }}</ion-label>
+        <ion-label>{{ attrs.getLabel(attrs.data) }}</ion-label>
 
-            <ion-icon *ngIf="removeButtonIcon"
-                      [name]="removeButtonIcon"
-                      [slot]="removeButtonSlot"></ion-icon>
-        </ion-chip>
-    </div>
+        <ion-icon *ngIf="attrs.removeButtonIcon"
+                  [name]="attrs.removeButtonIcon"
+                  [slot]="attrs.removeButtonSlot"></ion-icon>
+    </ion-chip>
 </ng-template>
 
 <div *ngIf="multi">
-    <ng-template [ngTemplateOutlet]="selectionTemplate || defaultSelection"
-                 [ngTemplateOutletContext]="{
-                        attrs:{
-                          keyword: selection
-                        }
-                     }"></ng-template>
+    <div *ngFor="let item of selected"
+         class="selected-items"
+         (click)="removeItem(item)">
+        <ng-template [ngTemplateOutlet]="selectionTemplate || defaultSelection"
+                     [ngTemplateOutletContext]="{
+                            attrs: {
+                              data:                item,
+                              getLabel:            getLabel,
+                              removeButtonClasses: removeButtonClasses,
+                              removeButtonColor:   removeButtonColor,
+                              removeButtonIcon:    removeButtonIcon,
+                              removeButtonSlot:    removeButtonSlot
+                            }
+                         }"></ng-template>
+    </div>
 </div>
 
 <ion-input #inputElem
@@ -104,7 +109,7 @@
     </li>
 </ul>
 
-<ul *ngIf="suggestions.length == 0 && showList && options.noItems"
+<ul *ngIf="suggestions.length === 0 && showList && options.noItems"
     [ngStyle]="getStyle()">
     <li>
         <ng-template [ngTemplateOutlet]="emptyTemplate || defaultEmptyTemplate"
