@@ -591,22 +591,24 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
       this.hideItemList();
     }
 
-    if (this.maxSelected !== null && this.selected.length <= this.maxSelected) {
-      if (this.multi) {
+    if (this.multi) {
+      if (this.maxSelected !== null && this.selected.length <= this.maxSelected) {
         this.clearValue();
 
         this.selected.push(selection);
         this.itemsChange.emit(this.selected);
-      } else {
-        this.selection = selection;
 
-        this.selected = [selection];
-        this.itemsChange.emit(selection);
+        return;
       }
+    } else {
+      this.selection = selection;
 
-      this.itemSelected.emit(selection);
-      this.modelChange.emit(this.selected);
+      this.selected = [selection];
+      this.itemsChange.emit(selection);
     }
+
+    this.itemSelected.emit(selection);
+    this.modelChange.emit(this.selected);
   }
 
   /**
@@ -663,12 +665,12 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
       this.formValue = enteredText;
 
       if (!this.multi) {
-        this.selected = this.multi ? [] : null;
+        this.selected = null;
       }
     }
 
     if (this.onChangeCallback) {
-        this.onChangeCallback(this.formValue);
+      this.onChangeCallback(this.formValue);
     }
 
     this.modelChange.emit(this.selected);
