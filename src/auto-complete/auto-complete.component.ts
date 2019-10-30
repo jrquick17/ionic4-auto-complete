@@ -51,6 +51,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @Input() public removeButtonIcon:string|false = 'close-circle';
   @Input() public removeButtonSlot:string = 'end';
   @Input() public removeDuplicateSuggestions:boolean = true;
+  @Input() public selectionTemplate:TemplateRef<any>;
   @Input() public showResultsFirst:boolean;
   @Input() public template:TemplateRef<any>;
   @Input() public useIonInput:boolean;

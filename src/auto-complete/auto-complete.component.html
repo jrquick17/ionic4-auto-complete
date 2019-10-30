@@ -1,5 +1,5 @@
-<div *ngIf="multi"
-     #selection>
+<ng-template #defaultSelection
+             let-attrs="attrs">
     <div *ngFor="let item of selected"
          class="selected-items">
         <ion-chip class="{{ removeButtonClasses }}"
@@ -18,6 +18,15 @@
                       [slot]="removeButtonSlot"></ion-icon>
         </ion-chip>
     </div>
+</ng-template>
+
+<div *ngIf="multi">
+    <ng-template [ngTemplateOutlet]="selectionTemplate || defaultSelection"
+                 [ngTemplateOutletContext]="{
+                        attrs:{
+                          keyword: selection
+                        }
+                     }"></ng-template>
 </div>
 
 <ion-input #inputElem
