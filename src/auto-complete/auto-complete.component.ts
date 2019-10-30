@@ -182,7 +182,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
   ngDoCheck() {
     if (!this.hasFocus) {
-      if (this.clearInvalidInput && this.selected === null) {
+      if (this.clearInvalidInput && (this.selected === null || this.multi)) {
         if (this.keyword !== '') {
           this.keyword = '';
         }
