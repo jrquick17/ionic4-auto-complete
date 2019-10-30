@@ -1,4 +1,5 @@
-<div *ngIf="multi">
+<div *ngIf="multi"
+     #selection>
     <div *ngFor="let item of selected"
          class="selected-items">
         <ion-chip class="{{ removeButtonClasses }}"
