@@ -632,7 +632,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     }
 
     if (this.multi) {
-      if (this.maxSelected !== null && this.selected.length <= this.maxSelected) {
+      if (this.maxSelected === null || this.selected.length <= this.maxSelected) {
         this.clearValue();
 
         this.selected.push(selection);
