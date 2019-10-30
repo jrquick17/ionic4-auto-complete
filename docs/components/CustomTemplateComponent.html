@@ -148,7 +148,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#itemSelected">itemSelected</a>
+                                <a href="#on">on</a>
                             </li>
                         </ul>
                     </td>
@@ -224,18 +224,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="itemSelected"></a>
+                    <a name="on"></a>
                     <span class="name">
                         <b>
-                            itemSelected
+                            on
                         </b>
-                        <a href="#itemSelected"><span class="icon ion-ios-link"></span></a>
+                        <a href="#on"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>itemSelected(item: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>on(output, event)</code>
                 </td>
             </tr>
 
@@ -257,16 +257,21 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
-                                    <td>Type</td>
                                     <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>item</td>
+                                    <td>output</td>
+
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        No
                                     </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>event</td>
 
                                     <td>
                                         No
@@ -367,13 +372,13 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                            <i>Type : </i>    <code>string[]</code>
 
                         </td>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>&#x27;&#x27;</code>
+                            <i>Default value : </i><code>[]</code>
                         </td>
                     </tr>
                         <tr>
@@ -407,7 +412,7 @@ import {SimpleService} from &#x27;../../services/simple-service.service&#x27;;
 export class CustomTemplateComponent {
   public options:AutoCompleteOptions;
 
-  public selected:string &#x3D; &#x27;&#x27;;
+  public selected:string[] &#x3D; [];
 
   constructor(
       public provider:SimpleService
@@ -420,33 +425,60 @@ export class CustomTemplateComponent {
     this.options.type &#x3D; &#x27;add-friend.svg&#x27;;
   }
 
-  itemSelected(item:string):void {
-    console.log(&#x27;Item selected:&#x27; +  item[this.provider.labelAttribute]);
+  on(output, event):void {
+    console.log(output);
+    // console.log(event);
   }
 }
 </code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;ng-template #withFlags let-attrs&#x3D;&quot;attrs&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;ng-template #empty
+             let-attrs&#x3D;&quot;attrs&quot;&gt;
+    &lt;ion-text class&#x3D;&quot;ion-text-right&quot;&gt;That country does not exist!&lt;/ion-text&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #selection
+             let-attrs&#x3D;&quot;attrs&quot;&gt;
+        &lt;ion-img class&#x3D;&quot;flag ion-float-left ion-margin-horizontal&quot;
+                 style&#x3D;&quot;height: 50px;&quot;
+                 [slot]&#x3D;&quot;&#x27;start&#x27;&quot;
+                 [src]&#x3D;&quot;attrs.data.flag&quot;&gt;&lt;/ion-img&gt;
+&lt;/ng-template&gt;
+
+&lt;ng-template #suggestions
+             let-attrs&#x3D;&quot;attrs&quot;&gt;
     &lt;ion-item&gt;
         &lt;ion-img class&#x3D;&quot;flag&quot;
                  [slot]&#x3D;&quot;&#x27;start&#x27;&quot;
                  [src]&#x3D;&quot;attrs.data.flag&quot;&gt;&lt;/ion-img&gt;
 
         &lt;ion-text&gt;
-            {{ attrs.data.name | boldprefix:attrs.keyword }} ({{ attrs.data.nativeName }})
+            &lt;span [innerHtml]&#x3D;&quot;attrs.data.name | boldprefix:attrs.keyword&quot;&gt;&lt;/span&gt; ({{ attrs.data.nativeName }})
         &lt;/ion-text&gt;
     &lt;/ion-item&gt;
 &lt;/ng-template&gt;
 
 &lt;ion-auto-complete [(model)]&#x3D;&quot;selected&quot;
-                   (itemSelected)&#x3D;&quot;itemSelected($event)&quot;
                    [eager]&#x3D;&quot;true&quot;
-                   [multi]&#x3D;&quot;false&quot;
+                   [multi]&#x3D;&quot;true&quot;
                    [dataProvider]&#x3D;&quot;provider&quot;
                    [disabled]&#x3D;&quot;false&quot;
-                   [template]&#x3D;&quot;withFlags&quot;&gt;&lt;/ion-auto-complete&gt;
+                   [maxSelected]&#x3D;&quot;3&quot;
+                   [template]&#x3D;&quot;suggestions&quot;
+                   [emptyTemplate]&#x3D;&quot;empty&quot;
+                   [selectionTemplate]&#x3D;&quot;selection&quot;
+                   (blur)&#x3D;&quot;on(&#x27;blur&#x27;, $event)&quot;
+                   (autoFocus)&#x3D;&quot;on(&#x27;autoFocus&#x27;, $event)&quot;
+                   (autoBlur)&#x3D;&quot;on(&#x27;autoBlur&#x27;, $event)&quot;
+                   (focus)&#x3D;&quot;on(&#x27;focus&#x27;, $event)&quot;
+                   (ionAutoInput)&#x3D;&quot;on(&#x27;ionAutoInput&#x27;, $event)&quot;
+                   (itemsChange)&#x3D;&quot;on(&#x27;itemsChange&#x27;, $event)&quot;
+                   (itemsHidden)&#x3D;&quot;on(&#x27;itemsHidden&#x27;, $event)&quot;
+                   (itemRemoved)&#x3D;&quot;on(&#x27;itemRemoved&#x27;, $event)&quot;
+                   (itemSelected)&#x3D;&quot;on(&#x27;itemSelected&#x27;, $event)&quot;
+                   (itemsShown)&#x3D;&quot;on(&#x27;itemsShown&#x27;, $event)&quot;&gt;&lt;/ion-auto-complete&gt;
 </code></pre>
     </div>
 
@@ -486,7 +518,7 @@ export class CustomTemplateComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ng-template #withFlags let-attrs="attrs">    <ion-item>        <ion-img class="flag"                 [slot]="\'start\'"                 [src]="attrs.data.flag"></ion-img>        <ion-text>            {{ attrs.data.name | boldprefix:attrs.keyword }} ({{ attrs.data.nativeName }})        </ion-text>    </ion-item></ng-template><ion-auto-complete [(model)]="selected"                   (itemSelected)="itemSelected($event)"                   [eager]="true"                   [multi]="false"                   [dataProvider]="provider"                   [disabled]="false"                   [template]="withFlags"></ion-auto-complete></div>'
+        var COMPONENT_TEMPLATE = '<div><ng-template #empty             let-attrs="attrs">    <ion-text class="ion-text-right">That country does not exist!</ion-text></ng-template><ng-template #selection             let-attrs="attrs">        <ion-img class="flag ion-float-left ion-margin-horizontal"                 style="height: 50px;"                 [slot]="\'start\'"                 [src]="attrs.data.flag"></ion-img></ng-template><ng-template #suggestions             let-attrs="attrs">    <ion-item>        <ion-img class="flag"                 [slot]="\'start\'"                 [src]="attrs.data.flag"></ion-img>        <ion-text>            <span [innerHtml]="attrs.data.name | boldprefix:attrs.keyword"></span> ({{ attrs.data.nativeName }})        </ion-text>    </ion-item></ng-template><ion-auto-complete [(model)]="selected"                   [eager]="true"                   [multi]="true"                   [dataProvider]="provider"                   [disabled]="false"                   [maxSelected]="3"                   [template]="suggestions"                   [emptyTemplate]="empty"                   [selectionTemplate]="selection"                   (blur)="on(\'blur\', $event)"                   (autoFocus)="on(\'autoFocus\', $event)"                   (autoBlur)="on(\'autoBlur\', $event)"                   (focus)="on(\'focus\', $event)"                   (ionAutoInput)="on(\'ionAutoInput\', $event)"                   (itemsChange)="on(\'itemsChange\', $event)"                   (itemsHidden)="on(\'itemsHidden\', $event)"                   (itemRemoved)="on(\'itemRemoved\', $event)"                   (itemSelected)="on(\'itemSelected\', $event)"                   (itemsShown)="on(\'itemsShown\', $event)"></ion-auto-complete></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'CustomTemplateComponent', 'selector': 'custom-template'},{'name': 'HomePage', 'selector': 'home-page'},{'name': 'MultiFunctionComponent', 'selector': 'multi-function'},{'name': 'SimpleFunctionComponent', 'selector': 'simple-function'},{'name': 'SimpleServiceComponent', 'selector': 'simple-service'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CustomTemplateComponent'};

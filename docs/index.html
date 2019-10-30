@@ -31,6 +31,9 @@
                    <div class="content-data">
 
 <h1 id="ionic4-auto-complete">ionic4-auto-complete</h1>
+<p><a href="https://www.npmjs.com/package/ionic4-auto-complete/"><img src="https://img.shields.io/npm/l/ionic4-auto-complete.svg" alt="npm" class="img-responsive"></a>
+<a href="https://www.npmjs.com/package/ionic4-auto-complete"><img src="https://img.shields.io/npm/dt/ionic4-auto-complete.svg" alt="npm" class="img-responsive"></a>
+<a href="https://www.npmjs.com/package/ionic4-auto-complete"><img src="https://img.shields.io/npm/dm/ionic4-auto-complete.svg" alt="npm" class="img-responsive"></a></p>
 <p><img src="example.gif" alt="" class="img-responsive"></p>
 <h2 id="index">Index</h2>
 <ul>
@@ -46,7 +49,8 @@
 <h2 id="about">About</h2>
 <p>This is a component based on Ionic&#39;s search-bar component, with the addition of auto-complete ability. This component is super simple and light-weight. Just provide the data, and let the fun begin. This package is compatible with Angular 2+ and Ionic 2+. </p>
 <ul>
-<li>Visit the <a href="https://ionic4-auto-complete.jrquick.com">demo</a> to see it in action!</li>
+<li>Try out <a href="https://ionic4-auto-complete.jrquick.com">the demo</a> to see it in action!</li>
+<li>Checkout <a href="https://github.com/jrquick17/ionic4-tooltips">my other Ionic/Angular project</a> to add tooltips to your project!k</li>
 <li>Visit <a href="https://jrquick.com">my website</a> for other cool projects!</li>
 </ul>
 <h2 id="setup">Setup</h2>
@@ -351,7 +355,6 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 <ul>
 <li><code>color</code> - (default is <code>null</code>)</li>
 <li><code>debounce</code> - (default is <code>250</code>)</li>
-<li><code>autocomplete</code> - (&quot;on&quot; and &quot;off&quot;)</li>
 <li><code>type</code> - (&quot;text&quot;, &quot;password&quot;, &quot;email&quot;, &quot;number&quot;, &quot;search&quot;, &quot;tel&quot;, &quot;url&quot;. Default &quot;search&quot;.)</li>
 <li><code>placeholder</code> - (default &quot;Search&quot;)</li>
 </ul>
@@ -398,6 +401,9 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 <li><p>In addition to the searchbar options, <code>ion-auto-complete</code> also supports the following option attributes:</p>
 <ul>
 <li><code>[template]</code> (TemplateRef) - custom template reference for your auto complete items (see below).</li>
+<li><code>[emptytemplate]</code> (TemplateRef) - custom template reference for your auto complete no items display.</li>
+<li><code>[selectionTemplate]</code> (TemplateRef) - custom template reference for your own selection display when using multi.</li>
+<li><code>[clearInvalidInput]</code> (boolean) - automatically clear the input field if a valid option is not selected from suggestions (Default <code>true</code>).</li>
 <li><code>[showResultsFirst]</code> (boolean) - for small lists it might be nicer to show all options on first tap (you might need to modify your service to handle an empty <code>keyword</code>).</li>
 <li><code>[maxResults]</code> (number) - limits the max number of suggestions shown (Default <code>8</code>).</li>
 <li><code>[alwaysShowList]</code> (boolean) - always show the list - defaults to false).</li>
@@ -492,7 +498,6 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 <h3 id="future-plans">Future Plans</h3>
 <ul>
 <li>Add max and minimum options (for multi)</li>
-<li>Boolean values of showCancelButton are deprecated. Please use &quot;never&quot; instead of &quot;false&quot;.</li>
 </ul>
 <h2 id="faq">FAQ</h2>
 <ul>

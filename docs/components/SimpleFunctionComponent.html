@@ -139,6 +139,20 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#on">on</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
 
@@ -201,7 +215,87 @@
 
 
 
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="on"></a>
+                    <span class="name">
+                        <b>
+                            on
+                        </b>
+                        <a href="#on"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>on(output, event)</code>
+                </td>
+            </tr>
 
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="33"
+                            class="link-to-prism">demo/src/app/components/simple-function/simple-function.component.ts:33</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>output</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>event</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
     <section>
     
         <h3 id="inputs">
@@ -333,6 +427,11 @@ export class SimpleFunctionComponent {
     this.options.searchIcon &#x3D; &#x27;assets/icons/add-user.svg&#x27;;
     this.options.type &#x3D; &#x27;search&#x27;;
   }
+
+  on(output, event):void {
+    console.log(output);
+    // console.log(event);
+  }
 }
 </code></pre>
     </div>
@@ -344,7 +443,17 @@ export class SimpleFunctionComponent {
                    [disabled]&#x3D;&quot;false&quot;
                    [options]&#x3D;&quot;options&quot;
                    [removeButtonIcon]&#x3D;&quot;&#x27;assets/icons/clear.svg&#x27;&quot;
-                   [removeButtonColor]&#x3D;&quot;&#x27;dark&#x27;&quot;&gt;&lt;/ion-auto-complete&gt;
+                   [removeButtonColor]&#x3D;&quot;&#x27;dark&#x27;&quot;
+                   (blur)&#x3D;&quot;on(&#x27;blur&#x27;, $event)&quot;
+                   (autoFocus)&#x3D;&quot;on(&#x27;autoFocus&#x27;, $event)&quot;
+                   (autoBlur)&#x3D;&quot;on(&#x27;autoBlur&#x27;, $event)&quot;
+                   (focus)&#x3D;&quot;on(&#x27;focus&#x27;, $event)&quot;
+                   (ionAutoInput)&#x3D;&quot;on(&#x27;ionAutoInput&#x27;, $event)&quot;
+                   (itemsChange)&#x3D;&quot;on(&#x27;itemsChange&#x27;, $event)&quot;
+                   (itemsHidden)&#x3D;&quot;on(&#x27;itemsHidden&#x27;, $event)&quot;
+                   (itemRemoved)&#x3D;&quot;on(&#x27;itemRemoved&#x27;, $event)&quot;
+                   (itemSelected)&#x3D;&quot;on(&#x27;itemSelected&#x27;, $event)&quot;
+                   (itemsShown)&#x3D;&quot;on(&#x27;itemsShown&#x27;, $event)&quot;&gt;&lt;/ion-auto-complete&gt;
 </code></pre>
     </div>
 
@@ -380,7 +489,7 @@ export class SimpleFunctionComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-auto-complete [(model)]="selected"                   [multi]="false"                   [dataProvider]="provider"                   [disabled]="false"                   [options]="options"                   [removeButtonIcon]="\'assets/icons/clear.svg\'"                   [removeButtonColor]="\'dark\'"></ion-auto-complete></div>'
+        var COMPONENT_TEMPLATE = '<div><ion-auto-complete [(model)]="selected"                   [multi]="false"                   [dataProvider]="provider"                   [disabled]="false"                   [options]="options"                   [removeButtonIcon]="\'assets/icons/clear.svg\'"                   [removeButtonColor]="\'dark\'"                   (blur)="on(\'blur\', $event)"                   (autoFocus)="on(\'autoFocus\', $event)"                   (autoBlur)="on(\'autoBlur\', $event)"                   (focus)="on(\'focus\', $event)"                   (ionAutoInput)="on(\'ionAutoInput\', $event)"                   (itemsChange)="on(\'itemsChange\', $event)"                   (itemsHidden)="on(\'itemsHidden\', $event)"                   (itemRemoved)="on(\'itemRemoved\', $event)"                   (itemSelected)="on(\'itemSelected\', $event)"                   (itemsShown)="on(\'itemsShown\', $event)"></ion-auto-complete></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'CustomTemplateComponent', 'selector': 'custom-template'},{'name': 'HomePage', 'selector': 'home-page'},{'name': 'MultiFunctionComponent', 'selector': 'multi-function'},{'name': 'SimpleFunctionComponent', 'selector': 'simple-function'},{'name': 'SimpleServiceComponent', 'selector': 'simple-service'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SimpleFunctionComponent'};

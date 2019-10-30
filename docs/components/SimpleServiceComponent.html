@@ -148,7 +148,7 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#itemSelected">itemSelected</a>
+                                <a href="#on">on</a>
                             </li>
                         </ul>
                     </td>
@@ -224,18 +224,18 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="itemSelected"></a>
+                    <a name="on"></a>
                     <span class="name">
                         <b>
-                            itemSelected
+                            on
                         </b>
-                        <a href="#itemSelected"><span class="icon ion-ios-link"></span></a>
+                        <a href="#on"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>itemSelected(item: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>on(output, event)</code>
                 </td>
             </tr>
 
@@ -257,16 +257,21 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
-                                    <td>Type</td>
                                     <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>item</td>
+                                    <td>output</td>
+
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        No
                                     </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>event</td>
 
                                     <td>
                                         No
@@ -420,8 +425,9 @@ export class SimpleServiceComponent {
     this.options.type &#x3D; &#x27;add-friend.svg&#x27;;
   }
 
-  itemSelected(item:string) {
-    console.log(&#x27;Item selected:&#x27; +  item[this.provider.labelAttribute]);
+  on(output, event):void {
+    console.log(output);
+    // console.log(event);
   }
 }
 </code></pre>
@@ -429,10 +435,10 @@ export class SimpleServiceComponent {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;ion-auto-complete [(model)]&#x3D;&quot;selected&quot;
-                   (itemSelected)&#x3D;&quot;itemSelected($event)&quot;
                    [multi]&#x3D;&quot;false&quot;
                    [dataProvider]&#x3D;&quot;provider&quot;
                    [disabled]&#x3D;&quot;false&quot;
+                   [maxResults]&#x3D;&quot;6&quot;
                    [removeButtonColor]&#x3D;&quot;&#x27;dark&#x27;&quot;&gt;&lt;/ion-auto-complete&gt;
 </code></pre>
     </div>
@@ -469,7 +475,7 @@ export class SimpleServiceComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-auto-complete [(model)]="selected"                   (itemSelected)="itemSelected($event)"                   [multi]="false"                   [dataProvider]="provider"                   [disabled]="false"                   [removeButtonColor]="\'dark\'"></ion-auto-complete></div>'
+        var COMPONENT_TEMPLATE = '<div><ion-auto-complete [(model)]="selected"                   [multi]="false"                   [dataProvider]="provider"                   [disabled]="false"                   [maxResults]="6"                   [removeButtonColor]="\'dark\'"></ion-auto-complete></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'CustomTemplateComponent', 'selector': 'custom-template'},{'name': 'HomePage', 'selector': 'home-page'},{'name': 'MultiFunctionComponent', 'selector': 'multi-function'},{'name': 'SimpleFunctionComponent', 'selector': 'simple-function'},{'name': 'SimpleServiceComponent', 'selector': 'simple-service'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SimpleServiceComponent'};
