@@ -379,6 +379,8 @@ export class AppModule {}
         * In addition to the searchbar options, `ion-auto-complete` also supports the following option attributes:
     
             * `[template]` (TemplateRef) - custom template reference for your auto complete items (see below).
+            * `[emptytemplate]` (TemplateRef) - custom template reference for your auto complete no items display.
+            * `[selectionTemplate]` (TemplateRef) - custom template reference for your own selection display when using multi.
             * `[clearInvalidInput]` (boolean) - automatically clear the input field if a valid option is not selected from suggestions (Default `true`).
             * `[showResultsFirst]` (boolean) - for small lists it might be nicer to show all options on first tap (you might need to modify your service to handle an empty `keyword`).
             * `[maxResults]` (number) - limits the max number of suggestions shown (Default `8`).

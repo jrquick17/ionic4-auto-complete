@@ -65,8 +65,15 @@
                (ionFocus)="onFocus($event)"
                (ionBlur)="onBlur($event)"></ion-searchbar>
 
-<ng-template #defaultTemplate let-attrs="attrs">
+<ng-template #defaultTemplate
+             let-attrs="attrs">
     <span [innerHTML]='attrs.label | boldprefix:attrs.keyword'></span>
+</ng-template>
+
+<ng-template #defaultEmptyTemplate
+             let-attrs="attrs"
+             class="ion-text-center">
+    {{ options.noItems }}
 </ng-template>
 
 <ul *ngIf="!(disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected)) && suggestions.length > 0 && showList"
@@ -88,6 +95,14 @@
     </li>
 </ul>
 
-<p *ngIf="suggestions.length == 0 && showList && options.noItems">
-    {{ options.noItems }}
-</p>
+<ul *ngIf="suggestions.length == 0 && showList && options.noItems"
+    [ngStyle]="getStyle()">
+    <li>
+        <ng-template [ngTemplateOutlet]="emptyTemplate || defaultEmptyTemplate"
+                     [ngTemplateOutletContext]="{
+                        attrs:{
+                          keyword: keyword
+                        }
+                     }"></ng-template>
+    </li>
+</ul>

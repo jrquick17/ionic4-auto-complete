@@ -35,6 +35,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @Input() public clearInvalidInput:boolean = true;
   @Input() public dataProvider:AutoCompleteService|Function;
   @Input() public disabled:boolean = false;
+  @Input() public emptyTemplate:TemplateRef<any>;
   @Input() public exclude:any[] = [];
   @Input() public frontIcon:false|string = false;
   @Input() public hideListOnSelection:boolean = true;
