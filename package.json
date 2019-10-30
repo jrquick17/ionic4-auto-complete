@@ -32,7 +32,9 @@
     "email": "me@jrquick.com"
   },
   "keywords": [
-    "angular"
+    "angular",
+    "autocomplete",
+    "ionic"
   ],
   "license": "MIT",
   "bugs": {
