@@ -61,7 +61,7 @@
     "@angular/service-worker": "^8.2.6",
     "@compodoc/compodoc": "^1.1.11",
     "@ionic-native/core": "5.16.0",
-    "@ionic/angular": "^4.11.2",
+    "@ionic/angular": "^4.11.3",
     "@ionic/angular-toolkit": "^2.1.1",
     "@ionic/pro": "2.0.4",
     "@ionic/storage": "2.2.0",
