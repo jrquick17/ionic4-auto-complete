@@ -8,7 +8,7 @@
                   [slot]="'start'"
                   color="primary"></ion-icon>
 
-        <ion-label>{{ attrs.getLabel(attrs.data) }}</ion-label>
+        <ion-label>{{ attrs.label }}</ion-label>
 
         <ion-icon *ngIf="attrs.removeButtonIcon"
                   [name]="attrs.removeButtonIcon"
@@ -24,7 +24,7 @@
                      [ngTemplateOutletContext]="{
                             attrs: {
                               data:                item,
-                              getLabel:            getLabel,
+                              label:               getLabel(item),
                               removeButtonClasses: removeButtonClasses,
                               removeButtonColor:   removeButtonColor,
                               removeButtonIcon:    removeButtonIcon,
