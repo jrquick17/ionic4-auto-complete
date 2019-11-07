@@ -641,7 +641,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
         this.selected.push(selection);
         this.itemsChange.emit(this.selected);
-
+      } else {
         return;
       }
     } else {
