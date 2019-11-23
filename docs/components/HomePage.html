@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ionic4-auto-complete</title>
+        <title>ionic4-phone-spinner</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">ionic4-auto-complete</a>
+            <a href="../" class="navbar-brand">ionic4-phone-spinner</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -601,7 +601,7 @@ export class HomePage implements OnInit {
         <pre class="line-numbers"><code class="language-html">&lt;ion-header&gt;
   &lt;ion-toolbar&gt;
     &lt;ion-title&gt;
-      Demo: ionic4-auto-complete
+      Demo: ionic4-phone-spinner
     &lt;/ion-title&gt;
   &lt;/ion-toolbar&gt;
 &lt;/ion-header&gt;
@@ -712,7 +712,7 @@ export class HomePage implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-title>      Demo: ionic4-auto-complete    </ion-title>  </ion-toolbar></ion-header><ion-content>  <ion-list style="height: 100%;">    <ion-segment (ionChange)="onClickSegment($event)">      <ion-segment-button *ngFor="let segment of segments"                          [value]="segment.key"                          [checked]="segment.key === selectedSegment">        <ion-label>          {{ segment.label }}        </ion-label>      </ion-segment-button>    </ion-segment>    <ion-item-divider></ion-item-divider>    <ion-card *ngIf="selectedSegment === \'simple-function\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select Anybody          </ion-col>          <ion-col [size]="12">            <simple-function></simple-function>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>    <ion-card *ngIf="selectedSegment === \'simple-service\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select Any Country          </ion-col>          <ion-col [size]="12">            <simple-service></simple-service>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>    <ion-card *ngIf="selectedSegment === \'multi-function\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select Multiple People          </ion-col>          <ion-col [size]="12">            <multi-function></multi-function>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>    <ion-card *ngIf="selectedSegment === \'custom-template\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select up to 3 Countries          </ion-col>          <ion-col [size]="12">            <custom-template></custom-template>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>  </ion-list></ion-content></div>'
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-title>      Demo: ionic4-phone-spinner    </ion-title>  </ion-toolbar></ion-header><ion-content>  <ion-list style="height: 100%;">    <ion-segment (ionChange)="onClickSegment($event)">      <ion-segment-button *ngFor="let segment of segments"                          [value]="segment.key"                          [checked]="segment.key === selectedSegment">        <ion-label>          {{ segment.label }}        </ion-label>      </ion-segment-button>    </ion-segment>    <ion-item-divider></ion-item-divider>    <ion-card *ngIf="selectedSegment === \'simple-function\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select Anybody          </ion-col>          <ion-col [size]="12">            <simple-function></simple-function>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>    <ion-card *ngIf="selectedSegment === \'simple-service\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select Any Country          </ion-col>          <ion-col [size]="12">            <simple-service></simple-service>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>    <ion-card *ngIf="selectedSegment === \'multi-function\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select Multiple People          </ion-col>          <ion-col [size]="12">            <multi-function></multi-function>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>    <ion-card *ngIf="selectedSegment === \'custom-template\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select up to 3 Countries          </ion-col>          <ion-col [size]="12">            <custom-template></custom-template>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>  </ion-list></ion-content></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'CustomTemplateComponent', 'selector': 'custom-template'},{'name': 'HomePage', 'selector': 'home-page'},{'name': 'MultiFunctionComponent', 'selector': 'multi-function'},{'name': 'SimpleFunctionComponent', 'selector': 'simple-function'},{'name': 'SimpleServiceComponent', 'selector': 'simple-service'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomePage'};

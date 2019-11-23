@@ -4,22 +4,22 @@ import {FormsModule} from '@angular/forms';
 
 import {IonicModule} from '@ionic/angular';
 
-import {AutoCompleteComponent} from './auto-complete/auto-complete.component';
-import {BoldPrefix} from './bold-prefix.pipe';
+export * from './ionic4-phone-spinner/ionic4-phone-spinner.component';
+export * from './pipes/range.pipe';
+export * from './models/lock-options.model';
+export * from './models/ionic4-phone-spinner.model';
 
-export * from './auto-complete/auto-complete.component';
-export * from './auto-complete.service';
-export * from './bold-prefix.pipe';
-export * from './auto-complete-options.model';
+import {Ionic4PhoneSpinnerComponent} from './ionic4-phone-spinner/ionic4-phone-spinner.component';
+import {RangePipe} from './pipes/range.pipe';
 
 @NgModule({
   declarations: [
-    AutoCompleteComponent,
-    BoldPrefix
+    Ionic4PhoneSpinnerComponent,
+    RangePipe
   ],
   exports: [
-    AutoCompleteComponent,
-    BoldPrefix
+    Ionic4PhoneSpinnerComponent,
+    RangePipe
   ],
   imports: [
     CommonModule,
@@ -27,10 +27,10 @@ export * from './auto-complete-options.model';
     IonicModule
   ]
 })
-export class AutoCompleteModule {
+export class Ionic4PhoneSpinnerModule {
   static forRoot():ModuleWithProviders {
     return {
-      ngModule: AutoCompleteModule,
+      ngModule: Ionic4PhoneSpinnerModule,
       providers: []
     };
   }

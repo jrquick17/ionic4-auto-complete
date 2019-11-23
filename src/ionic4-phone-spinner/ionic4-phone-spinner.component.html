@@ -1,0 +1,97 @@
+<div class="ionic4-phone-spinner">
+  <div class="inline-label">(</div>
+
+  <div class="wrapper"
+       *ngFor="let range of [] | range:3; let i = index">
+    <div>{{ digits[i] }}</div>
+
+    <button type="button"
+            class="ripple"
+            (click)="toggleLock(i)"
+            [disabled]="disabled || isRandomizing"
+            [ngClass]="{ 'locked': locks[i], 'unlocked': locks[i] }">
+      <span *ngIf="lockIcons[i] === true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-150 -100 700 700" [attr.fill]="lockColors[i] ? 'red' : 'green'">
+          <path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"/>
+        </svg>
+      </span>
+
+      <span *ngIf="lockIcons[i] === false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-150 -100 700 700" [attr.fill]="lockColors[i] ? 'red' : 'green'">
+          <path d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z"/>
+        </svg>
+      </span>
+    </button>
+  </div>
+
+  <div class="inline-label">)</div>
+
+  <div class="wrapper"
+       *ngFor="let range of [] | range:3; let i = index">
+    <div>{{ digits[i + 3] }}</div>
+
+    <button type="button"
+            class="ripple"
+            (click)="toggleLock(i + 3)"
+            [disabled]="disabled || isRandomizing"
+            [ngClass]="{ 'locked': locks[i + 3], 'unlocked': locks[i + 3] }">
+      <span *ngIf="lockIcons[i + 3] === true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-150 -100 700 700" [attr.fill]="lockColors[i + 3] ? 'red' : 'green'">
+          <path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"/>
+        </svg>
+      </span>
+
+      <span *ngIf="lockIcons[i + 3] === false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-150 -100 700 700" [attr.fill]="lockColors[i + 3] ? 'red' : 'green'">
+          <path d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z"/>
+        </svg>
+      </span>
+    </button>
+  </div>
+
+  <div class="inline-label">-</div>
+
+  <div class="wrapper"
+       *ngFor="let range of [] | range:4; let i = index">
+    <div>{{ digits[i + 6] }}</div>
+
+    <button type="button"
+            class="ripple"
+            (click)="toggleLock(i + 6)"
+            [disabled]="disabled || isRandomizing"
+            [ngClass]="{ 'locked': locks[i + 6], 'unlocked': locks[i+ 6] }">
+      <span *ngIf="lockIcons[i + 6] === true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-150 -100 700 700" [attr.fill]="lockColors[i + 6] ? 'red' : 'green'">
+          <path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"/>
+        </svg>
+      </span>
+
+      <span *ngIf="lockIcons[i + 6] === false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="-150 -100 700 700" [attr.fill]="lockColors[i + 6] ? 'red' : 'green'">
+          <path d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z"/>
+        </svg>
+      </span>
+    </button>
+  </div>
+
+  <button type="button"
+          class="randomize-button ripple"
+          (click)="randomize()"
+          [disabled]="disabled || isRandomizing">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504.971 359.029c9.373 9.373 9.373 24.569 0 33.941l-80 79.984c-15.01 15.01-40.971 4.49-40.971-16.971V416h-58.785a12.004 12.004 0 0 1-8.773-3.812l-70.556-75.596 53.333-57.143L352 336h32v-39.981c0-21.438 25.943-31.998 40.971-16.971l80 79.981zM12 176h84l52.781 56.551 53.333-57.143-70.556-75.596A11.999 11.999 0 0 0 122.785 96H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12zm372 0v39.984c0 21.46 25.961 31.98 40.971 16.971l80-79.984c9.373-9.373 9.373-24.569 0-33.941l-80-79.981C409.943 24.021 384 34.582 384 56.019V96h-58.785a12.004 12.004 0 0 0-8.773 3.812L96 336H12c-6.627 0-12 5.373-12 12v56c0 6.627 5.373 12 12 12h110.785c3.326 0 6.503-1.381 8.773-3.812L352 176h32z"></path></svg>
+  </button>
+
+  <button type="button"
+          class="randomize-button ripple"
+          (click)="clearLocks()"
+          [disabled]="disabled || isRandomizing">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M512 176.001C512 273.203 433.202 352 336 352c-11.22 0-22.19-1.062-32.827-3.069l-24.012 27.014A23.999 23.999 0 0 1 261.223 384H224v40c0 13.255-10.745 24-24 24h-40v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24v-78.059c0-6.365 2.529-12.47 7.029-16.971l161.802-161.802C163.108 213.814 160 195.271 160 176 160 78.798 238.797.001 335.999 0 433.488-.001 512 78.511 512 176.001zM336 128c0 26.51 21.49 48 48 48s48-21.49 48-48-21.49-48-48-48-48 21.49-48 48z"/></svg>
+  </button>
+
+  <button type="button"
+          class="randomize-button ripple"
+          (click)="reset()"
+          [disabled]="disabled || isRandomizing">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M500.33 0h-47.41a12 12 0 0 0-12 12.57l4 82.76A247.42 247.42 0 0 0 256 8C119.34 8 7.9 119.53 8 256.19 8.1 393.07 119.1 504 256 504a247.1 247.1 0 0 0 166.18-63.91 12 12 0 0 0 .48-17.43l-34-34a12 12 0 0 0-16.38-.55A176 176 0 1 1 402.1 157.8l-101.53-4.87a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12h200.33a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12z"/></svg>
+  </button>
+</div>
