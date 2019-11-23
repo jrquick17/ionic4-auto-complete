@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>ionic4-phone-spinner</title>
+        <title>ionic4-auto-complete</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,7 +13,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="./" class="navbar-brand">ionic4-phone-spinner</a>
+            <a href="./" class="navbar-brand">ionic4-auto-complete</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -30,10 +30,10 @@
                <div class="content getting-started">
                    <div class="content-data">
 
-<h1 id="ionic4-phone-spinner">ionic4-phone-spinner</h1>
-<p><a href="https://www.npmjs.com/package/ionic4-phone-spinner/"><img src="https://img.shields.io/npm/l/ionic4-phone-spinner.svg" alt="npm" class="img-responsive"></a>
-<a href="https://www.npmjs.com/package/ionic4-phone-spinner"><img src="https://img.shields.io/npm/dt/ionic4-phone-spinner.svg" alt="npm" class="img-responsive"></a>
-<a href="https://www.npmjs.com/package/ionic4-phone-spinner"><img src="https://img.shields.io/npm/dm/ionic4-phone-spinner.svg" alt="npm" class="img-responsive"></a></p>
+<h1 id="ionic4-auto-complete">ionic4-auto-complete</h1>
+<p><a href="https://www.npmjs.com/package/ionic4-auto-complete/"><img src="https://img.shields.io/npm/l/ionic4-auto-complete.svg" alt="npm" class="img-responsive"></a>
+<a href="https://www.npmjs.com/package/ionic4-auto-complete"><img src="https://img.shields.io/npm/dt/ionic4-auto-complete.svg" alt="npm" class="img-responsive"></a>
+<a href="https://www.npmjs.com/package/ionic4-auto-complete"><img src="https://img.shields.io/npm/dm/ionic4-auto-complete.svg" alt="npm" class="img-responsive"></a></p>
 <p><img src="example.gif" alt="" class="img-responsive"></p>
 <h2 id="index">Index</h2>
 <ul>
@@ -49,7 +49,7 @@
 <h2 id="about">About</h2>
 <p>This is a component based on Ionic&#39;s search-bar component, with the addition of auto-complete ability. This component is super simple and light-weight. Just provide the data, and let the fun begin. This package is compatible with Angular 2+ and Ionic 2+. </p>
 <ul>
-<li>Try out <a href="https://ionic4-phone-spinner.jrquick.com">the demo</a> to see it in action!</li>
+<li>Try out <a href="https://ionic4-auto-complete.jrquick.com">the demo</a> to see it in action!</li>
 <li>Checkout <a href="https://github.com/jrquick17/ionic4-tooltips">my other Ionic/Angular project</a> to add tooltips to your project!k</li>
 <li>Visit <a href="https://jrquick.com">my website</a> for other cool projects!</li>
 </ul>
@@ -59,22 +59,22 @@
 </li>
 </ul>
 <p>For Angular 2-7: </p>
-<div><pre class="line-numbers"><code class="language-none">npm install ionic4-phone-spinner&#64;1.9.0 --save</code></pre></div><p>For Angular 8+: </p>
-<div><pre class="line-numbers"><code class="language-none">npm install ionic4-phone-spinner --save</code></pre></div><ul>
+<div><pre class="line-numbers"><code class="language-none">npm install ionic4-auto-complete&#64;1.9.0 --save</code></pre></div><p>For Angular 8+: </p>
+<div><pre class="line-numbers"><code class="language-none">npm install ionic4-auto-complete --save</code></pre></div><ul>
 <li><h4 id="import-assets">Import assets</h4>
 </li>
 </ul>
 <p>Add the following to the <code>assets</code> array in <code>angular.json</code>:</p>
 <div><pre class="line-numbers"><code class="language-none">{
   &quot;glob&quot;: &quot;**/*&quot;,
-  &quot;input&quot;: &quot;node_modules/ionic4-phone-spinner/assets/&quot;,
+  &quot;input&quot;: &quot;node_modules/ionic4-auto-complete/assets/&quot;,
   &quot;output&quot;: &quot;./assets/&quot;
 }</code></pre></div><ul>
 <li><h4 id="import-module">Import module</h4>
 </li>
 </ul>
 <p>Import <code>AutoCompleteModule</code> by adding the following to your parent module (i.e. <code>app.module.ts</code>):</p>
-<div><pre class="line-numbers"><code class="language-none">import { AutoCompleteModule } from &#39;ionic4-phone-spinner&#39;;
+<div><pre class="line-numbers"><code class="language-none">import { AutoCompleteModule } from &#39;ionic4-auto-complete&#39;;
 
 ...
 
@@ -90,7 +90,7 @@ export class AppModule {}</code></pre></div><ul>
 <li><h4 id="add-styles">Add styles</h4>
 <ul>
 <li><p>Import scss stylesheet from <code>node_modules</code> (i.e. <code>app.scss</code>, <code>global.scss</code>):</p>
-<p>  <code>@import &quot;../../node_modules/ionic4-phone-spinner/auto-complete&quot;;</code></p>
+<p>  <code>@import &quot;../../node_modules/ionic4-auto-complete/auto-complete&quot;;</code></p>
 </li>
 </ul>
 </li>
@@ -151,7 +151,7 @@ import {HttpClient} from &#39;&#64;angular/common/http&#39;;
 import {map} from &#39;rxjs/operators&#39;;
 import {Observable, of} from &#39;rxjs&#39;;
 
-import {AutoCompleteService} from &#39;ionic4-phone-spinner&#39;;
+import {AutoCompleteService} from &#39;ionic4-auto-complete&#39;;
 
 &#64;Injectable()
 export class SimpleService implements AutoCompleteService {
@@ -199,7 +199,7 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 
   import {HttpClient} from &#39;&#64;angular/common/http&#39;;
 
-  import {AutoCompleteService} from &#39;ionic4-phone-spinner&#39;;
+  import {AutoCompleteService} from &#39;ionic4-auto-complete&#39;;
 
   &#64;Injectable()
   export class CompleteTestService implements AutoCompleteService {
@@ -303,7 +303,7 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 <li><h5 id="option-2-b-use-whole-object-as-form-value">Option 2-B: Use whole object as form value</h5>
 <ul>
 <li><p>Simply set <code>formValueAttribute</code> to empty string:</p>
-<div><pre class="line-numbers"><code class="language-none">  import {AutoCompleteService} from &#39;ionic4-phone-spinner&#39;;
+<div><pre class="line-numbers"><code class="language-none">  import {AutoCompleteService} from &#39;ionic4-auto-complete&#39;;
   import {HttpClient} from &#39;&#64;angular/common/http&#39;;
   import {Injectable} from &quot;&#64;angular/core&quot;;
   import &#39;rxjs/add/operator/map&#39;
@@ -347,7 +347,7 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 </li>
 <li><h3 id="searchbar-options">Searchbar Options</h3>
 <ul>
-<li><p>ionic4-phone-spinner supports the regular Ionic&#39;s Searchbar properties, which are set to their default values as specified in the <a href="https://ionicframework.com/docs/api/searchbar#properties">docs</a>.</p>
+<li><p>Ionic4-auto-complete supports the regular Ionic&#39;s Searchbar properties, which are set to their default values as specified in the <a href="https://ionicframework.com/docs/api/searchbar#properties">docs</a>.</p>
 </li>
 <li><p>You can override these default values by adding the <code>[options]</code> attribute to the <code>&lt;ion-auto-complete&gt;</code> tag, for instance:</p>
 <div><pre class="line-numbers"><code class="language-none">    &lt;ion-auto-complete [dataProvider]=&quot;someProvider&quot; [options]=&quot;{ placeholder : &#39;Lorem Ipsum&#39; }&quot;&gt;&lt;/ion-auto-complete&gt;</code></pre></div></li>
@@ -447,7 +447,7 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 <h2 id="contributing">Contributing</h2>
 <p>To contribute, clone the repo. Then, run <code>npm install</code> to get the packages needed for the library to work. Running <code>gulp</code> will run a series of tasks that builds the files in <code>/src</code> into <code>/dist</code>. Replace the <code>/dist</code> into whatever Ionic application&#39;s <code>node_modules</code> where you&#39;re testing your changes to continuously improve the library.</p>
 <h2 id="issues">Issues</h2>
-<p>If you find any issues feel free to open a request in <a href="https://github.com/jrquick17/ionic4-phone-spinner/issues">the Issues tab</a>. If I have the time I will try to solve any issues but cannot make any guarantees. Feel free to contribute yourself.</p>
+<p>If you find any issues feel free to open a request in <a href="https://github.com/jrquick17/ionic4-auto-complete/issues">the Issues tab</a>. If I have the time I will try to solve any issues but cannot make any guarantees. Feel free to contribute yourself.</p>
 <h3 id="demo">Demo</h3>
 <p>Run <code>npm install</code> to get packages required for the demo and then run <code>ionic serve</code> to run locally.</p>
 <h3 id="thanks">Thanks</h3>
@@ -476,8 +476,8 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 </li>
 <li><h4 id="test">Test</h4>
 <ul>
-<li>Copy <code>dist/</code> contents into <code>demo/node_modules/ionic4-phone-spinner/</code><ul>
-<li>Run from root:  <code>cp -fr dist/* demo/node_modules/ionic4-phone-spinner/</code></li>
+<li>Copy <code>dist/</code> contents into <code>demo/node_modules/ionic4-auto-complete/</code><ul>
+<li>Run from root:  <code>cp -fr dist/* demo/node_modules/ionic4-auto-complete/</code></li>
 </ul>
 </li>
 <li>Run <code>ionic serve</code> from <code>demo/</code></li>
@@ -504,7 +504,7 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 <li><h4 id="how-do-you-concatenate-several-fields-as-label">How do you concatenate several fields as label?</h4>
 <p>  The auto-complete component allows you to use templates for customize the display of each suggestion. But in many cases, the default template is good. However, you need to concatenate several fields (like firstname and lastname) to produce a full label. In that case, you can declare a method named <code>getItemLabel</code> instead of using <code>labelAttribute</code>.</p>
 <p>  For example, we want to display the country name and the population:</p>
-<div><pre class="line-numbers"><code class="language-none">  import {AutoCompleteService} from &#39;ionic4-phone-spinner&#39;;
+<div><pre class="line-numbers"><code class="language-none">  import {AutoCompleteService} from &#39;ionic4-auto-complete&#39;;
   import {HttpClient} from &#39;&#64;angular/common/http&#39;;
   import {Injectable} from &quot;&#64;angular/core&quot;;
   import &#39;rxjs/add/operator/map&#39;
