@@ -249,18 +249,18 @@ npm install ionic4-auto-complete --save
      }
     ```
  
-* ### HTML ###
+### HTML ###
 
     * Add `ion-auto-complete` within the HTML of your parent module.
 
     * Pass the data:
-        * #### Option 1: Vanilla ####
+        #### Option 1: Vanilla ####
 
               <ion-auto-complete [dataProvider]="completeTestService"></ion-auto-complete>`
 
-        * #### Option 2: Angular FormGroup ####
+        #### Option 2: Angular FormGroup ####
 
-            * ##### Option 2-A: Use property as form value #####
+            ##### Option 2-A: Use property as form value #####
                 * Requires `labelAttribute` as both label and form value (default behavior). 
                     * By default, if your **dataProvider** provides an array of objects, the `labelAttribute` property is used to take the good field of each object to display in the suggestion list. For backward compatibility, if nothing is specified, this attribute is also used to grab the value used in the form.
 
@@ -282,7 +282,7 @@ npm install ionic4-auto-complete --save
                     </form>
                     ```
 
-            * ##### Option 2-B: Use whole object as form value #####
+            ##### Option 2-B: Use whole object as form value #####
 
                 * Simply set `formValueAttribute` to empty string:
 
@@ -386,7 +386,7 @@ npm install ionic4-auto-complete --save
 
 ### Searchbar Methods ###
 
-* #### Access Searchbar
+#### Access Searchbar ####
 * Within your component:
     
     ```
@@ -400,7 +400,7 @@ npm install ionic4-auto-complete --save
     <ion-auto-complete [dataProvider]="provider" #searchbar></ion-auto-complete>
     ```
         
-* #### Available Methods ####
+#### Available Methods ####
 
 * `getValue()` returns the string value of the selected item.
     * Example: `this.searchbar.getValue()`
