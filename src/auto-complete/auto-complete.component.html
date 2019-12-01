@@ -51,6 +51,7 @@
            [ngClass]="{ 'hidden': !useIonInput, 'loading': isLoading }"
            (keyup.arrowDown)="highlightItem(-1)"
            (keyup.arrowUp)="highlightItem(1)"
+           (keyup.enter)="handleSelectTap($event, suggestions[focusedOption])"
            (keyup.escape)="hideItemList()"
            (ionFocus)="onFocus($event)"
            (ionBlur)="onBlur($event)"></ion-input>
@@ -78,9 +79,10 @@
                [spellcheck]="options.spellcheck == null ? defaultOpts.spellcheck : options.spellcheck"
                [type]="options.type == null ? defaultOpts.type : options.type"
                [ngClass]="{ 'hidden': useIonInput, 'loading': isLoading, 'disabled': disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected) }"
-               (keyup.escape)="hideItemList()"
                (keyup.arrowDown)="highlightItem(-1)"
                (keyup.arrowUp)="highlightItem(1)"
+               (keyup.enter)="handleSelectTap($event, suggestions[focusedOption])"
+               (keyup.escape)="hideItemList()"
                (ionClear)="clickClear()"
                (ionFocus)="onFocus($event)"
                (ionBlur)="onBlur($event)"></ion-searchbar>
