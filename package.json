@@ -3,7 +3,7 @@
   "version": "2.4.0",
   "readme": "README.md",
   "scripts": {
-    "build": "ng-packagr -p package.json && cp src/scss/auto-complete.scss dist/auto-complete.scss && cp -r src/assets dist/assets",
+    "build": "ng-packagr -p package.json && cp src/auto-complete/auto-complete.component.scss dist/auto-complete.scss && cp -r src/assets dist/assets",
     "build:demo": "npm run build && cd demo && cp -fr ../dist/* node_modules/ionic4-auto-complete/ && cd ..",
     "build-run:demo": "npm run build:demo && npm run run:demo",
     "docs": "npm run docs:build",

@@ -16,6 +16,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 - Demo from npm installs by [jrquick17](https://github.com/jrquick17)
 
+### Moved
+- Use stylesheet within component by [jrquick17](https://github.com/jrquick17)
+
 ## [2.3.2]
 ### Fixed
 - Event propagation when item is selected by [jrquick17](https://github.com/jrquick17)

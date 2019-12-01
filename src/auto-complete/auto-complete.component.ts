@@ -27,6 +27,9 @@ import {AutoCompleteService} from '../auto-complete.service';
     }
   ],
   selector:    'ion-auto-complete',
+  styleUrls: [
+    './auto-complete.component.scss'
+  ],
   templateUrl: 'auto-complete.component.html'
 })
 export class AutoCompleteComponent implements AfterViewChecked, ControlValueAccessor, DoCheck {
