@@ -1,6 +1,6 @@
 {
   "name": "ionic4-auto-complete",
-  "version": "2.3.2",
+  "version": "2.4.0",
   "scripts": {
     "build": "ng-packagr -p package.json && cp src/scss/auto-complete.scss dist/auto-complete.scss && cp -r src/assets dist/assets",
     "build:demo": "npm run build && cd demo && cp -fr ../dist/* node_modules/ionic4-auto-complete/ && cd ..",
