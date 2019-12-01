@@ -439,7 +439,14 @@ export class SimpleServiceComponent {
                    [dataProvider]&#x3D;&quot;provider&quot;
                    [disabled]&#x3D;&quot;false&quot;
                    [maxResults]&#x3D;&quot;6&quot;
-                   [removeButtonColor]&#x3D;&quot;&#x27;dark&#x27;&quot;&gt;&lt;/ion-auto-complete&gt;
+                   [removeButtonColor]&#x3D;&quot;&#x27;dark&#x27;&quot;
+                   (ionAutoInput)&#x3D;&quot;on(&#x27;ionAutoInput&#x27;, $event)&quot;
+                   (itemsChange)&#x3D;&quot;on(&#x27;itemsChange&#x27;, $event)&quot;
+                   (itemsCleared)&#x3D;&quot;on(&#x27;itemsCleared&#x27;, $event)&quot;
+                   (itemsHidden)&#x3D;&quot;on(&#x27;itemsHidden&#x27;, $event)&quot;
+                   (itemRemoved)&#x3D;&quot;on(&#x27;itemRemoved&#x27;, $event)&quot;
+                   (itemSelected)&#x3D;&quot;on(&#x27;itemSelected&#x27;, $event)&quot;
+                   (itemsShown)&#x3D;&quot;on(&#x27;itemsShown&#x27;, $event)&quot;&gt;&lt;/ion-auto-complete&gt;
 </code></pre>
     </div>
 
@@ -475,7 +482,7 @@ export class SimpleServiceComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-auto-complete [(model)]="selected"                   [multi]="false"                   [dataProvider]="provider"                   [disabled]="false"                   [maxResults]="6"                   [removeButtonColor]="\'dark\'"></ion-auto-complete></div>'
+        var COMPONENT_TEMPLATE = '<div><ion-auto-complete [(model)]="selected"                   [multi]="false"                   [dataProvider]="provider"                   [disabled]="false"                   [maxResults]="6"                   [removeButtonColor]="\'dark\'"                   (ionAutoInput)="on(\'ionAutoInput\', $event)"                   (itemsChange)="on(\'itemsChange\', $event)"                   (itemsCleared)="on(\'itemsCleared\', $event)"                   (itemsHidden)="on(\'itemsHidden\', $event)"                   (itemRemoved)="on(\'itemRemoved\', $event)"                   (itemSelected)="on(\'itemSelected\', $event)"                   (itemsShown)="on(\'itemsShown\', $event)"></ion-auto-complete></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'CustomTemplateComponent', 'selector': 'custom-template'},{'name': 'HomePage', 'selector': 'home-page'},{'name': 'MultiFunctionComponent', 'selector': 'multi-function'},{'name': 'SimpleFunctionComponent', 'selector': 'simple-function'},{'name': 'SimpleServiceComponent', 'selector': 'simple-service'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SimpleServiceComponent'};
