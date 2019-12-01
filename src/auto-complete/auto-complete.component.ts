@@ -8,7 +8,8 @@ import {
   ViewChild,
   HostListener,
   ElementRef,
-  AfterViewChecked
+  AfterViewChecked,
+  Renderer2
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
@@ -126,6 +127,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   public defaultOpts:AutoCompleteOptions;
   public hasFocus:boolean = false;
   public isLoading:boolean = false;
+  public focusedOption:number = -1;
   public formValue:any;
   public selected:any[];
   public selection:any;
@@ -152,7 +154,9 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   /**
    * Create a new instance
    */
-  public constructor() {
+  public constructor(
+      private renderer:Renderer2
+  ) {
     this.autoBlur = new EventEmitter<any>();
     this.autoFocus = new EventEmitter<any>();
     this.blur = new EventEmitter<any>();
@@ -307,6 +311,8 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     if (hideItemList) {
       this.hideItemList();
     }
+
+    this.focusedOption = -1;
 
     return;
   }
@@ -490,6 +496,25 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    */
   public hideItemList():void {
     this.showList = this.alwaysShowList;
+    this.focusedOption = -1;
+  }
+
+  highlightItem(direction:number):void {
+    const max = this.suggestions.length - 1;
+
+    if (direction > 0) {
+      if (this.focusedOption === -1 || this.focusedOption === max) {
+        this.focusedOption = 0;
+      } else {
+        this.focusedOption++;
+      }
+    } else if (direction < 0) {
+      if (this.focusedOption === -1 || this.focusedOption === 0) {
+        this.focusedOption = max;
+      } else {
+        this.focusedOption--;
+      }
+    }
   }
 
   /**

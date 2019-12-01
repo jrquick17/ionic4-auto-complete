@@ -49,6 +49,8 @@
            [mode]="options.mode == null ? defaultOpts.mode : options.mode"
            [disabled]="disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected)"
            [ngClass]="{ 'hidden': !useIonInput, 'loading': isLoading }"
+           (keyup.arrowDown)="highlightItem(-1)"
+           (keyup.arrowUp)="highlightItem(1)"
            (keyup.escape)="hideItemList()"
            (ionFocus)="onFocus($event)"
            (ionBlur)="onBlur($event)"></ion-input>
@@ -77,6 +79,8 @@
                [type]="options.type == null ? defaultOpts.type : options.type"
                [ngClass]="{ 'hidden': useIonInput, 'loading': isLoading, 'disabled': disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected) }"
                (keyup.escape)="hideItemList()"
+               (keyup.arrowDown)="highlightItem(-1)"
+               (keyup.arrowUp)="highlightItem(1)"
                (ionClear)="clickClear()"
                (ionFocus)="onFocus($event)"
                (ionBlur)="onBlur($event)"></ion-searchbar>
@@ -94,7 +98,8 @@
 
 <ul *ngIf="!(disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected)) && suggestions.length > 0 && showList"
     [ngStyle]="getStyle()">
-    <li *ngFor="let suggestion of suggestions| slice:0:maxResults;"
+    <li *ngFor="let suggestion of suggestions| slice:0:maxResults; let index = index"
+        [ngClass]="{ 'focus': focusedOption === index }"
         (click)="handleSelectTap($event, suggestion)"
         (tap)="handleSelectTap($event, suggestion)">
         <ng-template [ngTemplateOutlet]="template || defaultTemplate"
