@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## [2.4.0]
+### Added
+- `itemsCleared` event by [jrquick17](https://github.com/jrquick17)
+
 ## [2.3.2]
 ### Fixed
 - Event propagation when item is selected by [jrquick17](https://github.com/jrquick17)

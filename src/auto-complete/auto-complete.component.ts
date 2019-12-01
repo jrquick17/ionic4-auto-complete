@@ -93,6 +93,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @Output() public focus:EventEmitter<any>;
   @Output() public ionAutoInput:EventEmitter<string>;
   @Output() public itemsChange:EventEmitter<any>;
+  @Output() public itemsCleared:EventEmitter<boolean>;
   @Output() public itemsHidden:EventEmitter<any>;
   @Output() public itemRemoved:EventEmitter<any>;
   @Output() public itemSelected:EventEmitter<any>;
@@ -155,6 +156,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     this.focus = new EventEmitter<any>();
     this.ionAutoInput = new EventEmitter<string>();
     this.itemsChange = new EventEmitter<any>();
+    this.itemsCleared = new EventEmitter<boolean>();
     this.itemsHidden = new EventEmitter<any>();
     this.itemRemoved = new EventEmitter<any>();
     this.itemSelected = new EventEmitter<any>();
@@ -281,6 +283,12 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
       x: xPos,
       y: yPos
     };
+  }
+
+  clickClear():void {
+    this.clearValue(true);
+
+    this.itemsCleared.emit(true);
   }
 
   /**
