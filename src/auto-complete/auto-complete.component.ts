@@ -502,13 +502,13 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   highlightItem(direction:number):void {
     const max = this.suggestions.length - 1;
 
-    if (direction > 0) {
+    if (direction < 0) {
       if (this.focusedOption === -1 || this.focusedOption === max) {
         this.focusedOption = 0;
       } else {
         this.focusedOption++;
       }
-    } else if (direction < 0) {
+    } else if (direction > 0) {
       if (this.focusedOption === -1 || this.focusedOption === 0) {
         this.focusedOption = max;
       } else {
