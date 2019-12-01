@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.4.0]
 ### Added
 - `itemsCleared` event by [jrquick17](https://github.com/jrquick17)
+- Hide menu list when user clicks escape by [jrquick17](https://github.com/jrquick17)
+
 ### Removed
 - Demo from npm installs by [jrquick17](https://github.com/jrquick17)
 
