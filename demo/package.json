@@ -1,8 +1,9 @@
 {
-  "name": "my-app",
+  "name": "ionic4-auto-complete-demp",
   "version": "0.0.1",
+  "private": true,
   "author": "Jeremy Quick<me@jrquick.com>",
-  "homepage": "https://jrquick.com/",
+  "homepage": "https://ionic4-auto-complete.jrquick.com/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
@@ -11,7 +12,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^8.2.14",
     "@angular/cdk": "^8.2.3",
