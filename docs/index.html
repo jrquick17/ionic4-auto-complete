@@ -256,73 +256,63 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
    }
 
  }
-```</code></pre></div><ul>
-<li><h3 id="html">HTML</h3>
-<ul>
-<li><p>Add <code>ion-auto-complete</code> within the HTML of your parent module.</p>
-</li>
-<li><p>Pass the data:</p>
-<ul>
-<li><h4 id="option-1-vanilla">Option 1: Vanilla</h4>
-<div><pre class="line-numbers"><code class="language-none">&lt;ion-auto-complete [dataProvider]=&quot;completeTestService&quot;&gt;&lt;/ion-auto-complete&gt;`</code></pre></div></li>
-<li><h4 id="option-2-angular-formgroup">Option 2: Angular FormGroup</h4>
-<ul>
-<li><h5 id="option-2-a-use-property-as-form-value">Option 2-A: Use property as form value</h5>
-<ul>
-<li><p>Requires <code>labelAttribute</code> as both label and form value (default behavior). </p>
-<ul>
-<li>By default, if your <strong>dataProvider</strong> provides an array of objects, the <code>labelAttribute</code> property is used to take the good field of each object to display in the suggestion list. For backward compatibility, if nothing is specified, this attribute is also used to grab the value used in the form.</li>
-</ul>
-</li>
-<li><p>Add form to the component&#39;s HTML and add the <code>formControlName</code> attribute:</p>
-<div><pre class="line-numbers"><code class="language-none">  &lt;form [formGroup]=&quot;myForm&quot; 
-        (ngSubmit)=&quot;submit()&quot; 
-        novalidate&gt;
-    &lt;div class=&quot;ion-form-group&quot;&gt;
-      &lt;ion-auto-complete [dataProvider]=&quot;completeTestService&quot; 
-                         formControlName=&quot;country&quot;&gt;&lt;/ion-auto-complete&gt;
-    &lt;/div&gt;
+```</code></pre></div><h3 id="html">HTML</h3>
+<div><pre class="line-numbers"><code class="language-none">* Add `ion-auto-complete` within the HTML of your parent module.
 
-    &lt;button ion-button 
-            type=&quot;submit&quot; 
-            block&gt;
-        Add Country
-    &lt;/button&gt;
-  &lt;/form&gt;</code></pre></div></li>
-</ul>
-</li>
-<li><h5 id="option-2-b-use-whole-object-as-form-value">Option 2-B: Use whole object as form value</h5>
-<ul>
-<li><p>Simply set <code>formValueAttribute</code> to empty string:</p>
-<div><pre class="line-numbers"><code class="language-none">  import {AutoCompleteService} from &#39;ionic4-auto-complete&#39;;
-  import {HttpClient} from &#39;&#64;angular/common/http&#39;;
-  import {Injectable} from &quot;&#64;angular/core&quot;;
-  import &#39;rxjs/add/operator/map&#39;
+* Pass the data:
+    #### Option 1: Vanilla ####
 
-  &#64;Injectable()
-  export class CompleteTestService implements AutoCompleteService {
-    ...
+          &lt;ion-auto-complete [dataProvider]=&quot;completeTestService&quot;&gt;&lt;/ion-auto-complete&gt;`
 
-    formValueAttribute = &#39;&#39;
+    #### Option 2: Angular FormGroup ####
 
-    constructor(private http:HttpClient) {
-       ...
-    }
+        ##### Option 2-A: Use property as form value #####
+            * Requires `labelAttribute` as both label and form value (default behavior). 
+                * By default, if your **dataProvider** provides an array of objects, the `labelAttribute` property is used to take the good field of each object to display in the suggestion list. For backward compatibility, if nothing is specified, this attribute is also used to grab the value used in the form.
 
-    getResults(keyword:string) {
-       ...
-    }
-  }</code></pre></div></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="documentation">Documentation</h2>
+            * Add form to the component&#39;s HTML and add the `formControlName` attribute:
+                ```
+                &lt;form [formGroup]=&quot;myForm&quot; 
+                      (ngSubmit)=&quot;submit()&quot; 
+                      novalidate&gt;
+                  &lt;div class=&quot;ion-form-group&quot;&gt;
+                    &lt;ion-auto-complete [dataProvider]=&quot;completeTestService&quot; 
+                                       formControlName=&quot;country&quot;&gt;&lt;/ion-auto-complete&gt;
+                  &lt;/div&gt;
+
+                  &lt;button ion-button 
+                          type=&quot;submit&quot; 
+                          block&gt;
+                      Add Country
+                  &lt;/button&gt;
+                &lt;/form&gt;
+                ```
+
+        ##### Option 2-B: Use whole object as form value #####
+
+            * Simply set `formValueAttribute` to empty string:
+
+                ```
+                import {AutoCompleteService} from &#39;ionic4-auto-complete&#39;;
+                import {HttpClient} from &#39;&#64;angular/common/http&#39;;
+                import {Injectable} from &quot;&#64;angular/core&quot;;
+                import &#39;rxjs/add/operator/map&#39;
+
+                &#64;Injectable()
+                export class CompleteTestService implements AutoCompleteService {
+                  ...
+
+                  formValueAttribute = &#39;&#39;
+
+                  constructor(private http:HttpClient) {
+                     ...
+                  }
+
+                  getResults(keyword:string) {
+                     ...
+                  }
+                }
+                ```</code></pre></div><h2 id="documentation">Documentation</h2>
 <h3 id="events">Events</h3>
 <ul>
 <li><code>autoFocus($event)</code> is fired when the input is focused.  </li>
@@ -411,29 +401,26 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 </li>
 </ul>
 <h3 id="searchbar-methods">Searchbar Methods</h3>
+<h4 id="access-searchbar">Access Searchbar</h4>
 <ul>
-<li><h4 id="access-searchbar">Access Searchbar</h4>
-</li>
 <li><p>Within your component:</p>
 <div><pre class="line-numbers"><code class="language-none">    &#64;ViewChild(&#39;searchbar&#39;)
     searchbar: AutoCompleteComponent;
       ```</code></pre></div></li>
 <li><p>Add <code>#searchbar</code> within your component&#39;s HTML:</p>
 <div><pre class="line-numbers"><code class="language-none">  &lt;ion-auto-complete [dataProvider]=&quot;provider&quot; #searchbar&gt;&lt;/ion-auto-complete&gt;</code></pre></div></li>
-<li><h4 id="available-methods">Available Methods</h4>
-</li>
-<li><p><code>getValue()</code> returns the string value of the selected item.</p>
+</ul>
+<h4 id="available-methods">Available Methods</h4>
 <ul>
+<li><code>getValue()</code> returns the string value of the selected item.<ul>
 <li>Example: <code>this.searchbar.getValue()</code></li>
 </ul>
 </li>
-<li><p><code>getSelection()</code> returns the selected object.</p>
-<ul>
+<li><code>getSelection()</code> returns the selected object.<ul>
 <li>Example: <code>this.searchbar.getSelection()</code></li>
 </ul>
 </li>
-<li><p><code>setFocus()</code> sets focus on the searchbar.</p>
-<ul>
+<li><code>setFocus()</code> sets focus on the searchbar.<ul>
 <li>Example: <code>this.searchbar.setFocus()</code> </li>
 </ul>
 </li>
