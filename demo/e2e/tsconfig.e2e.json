@@ -3,7 +3,7 @@
   "compilerOptions": {
     "outDir": "../out-tsc/e2e",
     "baseUrl": "./",
-    "module": "commonjs",
+    "module": "esnext",
     "target": "esnext"
   }
 }
