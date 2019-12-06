@@ -58,7 +58,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @Input() public selectionTemplate:TemplateRef<any>;
   @Input() public showResultsFirst:boolean;
   @Input() public template:TemplateRef<any>;
-  @Input() public useIonInput:boolean;
+  @Input() public useIonInput:boolean = false;
 
   @Input()
   get model():any[] {
@@ -317,13 +317,21 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     return;
   }
 
+  keyupIonSearchbar(event, show?:boolean):void {
+    this.getItems(event.detail.target.value, show);
+  }
+
+  keyupIonInput(event, show?:boolean):void {
+    this.getItems(event.target.value, show);
+  }
+
   /**
    * Get items for auto-complete
    *
-   * @param event
+   * @param keyword
    * @param show
    */
-  public getItems(event?, show?:boolean):void {
+  public getItems(keyword?:string, show?:boolean):void {
     if (this.promise) {
       clearTimeout(this.promise);
     }
@@ -331,7 +339,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     this.promise = setTimeout(
       () => {
         if (event) {
-          this.keyword = event.detail.target.value;
+          this.keyword = keyword;
         }
 
         let result;
