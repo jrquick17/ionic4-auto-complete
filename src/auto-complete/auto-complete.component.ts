@@ -210,9 +210,11 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
         if (this.searchbarElem && this.searchbarElem.nativeElement) {
           if (this.searchbarElem.nativeElement.children && this.searchbarElem.nativeElement.children.length !== 0) {
-            if (this.searchbarElem.nativeElement.children[0].children && this.searchbarElem.nativeElement.children[0].children.length !== 0) {
-              if (this.searchbarElem.nativeElement.children[0].children[0].value) {
-                this.searchbarElem.nativeElement.children[0].children[0].value = '';
+            if (this.searchbarElem.nativeElement.children[0].children) {
+              if (this.searchbarElem.nativeElement.children[0].children.length !== 0) {
+                if (this.searchbarElem.nativeElement.children[0].children[0].value) {
+                  this.searchbarElem.nativeElement.children[0].children[0].value = '';
+                }
               }
             }
           }
