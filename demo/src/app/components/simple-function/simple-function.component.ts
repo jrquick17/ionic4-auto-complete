@@ -17,7 +17,7 @@ export class SimpleFunctionComponent {
   public selected:string = '';
 
   constructor(
-      public provider:SimpleFunction
+    public provider:SimpleFunction
   ) {
     this.options = new AutoCompleteOptions();
 

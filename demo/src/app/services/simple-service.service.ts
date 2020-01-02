@@ -20,7 +20,9 @@ export class SimpleService implements AutoCompleteService {
 
   }
 
-  getResults(keyword:string):Observable<any[]> {
+  getResults(keyword?:string):Observable<any[]> {
+    keyword = typeof keyword === 'string' ? keyword : '';
+
     let observable:Observable<any>;
 
     if (this.countries.length === 0) {
