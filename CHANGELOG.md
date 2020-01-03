@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.4.2]
 ### Fixed
 - Show loading when dataProvider is a function by [jrquick17](https://github.com/jrquick17)
+- Do not let loading spinner and clear icon overlap by [jrquick17](https://github.com/jrquick17)
 
 ## [Released]
 
