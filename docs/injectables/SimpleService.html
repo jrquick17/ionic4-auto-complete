@@ -177,7 +177,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getResults(keyword: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>getResults(keyword?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -211,7 +211,7 @@
                                     </td>
 
                                     <td>
-                                        No
+                                        Yes
                                     </td>
 
 
@@ -331,7 +331,9 @@ export class SimpleService implements AutoCompleteService {
 
   }
 
-  getResults(keyword:string):Observable&lt;any[]&gt; {
+  getResults(keyword?:string):Observable&lt;any[]&gt; {
+    keyword &#x3D; typeof keyword &#x3D;&#x3D;&#x3D; &#x27;string&#x27; ? keyword : &#x27;&#x27;;
+
     let observable:Observable&lt;any&gt;;
 
     if (this.countries.length &#x3D;&#x3D;&#x3D; 0) {
