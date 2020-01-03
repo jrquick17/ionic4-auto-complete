@@ -6,11 +6,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.4.2]
+### Fixed
+- Show loading when dataProvider is a function by [jrquick17](https://github.com/jrquick17)
+
+## [Released]
+
 ## [2.4.1]
 ### Fixed
 - Keyup events when `[useIonInput]="true"` by [jrquick17](https://github.com/jrquick17)
-
-## [Released]
 
 ## [2.4.0]
 ### Added

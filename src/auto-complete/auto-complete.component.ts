@@ -350,35 +350,43 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
           this.keyword = '';
         }
 
-        result = (typeof this.dataProvider === 'function') ?
-          this.dataProvider(this.keyword) : this.dataProvider.getResults(this.keyword);
-
-        if (result instanceof Subject) {
-          result = result.asObservable();
-        }
-
-        if (result instanceof Promise) {
-          result = from(result);
-        }
-
-        if (result instanceof Observable) {
+        if (typeof this.dataProvider === 'function') {
           this.isLoading = true;
 
-          result.pipe(
-            finalize(
-              () => {
-                this.isLoading = false;
-              }
-            )
-          ).subscribe(
-            (results: any[]) => {
-              this.setSuggestions(results, show);
-            },
-            (error: any) => console.error(error)
-          )
-          ;
-        } else {
+          result = this.dataProvider(this.keyword);
+
           this.setSuggestions(result, show);
+
+          this.isLoading = false;
+        } else {
+          this.isLoading = true;
+
+          result = this.dataProvider.getResults(this.keyword);
+
+          if (result instanceof Subject) {
+            result = result.asObservable();
+          } else if (result instanceof Promise) {
+            result = from(result);
+          }
+
+          if (result instanceof Observable) {
+            result.pipe(
+                finalize(
+                    () => {
+                      this.isLoading = false;
+                    }
+                )
+            ).subscribe(
+                (results: any[]) => {
+                  this.setSuggestions(results, show);
+                },
+                (error: any) => console.error(error)
+            );
+          } else {
+            this.isLoading = false;
+
+            this.setSuggestions(result, show);
+          }
         }
 
         this.ionAutoInput.emit(this.keyword);
