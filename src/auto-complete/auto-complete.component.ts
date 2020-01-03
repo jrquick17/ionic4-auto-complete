@@ -334,6 +334,8 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * @param show
    */
   public getItems(keyword?:string, show?:boolean):void {
+    this.isLoading = true;
+
     if (this.promise) {
       clearTimeout(this.promise);
     }
@@ -351,16 +353,12 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
         }
 
         if (typeof this.dataProvider === 'function') {
-          this.isLoading = true;
-
           result = this.dataProvider(this.keyword);
 
           this.setSuggestions(result, show);
 
           this.isLoading = false;
         } else {
-          this.isLoading = true;
-
           result = this.dataProvider.getResults(this.keyword);
 
           if (result instanceof Subject) {
@@ -383,9 +381,9 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
                 (error: any) => console.error(error)
             );
           } else {
-            this.isLoading = false;
-
             this.setSuggestions(result, show);
+
+            this.isLoading = false;
           }
         }
 
