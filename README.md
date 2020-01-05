@@ -375,6 +375,7 @@ npm install ionic4-auto-complete --save
     
 * In addition to the searchbar options, `ion-auto-complete` also supports the following option attributes:
     
+* `[styles]` (AutoCompleteStyles) - custom styles to be passed to `ngStyle` on elements within the Shadow DOM. Available element keys are: `list`; `listItem`; and `searchbar`.
 * `[template]` (TemplateRef) - custom template reference for your auto complete items (see below).
 * `[emptytemplate]` (TemplateRef) - custom template reference for your auto complete no items display.
 * `[selectionTemplate]` (TemplateRef) - custom template reference for your own selection display when using multi.
