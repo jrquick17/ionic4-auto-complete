@@ -7,11 +7,6 @@
 - [ ] Feature
 - [ ] Other (Refactoring, Added tests, Documentation, ...)
 
-### Checklist
-
-- [ ] Commit Messages follow the [Conventional Commits](https://conventionalcommits.org/) pattern
-- [ ] Docs have been added / updated (for bug fixes / features)
-
 ### Description
 
 _describe the changes that you are making_

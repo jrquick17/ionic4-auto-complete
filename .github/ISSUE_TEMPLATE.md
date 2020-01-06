@@ -19,8 +19,8 @@
 ### Version Information
 
 ```
-ngx-text-editor: x.x.x
-angular: x.x.x
+ionic4-auto-complete: x.x.x
+@angular/cli: x.x.x
 ```
 
 ### Browser
