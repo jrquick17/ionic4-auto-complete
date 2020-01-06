@@ -18,6 +18,7 @@ import {finalize} from 'rxjs/operators';
 
 import {AutoCompleteOptions} from '../auto-complete-options.model';
 import {AutoCompleteService} from '../auto-complete.service';
+import {AutoCompleteStyles} from '../auto-complete-styles.model';
 
 @Component({
   providers: [
@@ -57,6 +58,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @Input() public removeDuplicateSuggestions:boolean = true;
   @Input() public selectionTemplate:TemplateRef<any>;
   @Input() public showResultsFirst:boolean;
+  @Input() public styles = new AutoCompleteStyles;
   @Input() public template:TemplateRef<any>;
   @Input() public useIonInput:boolean = false;
 
@@ -441,8 +443,14 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   /**
    * Get menu style
    */
-  public getStyle():any {
+  public listStyles():any {
+    const listLocationStyles = this.listLocationStyles();
+    return { ...listLocationStyles, ...this.styles.list };
+  }
+
+  private listLocationStyles():any {
     let location = this.location;
+
     if (this.location === 'auto') {
       const elementY = this._getPosition(
         this.searchbarElem.nativeElement

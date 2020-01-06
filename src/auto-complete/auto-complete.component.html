@@ -49,6 +49,7 @@
            [mode]="options.mode == null ? defaultOpts.mode : options.mode"
            [disabled]="disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected)"
            [ngClass]="{ 'hidden': !useIonInput, 'loading': isLoading }"
+           [ngStyle]="styles.searchbar"
            (keyup.arrowDown)="highlightItem(-1)"
            (keyup.arrowUp)="highlightItem(1)"
            (keyup.enter)="handleSelectTap($event, suggestions[focusedOption])"
@@ -79,6 +80,7 @@
                [spellcheck]="options.spellcheck == null ? defaultOpts.spellcheck : options.spellcheck"
                [type]="options.type == null ? defaultOpts.type : options.type"
                [ngClass]="{ 'hidden': useIonInput, 'loading': isLoading, 'disabled': disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected) }"
+               [ngStyle]="styles.searchbar"
                (keyup.arrowDown)="highlightItem(-1)"
                (keyup.arrowUp)="highlightItem(1)"
                (keyup.enter)="handleSelectTap($event, suggestions[focusedOption])"
@@ -99,9 +101,10 @@
 </ng-template>
 
 <ul *ngIf="!(disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected)) && suggestions.length > 0 && showList"
-    [ngStyle]="getStyle()">
+    [ngStyle]="listStyles()">
     <li *ngFor="let suggestion of suggestions| slice:0:maxResults; let index = index"
         [ngClass]="{ 'focus': focusedOption === index }"
+        [ngStyle]="styles.listItem"
         (click)="handleSelectTap($event, suggestion)"
         (tap)="handleSelectTap($event, suggestion)">
         <ng-template [ngTemplateOutlet]="template || defaultTemplate"
@@ -119,8 +122,8 @@
 </ul>
 
 <ul *ngIf="suggestions.length === 0 && showList && options.noItems"
-    [ngStyle]="getStyle()">
-    <li>
+    [ngStyle]="listStyles()">
+    <li [ngStyle]="styles.listItem">
         <ng-template [ngTemplateOutlet]="emptyTemplate || defaultEmptyTemplate"
                      [ngTemplateOutletContext]="{
                         attrs:{
