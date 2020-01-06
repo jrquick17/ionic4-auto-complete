@@ -6,12 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [Released]
+
+## [2.5.0]
+### Added
+* Ability to pass custom styles on elements within the Shadow DOM by [HashNotAdam](https://github.com/HashNotAdam)
+
 ## [2.4.2]
 ### Fixed
 - Show loading when dataProvider is a function by [jrquick17](https://github.com/jrquick17)
 - Do not let loading spinner and clear icon overlap by [jrquick17](https://github.com/jrquick17)
-
-## [Released]
 
 ## [2.4.1]
 ### Fixed
@@ -138,32 +142,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fixed first selectedItem not getting changed initially by [jrquick17](https://github.com/jrquick17)
 
-## [1.7.0] - 2019-05-30
+## [1.7.0]
 ### Added
 - Add exclude by [jrquick17](https://github.com/jrquick17)
 
-## [1.6.1] - 2019-05-24
+## [1.6.1]
 ### Changed
 - Updated dependencies by [jrquick17](https://github.com/jrquick17)
 
-## [1.6.1] - 2019-03-28
 ### Added
 - Add disable option by [jrquick17](https://github.com/jrquick17)
 
-## [1.6.0] - 2019-03-01
+## [1.6.0]
 ### Added
 - Support for Angular 7.0 by [jrquick17](https://github.com/jrquick17)
 - Support for Ionic 4 by [jrquick17](https://github.com/jrquick17)
 
-## [1.4.3] - 2017-05-15
+## [1.4.3]
 ### Added
 - Support for Angular 5.0
 
-## [1.4.3-beta] - 2017-05-12
+## [1.4.3-beta]
 ### Added
 - Support for ngModel
 
-## [1.4.2] - 2017-05-08
+## [1.4.2] 
 ### Added
 - Added `setFocus()` method
 - Added `getSelection()` method
@@ -172,7 +175,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Minor text changed by [kadoshms](https://github.com/kadoshms).
 
-## [1.4.1] - 2017-04-24
+## [1.4.1]
 ### Added
 - Support for rxjs subject
 
@@ -180,7 +183,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Document click handler issue
 - Removed redundant script by [kadoshms](https://github.com/kadoshms).
 
-## [1.3.0] - 2016-10-11
+## [1.3.0]
 ### Added
 - New custom-templates mechanism (please refer to the README file)
 - Added [showResultsFirst] option - calls `getItems()` when the component is tapped
