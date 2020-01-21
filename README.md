@@ -72,7 +72,7 @@ npm install ionic4-auto-complete --save
 
 * Import scss stylesheet from `node_modules` (i.e. `app.scss`, `global.scss`):
 
-    `@import "../../node_modules/ionic4-auto-complete/auto-complete";`
+    `@import "~ionic4-auto-complete/auto-complete";`
 
 ### Create provider ###
 
