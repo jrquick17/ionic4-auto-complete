@@ -14,10 +14,10 @@ import {SimpleFunction} from '../../services/simple-function.service';
 export class SimpleFunctionComponent {
   public options:AutoCompleteOptions;
 
-  public selected:any = '';
+  public selected:string = '';
 
   constructor(
-      public provider:SimpleFunction
+    public provider:SimpleFunction
   ) {
     this.options = new AutoCompleteOptions();
 
@@ -28,5 +28,10 @@ export class SimpleFunctionComponent {
     this.options.placeholder = 'Type text to search..';
     this.options.searchIcon = 'assets/icons/add-user.svg';
     this.options.type = 'search';
+  }
+
+  on(output, event):void {
+    console.log(output);
+    // console.log(event);
   }
 }

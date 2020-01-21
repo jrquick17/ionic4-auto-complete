@@ -1,4 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+
+import {Segment} from '../../models/segment.model';
 
 @Component({
   selector:    'home-page',
@@ -7,8 +10,8 @@ import {Component} from '@angular/core';
     'home.page.scss'
   ],
 })
-export class HomePage {
-  public segments:any[] = [
+export class HomePage implements OnInit {
+  public segments:Segment[] = [
     {
       key:   'simple-function',
       label: 'Simple Function'
@@ -20,12 +23,58 @@ export class HomePage {
     {
       key:   'multi-function',
       label: 'Multi Select'
+    },
+    {
+      key:   'custom-template',
+      label: 'Custom Template'
     }
   ];
 
   public selectedSegment:string = this.segments[0].key;
 
-  constructor() {
+  constructor(
+      private route:ActivatedRoute,
+      private router:Router
+  ) {
 
+  }
+
+  ngOnInit():void {
+    this.route.fragment.subscribe(
+        (fragment) => {
+          this.setSegment(fragment);
+        }
+    );
+  }
+
+  onClickSegment(event:CustomEvent):void {
+    if (event.detail && typeof event.detail.value === 'string') {
+      const segment = event.detail.value;
+
+      this.setSegment(segment);
+    }
+  }
+
+  setSegment(segment:string):void {
+    if (typeof segment === 'string') {
+      segment = segment.toLowerCase();
+
+      const arrayHas = this.segments.some(
+        (candidate) => {
+          return candidate.key === segment;
+        }
+      );
+
+      if (arrayHas) {
+        this.selectedSegment = segment;
+
+        this.router.navigate(
+           [],
+           {
+             fragment: segment
+           }
+        ).then();
+      }
+    }
   }
 }

@@ -10,7 +10,7 @@ export class AutoCompleteOptions {
   public clearOnEdit:boolean = false;
   public debounce:number = 250;
   public mode:'ios'|'md' = 'md';
-  public noItems:string = '';
+  public noItems:string = 'No items found.';
   public placeholder:string = 'Search';
   public searchIcon:string = 'search';
   public showCancelButton:boolean = false;

@@ -148,7 +148,10 @@
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                <a href="#itemSelected">itemSelected</a>
+                                <a href="#on">on</a>
+                            </li>
+                            <li>
+                                <a href="#random">random</a>
                             </li>
                         </ul>
                     </td>
@@ -224,26 +227,26 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="itemSelected"></a>
+                    <a name="on"></a>
                     <span class="name">
                         <b>
-                            itemSelected
+                            on
                         </b>
-                        <a href="#itemSelected"><span class="icon ion-ios-link"></span></a>
+                        <a href="#on"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>itemSelected(item: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>on(output, event)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="30"
-                            class="link-to-prism">demo/src/app/components/simple-service/simple-service.component.ts:30</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">demo/src/app/components/simple-service/simple-service.component.ts:40</a></div>
                 </td>
             </tr>
 
@@ -257,16 +260,21 @@
                             <thead>
                                 <tr>
                                     <td>Name</td>
-                                    <td>Type</td>
                                     <td>Optional</td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>item</td>
+                                    <td>output</td>
+
                                     <td>
-                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        No
                                     </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>event</td>
 
                                     <td>
                                         No
@@ -285,6 +293,45 @@
                     </div>
                     <div class="io-description">
                         
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="random"></a>
+                    <span class="name">
+                        <b>
+                            random
+                        </b>
+                        <a href="#random"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>random()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">demo/src/app/components/simple-service/simple-service.component.ts:30</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
                     </div>
                 </td>
             </tr>
@@ -367,7 +414,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                         </td>
                     </tr>
@@ -407,7 +454,7 @@ import {SimpleService} from &#x27;../../services/simple-service.service&#x27;;
 export class SimpleServiceComponent {
   public options:AutoCompleteOptions;
 
-  public selected:any &#x3D; &#x27;&#x27;;
+  public selected:string &#x3D; &#x27;&#x27;;
 
   constructor(
     public provider:SimpleService
@@ -420,8 +467,19 @@ export class SimpleServiceComponent {
     this.options.type &#x3D; &#x27;add-friend.svg&#x27;;
   }
 
-  itemSelected(item:string) {
-    console.log(&#x27;Item selected:&#x27; +  item[this.provider.labelAttribute]);
+  random():void {
+    this.provider.getResults().subscribe(
+      (results) &#x3D;&gt; {
+        const count &#x3D; results.length;
+
+        this.selected &#x3D; results[Math.round(Math.random() * count)]
+      }
+    );
+  }
+
+  on(output, event):void {
+    console.log(output);
+    // console.log(event);
   }
 }
 </code></pre>
@@ -429,12 +487,23 @@ export class SimpleServiceComponent {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;ion-auto-complete [(model)]&#x3D;&quot;selected&quot;
-                   (itemSelected)&#x3D;&quot;itemSelected($event)&quot;
-                   [eager]&#x3D;&quot;true&quot;
                    [multi]&#x3D;&quot;false&quot;
                    [dataProvider]&#x3D;&quot;provider&quot;
                    [disabled]&#x3D;&quot;false&quot;
-                   [removeButtonColor]&#x3D;&quot;&#x27;dark&#x27;&quot;&gt;&lt;/ion-auto-complete&gt;
+                   [maxResults]&#x3D;&quot;6&quot;
+                   [removeButtonColor]&#x3D;&quot;&#x27;dark&#x27;&quot;
+                   (ionAutoInput)&#x3D;&quot;on(&#x27;ionAutoInput&#x27;, $event)&quot;
+                   (itemsChange)&#x3D;&quot;on(&#x27;itemsChange&#x27;, $event)&quot;
+                   (itemsCleared)&#x3D;&quot;on(&#x27;itemsCleared&#x27;, $event)&quot;
+                   (itemsHidden)&#x3D;&quot;on(&#x27;itemsHidden&#x27;, $event)&quot;
+                   (itemRemoved)&#x3D;&quot;on(&#x27;itemRemoved&#x27;, $event)&quot;
+                   (itemSelected)&#x3D;&quot;on(&#x27;itemSelected&#x27;, $event)&quot;
+                   (itemsShown)&#x3D;&quot;on(&#x27;itemsShown&#x27;, $event)&quot;&gt;&lt;/ion-auto-complete&gt;
+
+&lt;ion-button [size]&#x3D;&quot;&#x27;full&#x27;&quot;
+            (click)&#x3D;&quot;random()&quot;&gt;
+    Random
+&lt;/ion-button&gt;
 </code></pre>
     </div>
 
@@ -470,8 +539,8 @@ export class SimpleServiceComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-auto-complete [(model)]="selected"                   (itemSelected)="itemSelected($event)"                   [eager]="true"                   [multi]="false"                   [dataProvider]="provider"                   [disabled]="false"                   [removeButtonColor]="\'dark\'"></ion-auto-complete></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'HomePage', 'selector': 'home-page'},{'name': 'MultiFunctionComponent', 'selector': 'multi-function'},{'name': 'SimpleFunctionComponent', 'selector': 'simple-function'},{'name': 'SimpleServiceComponent', 'selector': 'simple-service'}];
+        var COMPONENT_TEMPLATE = '<div><ion-auto-complete [(model)]="selected"                   [multi]="false"                   [dataProvider]="provider"                   [disabled]="false"                   [maxResults]="6"                   [removeButtonColor]="\'dark\'"                   (ionAutoInput)="on(\'ionAutoInput\', $event)"                   (itemsChange)="on(\'itemsChange\', $event)"                   (itemsCleared)="on(\'itemsCleared\', $event)"                   (itemsHidden)="on(\'itemsHidden\', $event)"                   (itemRemoved)="on(\'itemRemoved\', $event)"                   (itemSelected)="on(\'itemSelected\', $event)"                   (itemsShown)="on(\'itemsShown\', $event)"></ion-auto-complete><ion-button [size]="\'full\'"            (click)="random()">    Random</ion-button></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'CustomTemplateComponent', 'selector': 'custom-template'},{'name': 'HomePage', 'selector': 'home-page'},{'name': 'MultiFunctionComponent', 'selector': 'multi-function'},{'name': 'SimpleFunctionComponent', 'selector': 'simple-function'},{'name': 'SimpleServiceComponent', 'selector': 'simple-service'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'SimpleServiceComponent'};
 </script>
@@ -509,6 +578,7 @@ export class SimpleServiceComponent {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
             var COMPODOC_CURRENT_PAGE_URL = 'SimpleServiceComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

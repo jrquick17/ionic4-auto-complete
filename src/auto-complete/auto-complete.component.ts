@@ -1,4 +1,16 @@
-import {Component, Input, Output, EventEmitter, TemplateRef, ViewChild, HostListener, ElementRef, AfterViewChecked} from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  Input,
+  Output,
+  EventEmitter,
+  TemplateRef,
+  ViewChild,
+  HostListener,
+  ElementRef,
+  AfterViewChecked,
+  Renderer2
+} from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
 import {from, Observable, Subject} from 'rxjs';
@@ -6,6 +18,7 @@ import {finalize} from 'rxjs/operators';
 
 import {AutoCompleteOptions} from '../auto-complete-options.model';
 import {AutoCompleteService} from '../auto-complete.service';
+import {AutoCompleteStyles} from '../auto-complete-styles.model';
 
 @Component({
   providers: [
@@ -16,17 +29,25 @@ import {AutoCompleteService} from '../auto-complete.service';
     }
   ],
   selector:    'ion-auto-complete',
+  styleUrls: [
+    './auto-complete.component.scss'
+  ],
   templateUrl: 'auto-complete.component.html'
 })
-export class AutoCompleteComponent implements AfterViewChecked, ControlValueAccessor {
+export class AutoCompleteComponent implements AfterViewChecked, ControlValueAccessor, DoCheck {
   @Input() public alwaysShowList:boolean;
+  @Input() public enableBrowserAutoComplete:boolean = false;
+  @Input() public clearInvalidInput:boolean = true;
   @Input() public dataProvider:AutoCompleteService|Function;
   @Input() public disabled:boolean = false;
+  @Input() public emptyTemplate:TemplateRef<any>;
   @Input() public exclude:any[] = [];
   @Input() public frontIcon:false|string = false;
   @Input() public hideListOnSelection:boolean = true;
   @Input() public keyword:string;
   @Input() public location:string = 'auto';
+  @Input() public maxResults:number = 8;
+  @Input() public maxSelected:number = null;
   @Input() public multi:boolean = false;
   @Input() public name:string = '';
   @Input() public options:AutoCompleteOptions = new AutoCompleteOptions();
@@ -35,9 +56,11 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @Input() public removeButtonIcon:string|false = 'close-circle';
   @Input() public removeButtonSlot:string = 'end';
   @Input() public removeDuplicateSuggestions:boolean = true;
+  @Input() public selectionTemplate:TemplateRef<any>;
   @Input() public showResultsFirst:boolean;
+  @Input() public styles = new AutoCompleteStyles;
   @Input() public template:TemplateRef<any>;
-  @Input() public useIonInput:boolean;
+  @Input() public useIonInput:boolean = false;
 
   @Input()
   get model():any[] {
@@ -61,6 +84,8 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     }
   }
 
+  @Output() public modelChange:EventEmitter<any>;
+
   @Input()
   set eager(eager:boolean) {
     if (eager) {
@@ -69,12 +94,12 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   }
 
   @Output() public blur:EventEmitter<any>;
-  @Output() public modelChanged:EventEmitter<any>;
   @Output() public autoFocus:EventEmitter<any>;
   @Output() public autoBlur:EventEmitter<any>;
   @Output() public focus:EventEmitter<any>;
   @Output() public ionAutoInput:EventEmitter<string>;
   @Output() public itemsChange:EventEmitter<any>;
+  @Output() public itemsCleared:EventEmitter<boolean>;
   @Output() public itemsHidden:EventEmitter<any>;
   @Output() public itemRemoved:EventEmitter<any>;
   @Output() public itemSelected:EventEmitter<any>;
@@ -102,9 +127,12 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   private onChangeCallback:Function|false = false;
 
   public defaultOpts:AutoCompleteOptions;
+  public hasFocus:boolean = false;
   public isLoading:boolean = false;
+  public focusedOption:number = -1;
   public formValue:any;
   public selected:any[];
+  public selection:any;
   public suggestions:any[];
   public promise;
 
@@ -123,24 +151,26 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
   private _showList:boolean;
 
-  private selection:any;
   private showListChanged:boolean = false;
 
   /**
    * Create a new instance
    */
-  public constructor() {
+  public constructor(
+      private renderer:Renderer2
+  ) {
     this.autoBlur = new EventEmitter<any>();
     this.autoFocus = new EventEmitter<any>();
     this.blur = new EventEmitter<any>();
     this.focus = new EventEmitter<any>();
     this.ionAutoInput = new EventEmitter<string>();
     this.itemsChange = new EventEmitter<any>();
+    this.itemsCleared = new EventEmitter<boolean>();
     this.itemsHidden = new EventEmitter<any>();
     this.itemRemoved = new EventEmitter<any>();
     this.itemSelected = new EventEmitter<any>();
     this.itemsShown = new EventEmitter<any>();
-    this.modelChanged = new EventEmitter<any>();
+    this.modelChange = new EventEmitter<any>();
 
     this.keyword = '';
     this.suggestions = [];
@@ -163,6 +193,38 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     }
   }
 
+  ngDoCheck() {
+    if (!this.hasFocus) {
+      if (this.clearInvalidInput && (this.selected === null || this.multi)) {
+        if (this.keyword !== '') {
+          this.keyword = '';
+        }
+
+        if (this.inputElem && this.inputElem.nativeElement) {
+          if (this.inputElem.nativeElement.children && this.inputElem.nativeElement.children.length !== 0) {
+            if (this.inputElem.nativeElement.children[0].children && this.inputElem.nativeElement.children[0].children.length !== 0) {
+              if (this.inputElem.nativeElement.children[0].children[0].value) {
+                this.inputElem.nativeElement.children[0].children[0].value = '';
+              }
+            }
+          }
+        }
+
+        if (this.searchbarElem && this.searchbarElem.nativeElement) {
+          if (this.searchbarElem.nativeElement.children && this.searchbarElem.nativeElement.children.length !== 0) {
+            if (this.searchbarElem.nativeElement.children[0].children) {
+              if (this.searchbarElem.nativeElement.children[0].children.length !== 0) {
+                if (this.searchbarElem.nativeElement.children[0].children[0].value) {
+                  this.searchbarElem.nativeElement.children[0].children[0].value = '';
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   /**
    * Handle document click
    *
@@ -171,7 +233,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * @private
    */
   @HostListener('document:click', ['$event'])
-  private _documentClickHandler(event:Event):void {
+  public documentClickHandler(event:Event):void {
     if (
       (this.searchbarElem && this.searchbarElem.nativeElement && !this.searchbarElem.nativeElement.contains(<string><unknown>event.target))
       ||
@@ -188,7 +250,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    *
    * @private
    */
-  private _getFormValue(selection:any): any {
+  public getFormValue(selection:any): any {
     if (selection == null || typeof this.dataProvider === 'function') {
       return null;
     }
@@ -234,6 +296,12 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     };
   }
 
+  clickClear():void {
+    this.clearValue(true);
+
+    this.itemsCleared.emit(true);
+  }
+
   /**
    * Clear current input value
    *
@@ -248,16 +316,28 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
       this.hideItemList();
     }
 
+    this.focusedOption = -1;
+
     return;
+  }
+
+  keyupIonSearchbar(event, show?:boolean):void {
+    this.getItems(event.detail.target.value, show);
+  }
+
+  keyupIonInput(event, show?:boolean):void {
+    this.getItems(event.target.value, show);
   }
 
   /**
    * Get items for auto-complete
    *
-   * @param event
+   * @param keyword
    * @param show
    */
-  public getItems(event?, show?:boolean):void {
+  public getItems(keyword?:string, show?:boolean):void {
+    this.isLoading = true;
+
     if (this.promise) {
       clearTimeout(this.promise);
     }
@@ -265,7 +345,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     this.promise = setTimeout(
       () => {
         if (event) {
-          this.keyword = event.detail.target.value;
+          this.keyword = keyword;
         }
 
         let result;
@@ -274,35 +354,39 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
           this.keyword = '';
         }
 
-        result = (typeof this.dataProvider === 'function') ?
-          this.dataProvider(this.keyword) : this.dataProvider.getResults(this.keyword);
+        if (typeof this.dataProvider === 'function') {
+          result = this.dataProvider(this.keyword);
 
-        if (result instanceof Subject) {
-          result = result.asObservable();
-        }
-
-        if (result instanceof Promise) {
-          result = from(result);
-        }
-
-        if (result instanceof Observable) {
-          this.isLoading = true;
-
-          result.pipe(
-            finalize(
-              () => {
-                this.isLoading = false;
-              }
-            )
-          ).subscribe(
-            (results: any[]) => {
-              this.setSuggestions(results, show);
-            },
-            (error: any) => console.error(error)
-          )
-          ;
-        } else {
           this.setSuggestions(result, show);
+
+          this.isLoading = false;
+        } else {
+          result = this.dataProvider.getResults(this.keyword);
+
+          if (result instanceof Subject) {
+            result = result.asObservable();
+          } else if (result instanceof Promise) {
+            result = from(result);
+          }
+
+          if (result instanceof Observable) {
+            result.pipe(
+                finalize(
+                    () => {
+                      this.isLoading = false;
+                    }
+                )
+            ).subscribe(
+                (results: any[]) => {
+                  this.setSuggestions(results, show);
+                },
+                (error: any) => console.error(error)
+            );
+          } else {
+            this.setSuggestions(result, show);
+
+            this.isLoading = false;
+          }
         }
 
         this.ionAutoInput.emit(this.keyword);
@@ -316,16 +400,26 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    *
    * @param selection
    */
-  public getLabel(selection:any):string {
+  public getLabel(selection:any|any[]):string {
     if (selection == null || typeof this.dataProvider === 'function') {
       return '';
     }
 
-    let attr = this.dataProvider.labelAttribute;
+    let attr = this.dataProvider.formValueAttribute == null ?
+        this.dataProvider.labelAttribute : this.dataProvider.formValueAttribute;
+
     let value = selection;
 
     if (this.dataProvider.getItemLabel) {
       value = this.dataProvider.getItemLabel(value);
+    }
+
+    if (!this.multi && typeof value !== 'undefined' && Object.prototype.toString.call(value) === '[object Array]') {
+      if (value.length === 0) {
+        return '';
+      } else {
+        value = value[0];
+      }
     }
 
     if (typeof value === 'object' && attr) {
@@ -349,8 +443,14 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   /**
    * Get menu style
    */
-  public getStyle():any {
+  public listStyles():any {
+    const listLocationStyles = this.listLocationStyles();
+    return { ...listLocationStyles, ...this.styles.list };
+  }
+
+  private listLocationStyles():any {
     let location = this.location;
+
     if (this.location === 'auto') {
       const elementY = this._getPosition(
         this.searchbarElem.nativeElement
@@ -420,12 +520,33 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    */
   public hideItemList():void {
     this.showList = this.alwaysShowList;
+    this.focusedOption = -1;
+  }
+
+  highlightItem(direction:number):void {
+    const max = this.suggestions.length - 1;
+
+    if (direction < 0) {
+      if (this.focusedOption === -1 || this.focusedOption === max) {
+        this.focusedOption = 0;
+      } else {
+        this.focusedOption++;
+      }
+    } else if (direction > 0) {
+      if (this.focusedOption === -1 || this.focusedOption === 0) {
+        this.focusedOption = max;
+      } else {
+        this.focusedOption--;
+      }
+    }
   }
 
   /**
    * Fired when the input focused
    */
   onFocus(event:any):void {
+    this.hasFocus = true;
+
     this.getItems();
 
     event = this._reflectName(event);
@@ -438,6 +559,8 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * Fired when the input focused
    */
   onBlur(event):void {
+    this.hasFocus = false;
+
     event = this._reflectName(event);
 
     this.autoBlur.emit(event);
@@ -501,12 +624,14 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
   public removeExcluded(suggestions:any[]):any[] {
     const excludedCount = this.exclude.length;
-    const suggestionCount = this.suggestions.length;
 
     for (let i = 0; i < excludedCount; i++) {
-      const exclude = this.exclude[i];
+      let excludeLabel = this.exclude[i];
+      if (typeof excludeLabel === 'object') {
+        excludeLabel = this.getLabel(excludeLabel);
+      }
 
-      const excludeLabel = this.getLabel(exclude);
+      const suggestionCount = suggestions.length;
 
       for (let j = 0; j < suggestionCount; j++) {
         const suggestedLabel = this.getLabel(
@@ -515,6 +640,8 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
         if (excludeLabel === suggestedLabel) {
           suggestions.splice(j, 1);
+
+          break;
         }
       }
     }
@@ -549,7 +676,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
         this.itemsChange.emit(this.selected);
     }
 
-    this.modelChanged.emit(this.selected);
+    this.modelChange.emit(this.selected);
   }
 
   /**
@@ -559,7 +686,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    **/
   public selectItem(selection:any):void {
     this.keyword = this.getLabel(selection);
-    this.formValue = this._getFormValue(selection);
+    this.formValue = this.getFormValue(selection);
     this.hideItemList();
 
     this.updateModel(this.formValue);
@@ -569,10 +696,14 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     }
 
     if (this.multi) {
-      this.clearValue();
+      if (this.maxSelected === null || this.selected.length <= this.maxSelected) {
+        this.clearValue();
 
-      this.selected.push(selection);
-      this.itemsChange.emit(this.selected);
+        this.selected.push(selection);
+        this.itemsChange.emit(this.selected);
+      } else {
+        return;
+      }
     } else {
       this.selection = selection;
 
@@ -581,7 +712,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     }
 
     this.itemSelected.emit(selection);
-    this.modelChanged.emit(this.selected);
+    this.modelChange.emit(this.selected);
   }
 
   /**
@@ -618,7 +749,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * @param selection
    */
   public setValue(selection: any):void {
-    this.formValue = this._getFormValue(selection);
+    this.formValue = this.getFormValue(selection);
     this.keyword = this.getLabel(selection);
     return;
   }
@@ -637,14 +768,16 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     if (enteredText !== this.formValue) {
       this.formValue = enteredText;
 
-      this.selected = this.multi ? [] : null;
+      if (!this.multi) {
+        this.selected = null;
+      }
     }
 
     if (this.onChangeCallback) {
-        this.onChangeCallback(this.formValue);
+      this.onChangeCallback(this.formValue);
     }
 
-    this.modelChanged.emit(this.selected);
+    this.modelChange.emit(this.selected);
   }
 
   /**
@@ -655,7 +788,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   public writeValue(value:any):void {
     if (value !== this.selection) {
       this.selection = value || null;
-      this.formValue = this._getFormValue(this.selection);
+      this.formValue = this.getFormValue(this.selection);
       this.keyword = this.getLabel(this.selection);
     }
   }

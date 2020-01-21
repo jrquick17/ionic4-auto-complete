@@ -8,7 +8,7 @@
 
 <ion-content>
   <ion-list style="height: 100%;">
-    <ion-segment (ionChange)="selectedSegment = $event.detail.value">
+    <ion-segment (ionChange)="onClickSegment($event)">
       <ion-segment-button *ngFor="let segment of segments"
                           [value]="segment.key"
                           [checked]="segment.key === selectedSegment">
@@ -57,6 +57,20 @@
           </ion-col>
           <ion-col [size]="12">
             <multi-function></multi-function>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="selectedSegment === 'custom-template'"
+              style="height: 100%;">
+      <ion-card-content>
+        <ion-row>
+          <ion-col class="label">
+            Select up to 3 Countries
+          </ion-col>
+          <ion-col [size]="12">
+            <custom-template></custom-template>
           </ion-col>
         </ion-row>
       </ion-card-content>

@@ -1,27 +1,43 @@
+<ng-template #defaultSelection
+             let-attrs="attrs">
+    <ion-chip class="{{ attrs.removeButtonClasses }}"
+              [color]="attrs.removeButtonColor"
+              [outline]="true">
+        <ion-icon *ngIf="frontIcon"
+                  [name]="frontIcon"
+                  [slot]="'start'"
+                  color="primary"></ion-icon>
+
+        <ion-label>{{ attrs.label }}</ion-label>
+
+        <ion-icon *ngIf="attrs.removeButtonIcon"
+                  [name]="attrs.removeButtonIcon"
+                  [slot]="attrs.removeButtonSlot"></ion-icon>
+    </ion-chip>
+</ng-template>
+
 <div *ngIf="multi">
     <div *ngFor="let item of selected"
-         class="selected-items">
-        <ion-chip class="{{ removeButtonClasses }}"
-                  [color]="removeButtonColor"
-                  [outline]="true"
-                  (click)="removeItem(item)">
-            <ion-icon *ngIf="frontIcon"
-                      [name]="frontIcon"
-                      [slot]="'start'"
-                      color="primary"></ion-icon>
-
-            <ion-label>{{ getLabel(item) }}</ion-label>
-
-            <ion-icon *ngIf="removeButtonIcon"
-                      [name]="removeButtonIcon"
-                      [slot]="removeButtonSlot"></ion-icon>
-        </ion-chip>
+         class="selected-items"
+         (click)="removeItem(item)">
+        <ng-template [ngTemplateOutlet]="selectionTemplate || defaultSelection"
+                     [ngTemplateOutletContext]="{
+                            attrs: {
+                              data:                item,
+                              label:               getLabel(item),
+                              removeButtonClasses: removeButtonClasses,
+                              removeButtonColor:   removeButtonColor,
+                              removeButtonIcon:    removeButtonIcon,
+                              removeButtonSlot:    removeButtonSlot
+                            }
+                         }"></ng-template>
     </div>
 </div>
 
 <ion-input #inputElem
+           [autocomplete]="enableBrowserAutoComplete ? 'on' : 'off'"
            [name]="name"
-           (keyup)="getItems($event)"
+           (keyup)="keyupIonInput($event)"
            (tap)="handleTap($event)"
            [(ngModel)]="keyword"
            (ngModelChange)="updateModel($event)"
@@ -31,15 +47,21 @@
            [clearInput]="options.clearInput == null ? defaultOpts.clearInput : options.clearInput"
            [color]="options.color == null ? null : options.color"
            [mode]="options.mode == null ? defaultOpts.mode : options.mode"
-           [disabled]="disabled"
+           [disabled]="disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected)"
            [ngClass]="{ 'hidden': !useIonInput, 'loading': isLoading }"
+           [ngStyle]="styles.searchbar"
+           (keyup.arrowDown)="highlightItem(-1)"
+           (keyup.arrowUp)="highlightItem(1)"
+           (keyup.enter)="handleSelectTap($event, suggestions[focusedOption])"
+           (keyup.escape)="hideItemList()"
            (ionFocus)="onFocus($event)"
            (ionBlur)="onBlur($event)"></ion-input>
 
 <ion-searchbar #searchbarElem
+               [autocomplete]="enableBrowserAutoComplete ? 'on' : 'off'"
                [name]="name"
                [animated]="options.animated == null ? defaultOpts.animated : options.animated"
-               (ionInput)="getItems($event)"
+               (ionInput)="keyupIonSearchbar($event)"
                (tap)="handleTap($event)"
                [(ngModel)]="keyword"
                (ngModelChange)="updateModel($event)"
@@ -47,27 +69,42 @@
                [cancelButtonText]="options.cancelButtonText == null ? defaultOpts.cancelButtonText : options.cancelButtonText"
                [clearIcon]="options.clearIcon == null ? defaultOpts.clearIcon : options.clearIcon"
                [color]="options.color == null ? null : options.color"
-               [showCancelButton]="options.showCancelButton == null ? defaultOpts.showCancelButton : options.showCancelButton"
+               [showCancelButton]="options.showCancelButton == null ?
+                                        (defaultOpts.showCancelButton ? 'always' : 'never') :
+                                        (options.showCancelButton ? 'always' : 'never')"
                [debounce]="options.debounce == null ? defaultOpts.debounce : options.debounce"
                [placeholder]="options.placeholder == null ? defaultOpts.placeholder : options.placeholder"
-               [autocomplete]="options.autocomplete == null ? defaultOpts.autocomplete : options.autocomplete"
                [autocorrect]="options.autocorrect == null ? defaultOpts.autocorrect : options.autocorrect"
                [mode]="options.mode == null ? defaultOpts.mode : options.mode"
                [searchIcon]="options.searchIcon == null ? defaultOpts.searchIcon : options.searchIcon"
                [spellcheck]="options.spellcheck == null ? defaultOpts.spellcheck : options.spellcheck"
                [type]="options.type == null ? defaultOpts.type : options.type"
-               [ngClass]="{ 'hidden': useIonInput, 'loading': isLoading, 'disabled': disabled }"
-               (ionClear)="clearValue(true)"
+               [ngClass]="{ 'hidden': useIonInput, 'loading': isLoading, 'disabled': disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected) }"
+               [ngStyle]="styles.searchbar"
+               (keyup.arrowDown)="highlightItem(-1)"
+               (keyup.arrowUp)="highlightItem(1)"
+               (keyup.enter)="handleSelectTap($event, suggestions[focusedOption])"
+               (keyup.escape)="hideItemList()"
+               (ionClear)="clickClear()"
                (ionFocus)="onFocus($event)"
                (ionBlur)="onBlur($event)"></ion-searchbar>
 
-<ng-template #defaultTemplate let-attrs="attrs">
+<ng-template #defaultTemplate
+             let-attrs="attrs">
     <span [innerHTML]='attrs.label | boldprefix:attrs.keyword'></span>
 </ng-template>
 
-<ul *ngIf="!disabled && suggestions.length > 0 && showList"
-    [ngStyle]="getStyle()">
-    <li *ngFor="let suggestion of suggestions"
+<ng-template #defaultEmptyTemplate
+             let-attrs="attrs"
+             class="ion-text-center">
+    {{ options.noItems }}
+</ng-template>
+
+<ul *ngIf="!(disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected)) && suggestions.length > 0 && showList"
+    [ngStyle]="listStyles()">
+    <li *ngFor="let suggestion of suggestions| slice:0:maxResults; let index = index"
+        [ngClass]="{ 'focus': focusedOption === index }"
+        [ngStyle]="styles.listItem"
         (click)="handleSelectTap($event, suggestion)"
         (tap)="handleSelectTap($event, suggestion)">
         <ng-template [ngTemplateOutlet]="template || defaultTemplate"
@@ -76,14 +113,22 @@
                           data:               suggestion,
                           label:              getLabel(suggestion),
                           keyword:            keyword,
-                          formValue:          _getFormValue(suggestion),
-                          labelAttribute:     dataProvider.labelAttribute,
-                          formValueAttribute: dataProvider.formValueAttribute
+                          formValue:          getFormValue(suggestion),
+                          labelAttribute:     getLabel(suggestion),
+                          formValueAttribute: getFormValue(suggestion)
                         }
                      }"></ng-template>
     </li>
 </ul>
 
-<p *ngIf="suggestions.length == 0 && showList && options.noItems">
-    {{ options.noItems }}
-</p>
+<ul *ngIf="suggestions.length === 0 && showList && options.noItems"
+    [ngStyle]="listStyles()">
+    <li [ngStyle]="styles.listItem">
+        <ng-template [ngTemplateOutlet]="emptyTemplate || defaultEmptyTemplate"
+                     [ngTemplateOutletContext]="{
+                        attrs:{
+                          keyword: keyword
+                        }
+                     }"></ng-template>
+    </li>
+</ul>

@@ -49,6 +49,9 @@
             <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
         </li>
         <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
             <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
         </li>
 </ul>
@@ -69,6 +72,7 @@
     <p class="comment">
                     <code><a href="https://angular.io/api/core/AfterViewChecked" target="_blank" >AfterViewChecked</a></code>
                     <code><a href="https://angular.io/api/forms/ControlValueAccessor" target="_blank" >ControlValueAccessor</a></code>
+                    <code><a href="https://angular.io/api/core/DoCheck" target="_blank" >DoCheck</a></code>
     </p>
 
 
@@ -100,6 +104,10 @@
                 <td class="col-md-9"><code>ion-auto-complete</code></td>
             </tr>
 
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./auto-complete.component.scss</code></td>
+            </tr>
 
 
 
@@ -141,7 +149,15 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#focusedOption">focusedOption</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#formValue">formValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#hasFocus">hasFocus</a>
                             </li>
                             <li>
                                     <span class="modifier">Private</span>
@@ -172,7 +188,7 @@
                                 <a href="#selected">selected</a>
                             </li>
                             <li>
-                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Public</span>
                                 <a href="#selection">selection</a>
                             </li>
                             <li>
@@ -207,6 +223,9 @@
                                 <a href="#clearValue">clearValue</a>
                             </li>
                             <li>
+                                <a href="#clickClear">clickClear</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#getFormValue">getFormValue</a>
                             </li>
@@ -221,10 +240,6 @@
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#getSelection">getSelection</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#getStyle">getStyle</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -243,7 +258,27 @@
                                 <a href="#hideItemList">hideItemList</a>
                             </li>
                             <li>
+                                <a href="#highlightItem">highlightItem</a>
+                            </li>
+                            <li>
+                                <a href="#keyupIonInput">keyupIonInput</a>
+                            </li>
+                            <li>
+                                <a href="#keyupIonSearchbar">keyupIonSearchbar</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#listLocationStyles">listLocationStyles</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#listStyles">listStyles</a>
+                            </li>
+                            <li>
                                 <a href="#ngAfterViewChecked">ngAfterViewChecked</a>
+                            </li>
+                            <li>
+                                <a href="#ngDoCheck">ngDoCheck</a>
                             </li>
                             <li>
                                 <a href="#onBlur">onBlur</a>
@@ -315,6 +350,9 @@
                                 <a href="#alwaysShowList">alwaysShowList</a>
                             </li>
                             <li>
+                                <a href="#clearInvalidInput">clearInvalidInput</a>
+                            </li>
+                            <li>
                                 <a href="#dataProvider">dataProvider</a>
                             </li>
                             <li>
@@ -322,6 +360,12 @@
                             </li>
                             <li>
                                 <a href="#eager">eager</a>
+                            </li>
+                            <li>
+                                <a href="#emptyTemplate">emptyTemplate</a>
+                            </li>
+                            <li>
+                                <a href="#enableBrowserAutoComplete">enableBrowserAutoComplete</a>
                             </li>
                             <li>
                                 <a href="#exclude">exclude</a>
@@ -337,6 +381,12 @@
                             </li>
                             <li>
                                 <a href="#location">location</a>
+                            </li>
+                            <li>
+                                <a href="#maxResults">maxResults</a>
+                            </li>
+                            <li>
+                                <a href="#maxSelected">maxSelected</a>
                             </li>
                             <li>
                                 <a href="#model">model</a>
@@ -366,7 +416,13 @@
                                 <a href="#removeDuplicateSuggestions">removeDuplicateSuggestions</a>
                             </li>
                             <li>
+                                <a href="#selectionTemplate">selectionTemplate</a>
+                            </li>
+                            <li>
                                 <a href="#showResultsFirst">showResultsFirst</a>
+                            </li>
+                            <li>
+                                <a href="#styles">styles</a>
                             </li>
                             <li>
                                 <a href="#template">template</a>
@@ -408,6 +464,9 @@
                                 <a href="#itemsChange">itemsChange</a>
                             </li>
                             <li>
+                                <a href="#itemsCleared">itemsCleared</a>
+                            </li>
+                            <li>
                                 <a href="#itemSelected">itemSelected</a>
                             </li>
                             <li>
@@ -417,7 +476,7 @@
                                 <a href="#itemsShown">itemsShown</a>
                             </li>
                             <li>
-                                <a href="#modelChanged">modelChanged</a>
+                                <a href="#modelChange">modelChange</a>
                             </li>
                         </ul>
                     </td>
@@ -470,12 +529,12 @@
                 <tr>
                     <td class="col-md-4">
                                 <span class="modifier">Public</span>
-                        <code>constructor()</code>
+                        <code>constructor(renderer: <a href="https://angular.io/api/core/Renderer2" target="_blank">Renderer2</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">src/auto-complete/auto-complete.component.ts:127</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="154" class="link-to-prism">src/auto-complete/auto-complete.component.ts:154</a></div>
                             </td>
                         </tr>
 
@@ -483,6 +542,32 @@
                     <td class="col-md-4">
                             <div class="io-description"><p>Create a new instance</p>
 </div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>renderer</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://angular.io/api/core/Renderer2" target="_blank" >Renderer2</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
                     </td>
                 </tr>
             </tbody>
@@ -507,7 +592,33 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/auto-complete/auto-complete.component.ts:22</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/auto-complete/auto-complete.component.ts:38</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="clearInvalidInput"></a>
+                        <b>clearInvalidInput</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/auto-complete/auto-complete.component.ts:40</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -528,7 +639,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/auto-complete/auto-complete.component.ts:23</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/auto-complete/auto-complete.component.ts:41</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -554,7 +665,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/auto-complete/auto-complete.component.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/auto-complete/auto-complete.component.ts:42</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -575,7 +686,54 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/auto-complete/auto-complete.component.ts:65</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/auto-complete/auto-complete.component.ts:90</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="emptyTemplate"></a>
+                        <b>emptyTemplate</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/auto-complete/auto-complete.component.ts:43</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="enableBrowserAutoComplete"></a>
+                        <b>enableBrowserAutoComplete</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/auto-complete/auto-complete.component.ts:39</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -601,7 +759,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/auto-complete/auto-complete.component.ts:25</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/auto-complete/auto-complete.component.ts:44</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -627,7 +785,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/auto-complete/auto-complete.component.ts:26</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/auto-complete/auto-complete.component.ts:45</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -653,7 +811,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/auto-complete/auto-complete.component.ts:27</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/auto-complete/auto-complete.component.ts:46</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -674,7 +832,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/auto-complete/auto-complete.component.ts:28</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/auto-complete/auto-complete.component.ts:47</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -700,7 +858,59 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/auto-complete/auto-complete.component.ts:29</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/auto-complete/auto-complete.component.ts:48</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="maxResults"></a>
+                        <b>maxResults</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>8</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/auto-complete/auto-complete.component.ts:49</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="maxSelected"></a>
+                        <b>maxSelected</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/auto-complete/auto-complete.component.ts:50</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -721,7 +931,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/auto-complete/auto-complete.component.ts:43</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/auto-complete/auto-complete.component.ts:66</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -747,7 +957,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/auto-complete/auto-complete.component.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/auto-complete/auto-complete.component.ts:51</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -773,7 +983,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/auto-complete/auto-complete.component.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/auto-complete/auto-complete.component.ts:52</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -799,7 +1009,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/auto-complete/auto-complete.component.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/auto-complete/auto-complete.component.ts:53</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -825,7 +1035,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/auto-complete/auto-complete.component.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/auto-complete/auto-complete.component.ts:54</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -851,7 +1061,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/auto-complete/auto-complete.component.ts:34</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/auto-complete/auto-complete.component.ts:55</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -877,7 +1087,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/auto-complete/auto-complete.component.ts:35</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/auto-complete/auto-complete.component.ts:56</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -903,7 +1113,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/auto-complete/auto-complete.component.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/auto-complete/auto-complete.component.ts:57</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -929,7 +1139,28 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/auto-complete/auto-complete.component.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/auto-complete/auto-complete.component.ts:58</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="selectionTemplate"></a>
+                        <b>selectionTemplate</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>TemplateRef&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/auto-complete/auto-complete.component.ts:59</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -950,7 +1181,33 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/auto-complete/auto-complete.component.ts:38</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/auto-complete/auto-complete.component.ts:60</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="styles"></a>
+                        <b>styles</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/AutoCompleteStyles.html" target="_self" >AutoCompleteStyles</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new AutoCompleteStyles</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/auto-complete/auto-complete.component.ts:61</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -971,7 +1228,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/auto-complete/auto-complete.component.ts:39</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/auto-complete/auto-complete.component.ts:62</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -990,9 +1247,14 @@
 
                     </td>
                 </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/auto-complete/auto-complete.component.ts:40</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/auto-complete/auto-complete.component.ts:63</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -1016,7 +1278,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/auto-complete/auto-complete.component.ts:74</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/auto-complete/auto-complete.component.ts:98</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -1037,7 +1299,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/auto-complete/auto-complete.component.ts:73</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">src/auto-complete/auto-complete.component.ts:97</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -1058,7 +1320,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/auto-complete/auto-complete.component.ts:71</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/auto-complete/auto-complete.component.ts:96</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -1079,7 +1341,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/auto-complete/auto-complete.component.ts:75</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">src/auto-complete/auto-complete.component.ts:99</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -1100,7 +1362,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/auto-complete/auto-complete.component.ts:76</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">src/auto-complete/auto-complete.component.ts:100</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -1121,7 +1383,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/auto-complete/auto-complete.component.ts:79</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/auto-complete/auto-complete.component.ts:104</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -1142,7 +1404,28 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/auto-complete/auto-complete.component.ts:77</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/auto-complete/auto-complete.component.ts:101</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="itemsCleared"></a>
+                        <b>itemsCleared</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/auto-complete/auto-complete.component.ts:102</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -1163,7 +1446,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/auto-complete/auto-complete.component.ts:80</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">src/auto-complete/auto-complete.component.ts:105</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -1184,7 +1467,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/auto-complete/auto-complete.component.ts:78</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/auto-complete/auto-complete.component.ts:103</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -1205,7 +1488,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/auto-complete/auto-complete.component.ts:81</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">src/auto-complete/auto-complete.component.ts:106</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -1214,8 +1497,8 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="modelChanged"></a>
-                        <b>modelChanged</b>
+                        <a name="modelChange"></a>
+                        <b>modelChange</b>
                     </td>
                 </tr>
                 <tr>
@@ -1226,7 +1509,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-2" colspan="2">
-                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/auto-complete/auto-complete.component.ts:72</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/auto-complete/auto-complete.component.ts:87</a></div>
                             </td>
                         </tr>
             </tbody>
@@ -1261,8 +1544,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="174"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:174</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="236"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:236</a></div>
                 </td>
             </tr>
 
@@ -1306,8 +1589,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="213"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:213</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="275"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:275</a></div>
                 </td>
             </tr>
 
@@ -1374,8 +1657,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="447"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:447</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="570"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:570</a></div>
                 </td>
             </tr>
 
@@ -1446,8 +1729,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="242"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:242</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="310"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:310</a></div>
                 </td>
             </tr>
 
@@ -1504,6 +1787,45 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="clickClear"></a>
+                    <span class="name">
+                        <b>
+                            clickClear
+                        </b>
+                        <a href="#clickClear"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clickClear()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="299"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:299</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="getFormValue"></a>
                     <span class="name">
                         <b>
@@ -1524,8 +1846,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="191"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:191</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="253"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:253</a></div>
                 </td>
             </tr>
 
@@ -1591,15 +1913,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getItems(event?, show?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                    <code>getItems(keyword?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, show?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="260"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:260</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="338"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:338</a></div>
                 </td>
             </tr>
 
@@ -1621,8 +1943,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>event</td>
+                                    <td>keyword</td>
                                     <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
 
                                     <td>
@@ -1676,15 +1999,15 @@
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getLabel(selection: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    <code>getLabel(selection: any | any[])</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="319"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:319</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="403"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:403</a></div>
                 </td>
             </tr>
 
@@ -1708,7 +2031,7 @@
                                 <tr>
                                     <td>selection</td>
                                     <td>
-                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            <code>any | any[]</code>
                                     </td>
 
                                     <td>
@@ -1757,8 +2080,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="341"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:341</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="435"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:435</a></div>
                 </td>
             </tr>
 
@@ -1770,49 +2093,6 @@
 
                     <div class="io-description">
                         <b>Returns : </b>    <code>any | []</code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="getStyle"></a>
-                    <span class="name">
-                        <b>
-                            <span class="modifier">Public</span>
-                            getStyle
-                        </b>
-                        <a href="#getStyle"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-                    <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getStyle()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="352"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:352</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-description"><p>Get menu style</p>
-</div>
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                 </td>
@@ -1843,8 +2123,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="380"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:380</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="480"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:480</a></div>
                 </td>
             </tr>
 
@@ -1886,8 +2166,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="401"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:401</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="501"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:501</a></div>
                 </td>
             </tr>
 
@@ -1971,8 +2251,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="389"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:389</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="489"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:489</a></div>
                 </td>
             </tr>
 
@@ -2041,8 +2321,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="421"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:421</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="521"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:521</a></div>
                 </td>
             </tr>
 
@@ -2054,6 +2334,322 @@
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="highlightItem"></a>
+                    <span class="name">
+                        <b>
+                            highlightItem
+                        </b>
+                        <a href="#highlightItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>highlightItem(direction: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="526"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:526</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>direction</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="keyupIonInput"></a>
+                    <span class="name">
+                        <b>
+                            keyupIonInput
+                        </b>
+                        <a href="#keyupIonInput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>keyupIonInput(event, show?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="328"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:328</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>show</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="keyupIonSearchbar"></a>
+                    <span class="name">
+                        <b>
+                            keyupIonSearchbar
+                        </b>
+                        <a href="#keyupIonSearchbar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>keyupIonSearchbar(event, show?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="324"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:324</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>event</td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                                <tr>
+                                    <td>show</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                    </td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listLocationStyles"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Private</span>
+                            listLocationStyles
+                        </b>
+                        <a href="#listLocationStyles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>listLocationStyles()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="451"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:451</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listStyles"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            listStyles
+                        </b>
+                        <a href="#listStyles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>listStyles()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="446"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:446</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Get menu style</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                     </div>
                 </td>
@@ -2082,8 +2678,47 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="159"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:159</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="189"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:189</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngDoCheck"></a>
+                    <span class="name">
+                        <b>
+                            ngDoCheck
+                        </b>
+                        <a href="#ngDoCheck"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngDoCheck()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="196"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:196</a></div>
                 </td>
             </tr>
 
@@ -2121,8 +2756,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="440"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:440</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="561"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:561</a></div>
                 </td>
             </tr>
 
@@ -2189,8 +2824,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="428"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:428</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="547"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:547</a></div>
                 </td>
             </tr>
 
@@ -2263,8 +2898,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="460"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:460</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="583"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:583</a></div>
                 </td>
             </tr>
 
@@ -2337,8 +2972,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="469"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:469</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="592"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:592</a></div>
                 </td>
             </tr>
 
@@ -2411,8 +3046,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="478"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:478</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="601"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:601</a></div>
                 </td>
             </tr>
 
@@ -2485,8 +3120,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="502"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:502</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="625"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:625</a></div>
                 </td>
             </tr>
 
@@ -2557,8 +3192,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="531"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:531</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="658"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:658</a></div>
                 </td>
             </tr>
 
@@ -2650,8 +3285,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="560"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:560</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="687"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:687</a></div>
                 </td>
             </tr>
 
@@ -2724,8 +3359,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="590"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:590</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="721"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:721</a></div>
                 </td>
             </tr>
 
@@ -2767,8 +3402,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="602"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:602</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="733"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:733</a></div>
                 </td>
             </tr>
 
@@ -2853,8 +3488,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="620"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:620</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="751"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:751</a></div>
                 </td>
             </tr>
 
@@ -2927,8 +3562,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="629"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:629</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="760"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:760</a></div>
                 </td>
             </tr>
 
@@ -2970,8 +3605,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="636"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:636</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="767"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:767</a></div>
                 </td>
             </tr>
 
@@ -3044,8 +3679,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="655"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:655</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="788"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:788</a></div>
                 </td>
             </tr>
 
@@ -3121,7 +3756,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">src/auto-complete/auto-complete.component.ts:124</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="152" class="link-to-prism">src/auto-complete/auto-complete.component.ts:152</a></div>
                             </td>
                         </tr>
 
@@ -3149,7 +3784,40 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">src/auto-complete/auto-complete.component.ts:104</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">src/auto-complete/auto-complete.component.ts:129</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="focusedOption"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            focusedOption</b>
+                            <a href="#focusedOption"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>-1</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">src/auto-complete/auto-complete.component.ts:132</a></div>
                             </td>
                         </tr>
 
@@ -3177,7 +3845,40 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">src/auto-complete/auto-complete.component.ts:106</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">src/auto-complete/auto-complete.component.ts:133</a></div>
+                            </td>
+                        </tr>
+
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="hasFocus"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            hasFocus</b>
+                            <a href="#hasFocus"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="130" class="link-to-prism">src/auto-complete/auto-complete.component.ts:130</a></div>
                             </td>
                         </tr>
 
@@ -3214,7 +3915,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="99" class="link-to-prism">src/auto-complete/auto-complete.component.ts:99</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">src/auto-complete/auto-complete.component.ts:124</a></div>
                             </td>
                         </tr>
 
@@ -3247,7 +3948,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">src/auto-complete/auto-complete.component.ts:105</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">src/auto-complete/auto-complete.component.ts:131</a></div>
                             </td>
                         </tr>
 
@@ -3280,7 +3981,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/auto-complete/auto-complete.component.ts:102</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">src/auto-complete/auto-complete.component.ts:127</a></div>
                             </td>
                         </tr>
 
@@ -3313,7 +4014,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/auto-complete/auto-complete.component.ts:101</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">src/auto-complete/auto-complete.component.ts:126</a></div>
                             </td>
                         </tr>
 
@@ -3335,7 +4036,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">src/auto-complete/auto-complete.component.ts:109</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/auto-complete/auto-complete.component.ts:137</a></div>
                             </td>
                         </tr>
 
@@ -3372,7 +4073,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/auto-complete/auto-complete.component.ts:90</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="115" class="link-to-prism">src/auto-complete/auto-complete.component.ts:115</a></div>
                             </td>
                         </tr>
 
@@ -3400,7 +4101,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/auto-complete/auto-complete.component.ts:107</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="134" class="link-to-prism">src/auto-complete/auto-complete.component.ts:134</a></div>
                             </td>
                         </tr>
 
@@ -3414,7 +4115,7 @@
                         <a name="selection"></a>
                         <span class="name">
                             <b>
-                                <span class="modifier">Private</span>
+                                <span class="modifier">Public</span>
                             selection</b>
                             <a href="#selection"><span class="icon ion-ios-link"></span></a>
                         </span>
@@ -3428,7 +4129,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">src/auto-complete/auto-complete.component.ts:126</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">src/auto-complete/auto-complete.component.ts:135</a></div>
                             </td>
                         </tr>
 
@@ -3461,7 +4162,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">src/auto-complete/auto-complete.component.ts:127</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="154" class="link-to-prism">src/auto-complete/auto-complete.component.ts:154</a></div>
                             </td>
                         </tr>
 
@@ -3489,7 +4190,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/auto-complete/auto-complete.component.ts:108</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">src/auto-complete/auto-complete.component.ts:136</a></div>
                             </td>
                         </tr>
 
@@ -3519,7 +4220,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/auto-complete/auto-complete.component.ts:56</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/auto-complete/auto-complete.component.ts:79</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -3574,7 +4275,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/auto-complete/auto-complete.component.ts:65</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/auto-complete/auto-complete.component.ts:90</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -3632,7 +4333,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="111" class="link-to-prism">src/auto-complete/auto-complete.component.ts:111</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">src/auto-complete/auto-complete.component.ts:139</a></div>
                                 </td>
                             </tr>
 
@@ -3643,7 +4344,7 @@
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="115" class="link-to-prism">src/auto-complete/auto-complete.component.ts:115</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">src/auto-complete/auto-complete.component.ts:143</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -3690,7 +4391,19 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, Input, Output, EventEmitter, TemplateRef, ViewChild, HostListener, ElementRef, AfterViewChecked} from &#x27;@angular/core&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Component,
+  DoCheck,
+  Input,
+  Output,
+  EventEmitter,
+  TemplateRef,
+  ViewChild,
+  HostListener,
+  ElementRef,
+  AfterViewChecked,
+  Renderer2
+} from &#x27;@angular/core&#x27;;
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from &#x27;@angular/forms&#x27;;
 
 import {from, Observable, Subject} from &#x27;rxjs&#x27;;
@@ -3698,6 +4411,7 @@ import {finalize} from &#x27;rxjs/operators&#x27;;
 
 import {AutoCompleteOptions} from &#x27;../auto-complete-options.model&#x27;;
 import {AutoCompleteService} from &#x27;../auto-complete.service&#x27;;
+import {AutoCompleteStyles} from &#x27;../auto-complete-styles.model&#x27;;
 
 @Component({
   providers: [
@@ -3708,17 +4422,25 @@ import {AutoCompleteService} from &#x27;../auto-complete.service&#x27;;
     }
   ],
   selector:    &#x27;ion-auto-complete&#x27;,
+  styleUrls: [
+    &#x27;./auto-complete.component.scss&#x27;
+  ],
   templateUrl: &#x27;auto-complete.component.html&#x27;
 })
-export class AutoCompleteComponent implements AfterViewChecked, ControlValueAccessor {
+export class AutoCompleteComponent implements AfterViewChecked, ControlValueAccessor, DoCheck {
   @Input() public alwaysShowList:boolean;
+  @Input() public enableBrowserAutoComplete:boolean &#x3D; false;
+  @Input() public clearInvalidInput:boolean &#x3D; true;
   @Input() public dataProvider:AutoCompleteService|Function;
   @Input() public disabled:boolean &#x3D; false;
+  @Input() public emptyTemplate:TemplateRef&lt;any&gt;;
   @Input() public exclude:any[] &#x3D; [];
   @Input() public frontIcon:false|string &#x3D; false;
   @Input() public hideListOnSelection:boolean &#x3D; true;
   @Input() public keyword:string;
   @Input() public location:string &#x3D; &#x27;auto&#x27;;
+  @Input() public maxResults:number &#x3D; 8;
+  @Input() public maxSelected:number &#x3D; null;
   @Input() public multi:boolean &#x3D; false;
   @Input() public name:string &#x3D; &#x27;&#x27;;
   @Input() public options:AutoCompleteOptions &#x3D; new AutoCompleteOptions();
@@ -3727,9 +4449,11 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @Input() public removeButtonIcon:string|false &#x3D; &#x27;close-circle&#x27;;
   @Input() public removeButtonSlot:string &#x3D; &#x27;end&#x27;;
   @Input() public removeDuplicateSuggestions:boolean &#x3D; true;
+  @Input() public selectionTemplate:TemplateRef&lt;any&gt;;
   @Input() public showResultsFirst:boolean;
+  @Input() public styles &#x3D; new AutoCompleteStyles;
   @Input() public template:TemplateRef&lt;any&gt;;
-  @Input() public useIonInput:boolean;
+  @Input() public useIonInput:boolean &#x3D; false;
 
   @Input()
   get model():any[] {
@@ -3753,6 +4477,8 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     }
   }
 
+  @Output() public modelChange:EventEmitter&lt;any&gt;;
+
   @Input()
   set eager(eager:boolean) {
     if (eager) {
@@ -3761,12 +4487,12 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   }
 
   @Output() public blur:EventEmitter&lt;any&gt;;
-  @Output() public modelChanged:EventEmitter&lt;any&gt;;
   @Output() public autoFocus:EventEmitter&lt;any&gt;;
   @Output() public autoBlur:EventEmitter&lt;any&gt;;
   @Output() public focus:EventEmitter&lt;any&gt;;
   @Output() public ionAutoInput:EventEmitter&lt;string&gt;;
   @Output() public itemsChange:EventEmitter&lt;any&gt;;
+  @Output() public itemsCleared:EventEmitter&lt;boolean&gt;;
   @Output() public itemsHidden:EventEmitter&lt;any&gt;;
   @Output() public itemRemoved:EventEmitter&lt;any&gt;;
   @Output() public itemSelected:EventEmitter&lt;any&gt;;
@@ -3794,9 +4520,12 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   private onChangeCallback:Function|false &#x3D; false;
 
   public defaultOpts:AutoCompleteOptions;
+  public hasFocus:boolean &#x3D; false;
   public isLoading:boolean &#x3D; false;
+  public focusedOption:number &#x3D; -1;
   public formValue:any;
   public selected:any[];
+  public selection:any;
   public suggestions:any[];
   public promise;
 
@@ -3815,24 +4544,26 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
   private _showList:boolean;
 
-  private selection:any;
   private showListChanged:boolean &#x3D; false;
 
   /**
    * Create a new instance
    */
-  public constructor() {
+  public constructor(
+      private renderer:Renderer2
+  ) {
     this.autoBlur &#x3D; new EventEmitter&lt;any&gt;();
     this.autoFocus &#x3D; new EventEmitter&lt;any&gt;();
     this.blur &#x3D; new EventEmitter&lt;any&gt;();
     this.focus &#x3D; new EventEmitter&lt;any&gt;();
     this.ionAutoInput &#x3D; new EventEmitter&lt;string&gt;();
     this.itemsChange &#x3D; new EventEmitter&lt;any&gt;();
+    this.itemsCleared &#x3D; new EventEmitter&lt;boolean&gt;();
     this.itemsHidden &#x3D; new EventEmitter&lt;any&gt;();
     this.itemRemoved &#x3D; new EventEmitter&lt;any&gt;();
     this.itemSelected &#x3D; new EventEmitter&lt;any&gt;();
     this.itemsShown &#x3D; new EventEmitter&lt;any&gt;();
-    this.modelChanged &#x3D; new EventEmitter&lt;any&gt;();
+    this.modelChange &#x3D; new EventEmitter&lt;any&gt;();
 
     this.keyword &#x3D; &#x27;&#x27;;
     this.suggestions &#x3D; [];
@@ -3852,6 +4583,38 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     if (this.showListChanged) {
       this.showListChanged &#x3D; false;
       this.showList ? this.itemsShown.emit() : this.itemsHidden.emit();
+    }
+  }
+
+  ngDoCheck() {
+    if (!this.hasFocus) {
+      if (this.clearInvalidInput &amp;&amp; (this.selected &#x3D;&#x3D;&#x3D; null || this.multi)) {
+        if (this.keyword !&#x3D;&#x3D; &#x27;&#x27;) {
+          this.keyword &#x3D; &#x27;&#x27;;
+        }
+
+        if (this.inputElem &amp;&amp; this.inputElem.nativeElement) {
+          if (this.inputElem.nativeElement.children &amp;&amp; this.inputElem.nativeElement.children.length !&#x3D;&#x3D; 0) {
+            if (this.inputElem.nativeElement.children[0].children &amp;&amp; this.inputElem.nativeElement.children[0].children.length !&#x3D;&#x3D; 0) {
+              if (this.inputElem.nativeElement.children[0].children[0].value) {
+                this.inputElem.nativeElement.children[0].children[0].value &#x3D; &#x27;&#x27;;
+              }
+            }
+          }
+        }
+
+        if (this.searchbarElem &amp;&amp; this.searchbarElem.nativeElement) {
+          if (this.searchbarElem.nativeElement.children &amp;&amp; this.searchbarElem.nativeElement.children.length !&#x3D;&#x3D; 0) {
+            if (this.searchbarElem.nativeElement.children[0].children) {
+              if (this.searchbarElem.nativeElement.children[0].children.length !&#x3D;&#x3D; 0) {
+                if (this.searchbarElem.nativeElement.children[0].children[0].value) {
+                  this.searchbarElem.nativeElement.children[0].children[0].value &#x3D; &#x27;&#x27;;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 
@@ -3926,6 +4689,12 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     };
   }
 
+  clickClear():void {
+    this.clearValue(true);
+
+    this.itemsCleared.emit(true);
+  }
+
   /**
    * Clear current input value
    *
@@ -3940,16 +4709,28 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
       this.hideItemList();
     }
 
+    this.focusedOption &#x3D; -1;
+
     return;
+  }
+
+  keyupIonSearchbar(event, show?:boolean):void {
+    this.getItems(event.detail.target.value, show);
+  }
+
+  keyupIonInput(event, show?:boolean):void {
+    this.getItems(event.target.value, show);
   }
 
   /**
    * Get items for auto-complete
    *
-   * @param event
+   * @param keyword
    * @param show
    */
-  public getItems(event?, show?:boolean):void {
+  public getItems(keyword?:string, show?:boolean):void {
+    this.isLoading &#x3D; true;
+
     if (this.promise) {
       clearTimeout(this.promise);
     }
@@ -3957,7 +4738,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     this.promise &#x3D; setTimeout(
       () &#x3D;&gt; {
         if (event) {
-          this.keyword &#x3D; event.detail.target.value;
+          this.keyword &#x3D; keyword;
         }
 
         let result;
@@ -3966,35 +4747,39 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
           this.keyword &#x3D; &#x27;&#x27;;
         }
 
-        result &#x3D; (typeof this.dataProvider &#x3D;&#x3D;&#x3D; &#x27;function&#x27;) ?
-          this.dataProvider(this.keyword) : this.dataProvider.getResults(this.keyword);
+        if (typeof this.dataProvider &#x3D;&#x3D;&#x3D; &#x27;function&#x27;) {
+          result &#x3D; this.dataProvider(this.keyword);
 
-        if (result instanceof Subject) {
-          result &#x3D; result.asObservable();
-        }
-
-        if (result instanceof Promise) {
-          result &#x3D; from(result);
-        }
-
-        if (result instanceof Observable) {
-          this.isLoading &#x3D; true;
-
-          result.pipe(
-            finalize(
-              () &#x3D;&gt; {
-                this.isLoading &#x3D; false;
-              }
-            )
-          ).subscribe(
-            (results: any[]) &#x3D;&gt; {
-              this.setSuggestions(results, show);
-            },
-            (error: any) &#x3D;&gt; console.error(error)
-          )
-          ;
-        } else {
           this.setSuggestions(result, show);
+
+          this.isLoading &#x3D; false;
+        } else {
+          result &#x3D; this.dataProvider.getResults(this.keyword);
+
+          if (result instanceof Subject) {
+            result &#x3D; result.asObservable();
+          } else if (result instanceof Promise) {
+            result &#x3D; from(result);
+          }
+
+          if (result instanceof Observable) {
+            result.pipe(
+                finalize(
+                    () &#x3D;&gt; {
+                      this.isLoading &#x3D; false;
+                    }
+                )
+            ).subscribe(
+                (results: any[]) &#x3D;&gt; {
+                  this.setSuggestions(results, show);
+                },
+                (error: any) &#x3D;&gt; console.error(error)
+            );
+          } else {
+            this.setSuggestions(result, show);
+
+            this.isLoading &#x3D; false;
+          }
         }
 
         this.ionAutoInput.emit(this.keyword);
@@ -4008,16 +4793,26 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    *
    * @param selection
    */
-  public getLabel(selection:any):string {
+  public getLabel(selection:any|any[]):string {
     if (selection &#x3D;&#x3D; null || typeof this.dataProvider &#x3D;&#x3D;&#x3D; &#x27;function&#x27;) {
       return &#x27;&#x27;;
     }
 
-    let attr &#x3D; this.dataProvider.labelAttribute;
+    let attr &#x3D; this.dataProvider.formValueAttribute &#x3D;&#x3D; null ?
+        this.dataProvider.labelAttribute : this.dataProvider.formValueAttribute;
+
     let value &#x3D; selection;
 
     if (this.dataProvider.getItemLabel) {
       value &#x3D; this.dataProvider.getItemLabel(value);
+    }
+
+    if (!this.multi &amp;&amp; typeof value !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp; Object.prototype.toString.call(value) &#x3D;&#x3D;&#x3D; &#x27;[object Array]&#x27;) {
+      if (value.length &#x3D;&#x3D;&#x3D; 0) {
+        return &#x27;&#x27;;
+      } else {
+        value &#x3D; value[0];
+      }
     }
 
     if (typeof value &#x3D;&#x3D;&#x3D; &#x27;object&#x27; &amp;&amp; attr) {
@@ -4041,8 +4836,14 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   /**
    * Get menu style
    */
-  public getStyle():any {
+  public listStyles():any {
+    const listLocationStyles &#x3D; this.listLocationStyles();
+    return { ...listLocationStyles, ...this.styles.list };
+  }
+
+  private listLocationStyles():any {
     let location &#x3D; this.location;
+
     if (this.location &#x3D;&#x3D;&#x3D; &#x27;auto&#x27;) {
       const elementY &#x3D; this._getPosition(
         this.searchbarElem.nativeElement
@@ -4112,12 +4913,33 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    */
   public hideItemList():void {
     this.showList &#x3D; this.alwaysShowList;
+    this.focusedOption &#x3D; -1;
+  }
+
+  highlightItem(direction:number):void {
+    const max &#x3D; this.suggestions.length - 1;
+
+    if (direction &lt; 0) {
+      if (this.focusedOption &#x3D;&#x3D;&#x3D; -1 || this.focusedOption &#x3D;&#x3D;&#x3D; max) {
+        this.focusedOption &#x3D; 0;
+      } else {
+        this.focusedOption++;
+      }
+    } else if (direction &gt; 0) {
+      if (this.focusedOption &#x3D;&#x3D;&#x3D; -1 || this.focusedOption &#x3D;&#x3D;&#x3D; 0) {
+        this.focusedOption &#x3D; max;
+      } else {
+        this.focusedOption--;
+      }
+    }
   }
 
   /**
    * Fired when the input focused
    */
   onFocus(event:any):void {
+    this.hasFocus &#x3D; true;
+
     this.getItems();
 
     event &#x3D; this._reflectName(event);
@@ -4130,6 +4952,8 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * Fired when the input focused
    */
   onBlur(event):void {
+    this.hasFocus &#x3D; false;
+
     event &#x3D; this._reflectName(event);
 
     this.autoBlur.emit(event);
@@ -4193,12 +5017,14 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
   public removeExcluded(suggestions:any[]):any[] {
     const excludedCount &#x3D; this.exclude.length;
-    const suggestionCount &#x3D; this.suggestions.length;
 
     for (let i &#x3D; 0; i &lt; excludedCount; i++) {
-      const exclude &#x3D; this.exclude[i];
+      let excludeLabel &#x3D; this.exclude[i];
+      if (typeof excludeLabel &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
+        excludeLabel &#x3D; this.getLabel(excludeLabel);
+      }
 
-      const excludeLabel &#x3D; this.getLabel(exclude);
+      const suggestionCount &#x3D; suggestions.length;
 
       for (let j &#x3D; 0; j &lt; suggestionCount; j++) {
         const suggestedLabel &#x3D; this.getLabel(
@@ -4207,6 +5033,8 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
         if (excludeLabel &#x3D;&#x3D;&#x3D; suggestedLabel) {
           suggestions.splice(j, 1);
+
+          break;
         }
       }
     }
@@ -4241,7 +5069,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
         this.itemsChange.emit(this.selected);
     }
 
-    this.modelChanged.emit(this.selected);
+    this.modelChange.emit(this.selected);
   }
 
   /**
@@ -4261,10 +5089,14 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     }
 
     if (this.multi) {
-      this.clearValue();
+      if (this.maxSelected &#x3D;&#x3D;&#x3D; null || this.selected.length &lt;&#x3D; this.maxSelected) {
+        this.clearValue();
 
-      this.selected.push(selection);
-      this.itemsChange.emit(this.selected);
+        this.selected.push(selection);
+        this.itemsChange.emit(this.selected);
+      } else {
+        return;
+      }
     } else {
       this.selection &#x3D; selection;
 
@@ -4273,7 +5105,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     }
 
     this.itemSelected.emit(selection);
-    this.modelChanged.emit(this.selected);
+    this.modelChange.emit(this.selected);
   }
 
   /**
@@ -4329,14 +5161,16 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     if (enteredText !&#x3D;&#x3D; this.formValue) {
       this.formValue &#x3D; enteredText;
 
-      this.selected &#x3D; this.multi ? [] : null;
+      if (!this.multi) {
+        this.selected &#x3D; null;
+      }
     }
 
     if (this.onChangeCallback) {
-        this.onChangeCallback(this.formValue);
+      this.onChangeCallback(this.formValue);
     }
 
-    this.modelChanged.emit(this.selected);
+    this.modelChange.emit(this.selected);
   }
 
   /**
@@ -4356,30 +5190,46 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div *ngIf&#x3D;&quot;multi&quot;&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;ng-template #defaultSelection
+             let-attrs&#x3D;&quot;attrs&quot;&gt;
+    &lt;ion-chip class&#x3D;&quot;{{ attrs.removeButtonClasses }}&quot;
+              [color]&#x3D;&quot;attrs.removeButtonColor&quot;
+              [outline]&#x3D;&quot;true&quot;&gt;
+        &lt;ion-icon *ngIf&#x3D;&quot;frontIcon&quot;
+                  [name]&#x3D;&quot;frontIcon&quot;
+                  [slot]&#x3D;&quot;&#x27;start&#x27;&quot;
+                  color&#x3D;&quot;primary&quot;&gt;&lt;/ion-icon&gt;
+
+        &lt;ion-label&gt;{{ attrs.label }}&lt;/ion-label&gt;
+
+        &lt;ion-icon *ngIf&#x3D;&quot;attrs.removeButtonIcon&quot;
+                  [name]&#x3D;&quot;attrs.removeButtonIcon&quot;
+                  [slot]&#x3D;&quot;attrs.removeButtonSlot&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/ion-chip&gt;
+&lt;/ng-template&gt;
+
+&lt;div *ngIf&#x3D;&quot;multi&quot;&gt;
     &lt;div *ngFor&#x3D;&quot;let item of selected&quot;
-         class&#x3D;&quot;selected-items&quot;&gt;
-        &lt;ion-chip class&#x3D;&quot;{{ removeButtonClasses }}&quot;
-                  [color]&#x3D;&quot;removeButtonColor&quot;
-                  [outline]&#x3D;&quot;true&quot;
-                  (click)&#x3D;&quot;removeItem(item)&quot;&gt;
-            &lt;ion-icon *ngIf&#x3D;&quot;frontIcon&quot;
-                      [name]&#x3D;&quot;frontIcon&quot;
-                      [slot]&#x3D;&quot;&#x27;start&#x27;&quot;
-                      color&#x3D;&quot;primary&quot;&gt;&lt;/ion-icon&gt;
-
-            &lt;ion-label&gt;{{ getLabel(item) }}&lt;/ion-label&gt;
-
-            &lt;ion-icon *ngIf&#x3D;&quot;removeButtonIcon&quot;
-                      [name]&#x3D;&quot;removeButtonIcon&quot;
-                      [slot]&#x3D;&quot;removeButtonSlot&quot;&gt;&lt;/ion-icon&gt;
-        &lt;/ion-chip&gt;
+         class&#x3D;&quot;selected-items&quot;
+         (click)&#x3D;&quot;removeItem(item)&quot;&gt;
+        &lt;ng-template [ngTemplateOutlet]&#x3D;&quot;selectionTemplate || defaultSelection&quot;
+                     [ngTemplateOutletContext]&#x3D;&quot;{
+                            attrs: {
+                              data:                item,
+                              label:               getLabel(item),
+                              removeButtonClasses: removeButtonClasses,
+                              removeButtonColor:   removeButtonColor,
+                              removeButtonIcon:    removeButtonIcon,
+                              removeButtonSlot:    removeButtonSlot
+                            }
+                         }&quot;&gt;&lt;/ng-template&gt;
     &lt;/div&gt;
 &lt;/div&gt;
 
 &lt;ion-input #inputElem
+           [autocomplete]&#x3D;&quot;enableBrowserAutoComplete ? &#x27;on&#x27; : &#x27;off&#x27;&quot;
            [name]&#x3D;&quot;name&quot;
-           (keyup)&#x3D;&quot;getItems($event)&quot;
+           (keyup)&#x3D;&quot;keyupIonInput($event)&quot;
            (tap)&#x3D;&quot;handleTap($event)&quot;
            [(ngModel)]&#x3D;&quot;keyword&quot;
            (ngModelChange)&#x3D;&quot;updateModel($event)&quot;
@@ -4389,15 +5239,21 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
            [clearInput]&#x3D;&quot;options.clearInput &#x3D;&#x3D; null ? defaultOpts.clearInput : options.clearInput&quot;
            [color]&#x3D;&quot;options.color &#x3D;&#x3D; null ? null : options.color&quot;
            [mode]&#x3D;&quot;options.mode &#x3D;&#x3D; null ? defaultOpts.mode : options.mode&quot;
-           [disabled]&#x3D;&quot;disabled&quot;
+           [disabled]&#x3D;&quot;disabled || (this.maxSelected !&#x3D;&#x3D; null &amp;&amp; this.selected.length &gt;&#x3D; this.maxSelected)&quot;
            [ngClass]&#x3D;&quot;{ &#x27;hidden&#x27;: !useIonInput, &#x27;loading&#x27;: isLoading }&quot;
+           [ngStyle]&#x3D;&quot;styles.searchbar&quot;
+           (keyup.arrowDown)&#x3D;&quot;highlightItem(-1)&quot;
+           (keyup.arrowUp)&#x3D;&quot;highlightItem(1)&quot;
+           (keyup.enter)&#x3D;&quot;handleSelectTap($event, suggestions[focusedOption])&quot;
+           (keyup.escape)&#x3D;&quot;hideItemList()&quot;
            (ionFocus)&#x3D;&quot;onFocus($event)&quot;
            (ionBlur)&#x3D;&quot;onBlur($event)&quot;&gt;&lt;/ion-input&gt;
 
 &lt;ion-searchbar #searchbarElem
+               [autocomplete]&#x3D;&quot;enableBrowserAutoComplete ? &#x27;on&#x27; : &#x27;off&#x27;&quot;
                [name]&#x3D;&quot;name&quot;
                [animated]&#x3D;&quot;options.animated &#x3D;&#x3D; null ? defaultOpts.animated : options.animated&quot;
-               (ionInput)&#x3D;&quot;getItems($event)&quot;
+               (ionInput)&#x3D;&quot;keyupIonSearchbar($event)&quot;
                (tap)&#x3D;&quot;handleTap($event)&quot;
                [(ngModel)]&#x3D;&quot;keyword&quot;
                (ngModelChange)&#x3D;&quot;updateModel($event)&quot;
@@ -4405,27 +5261,42 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
                [cancelButtonText]&#x3D;&quot;options.cancelButtonText &#x3D;&#x3D; null ? defaultOpts.cancelButtonText : options.cancelButtonText&quot;
                [clearIcon]&#x3D;&quot;options.clearIcon &#x3D;&#x3D; null ? defaultOpts.clearIcon : options.clearIcon&quot;
                [color]&#x3D;&quot;options.color &#x3D;&#x3D; null ? null : options.color&quot;
-               [showCancelButton]&#x3D;&quot;options.showCancelButton &#x3D;&#x3D; null ? defaultOpts.showCancelButton : options.showCancelButton&quot;
+               [showCancelButton]&#x3D;&quot;options.showCancelButton &#x3D;&#x3D; null ?
+                                        (defaultOpts.showCancelButton ? &#x27;always&#x27; : &#x27;never&#x27;) :
+                                        (options.showCancelButton ? &#x27;always&#x27; : &#x27;never&#x27;)&quot;
                [debounce]&#x3D;&quot;options.debounce &#x3D;&#x3D; null ? defaultOpts.debounce : options.debounce&quot;
                [placeholder]&#x3D;&quot;options.placeholder &#x3D;&#x3D; null ? defaultOpts.placeholder : options.placeholder&quot;
-               [autocomplete]&#x3D;&quot;options.autocomplete &#x3D;&#x3D; null ? defaultOpts.autocomplete : options.autocomplete&quot;
                [autocorrect]&#x3D;&quot;options.autocorrect &#x3D;&#x3D; null ? defaultOpts.autocorrect : options.autocorrect&quot;
                [mode]&#x3D;&quot;options.mode &#x3D;&#x3D; null ? defaultOpts.mode : options.mode&quot;
                [searchIcon]&#x3D;&quot;options.searchIcon &#x3D;&#x3D; null ? defaultOpts.searchIcon : options.searchIcon&quot;
                [spellcheck]&#x3D;&quot;options.spellcheck &#x3D;&#x3D; null ? defaultOpts.spellcheck : options.spellcheck&quot;
                [type]&#x3D;&quot;options.type &#x3D;&#x3D; null ? defaultOpts.type : options.type&quot;
-               [ngClass]&#x3D;&quot;{ &#x27;hidden&#x27;: useIonInput, &#x27;loading&#x27;: isLoading, &#x27;disabled&#x27;: disabled }&quot;
-               (ionClear)&#x3D;&quot;clearValue(true)&quot;
+               [ngClass]&#x3D;&quot;{ &#x27;hidden&#x27;: useIonInput, &#x27;loading&#x27;: isLoading, &#x27;disabled&#x27;: disabled || (this.maxSelected !&#x3D;&#x3D; null &amp;&amp; this.selected.length &gt;&#x3D; this.maxSelected) }&quot;
+               [ngStyle]&#x3D;&quot;styles.searchbar&quot;
+               (keyup.arrowDown)&#x3D;&quot;highlightItem(-1)&quot;
+               (keyup.arrowUp)&#x3D;&quot;highlightItem(1)&quot;
+               (keyup.enter)&#x3D;&quot;handleSelectTap($event, suggestions[focusedOption])&quot;
+               (keyup.escape)&#x3D;&quot;hideItemList()&quot;
+               (ionClear)&#x3D;&quot;clickClear()&quot;
                (ionFocus)&#x3D;&quot;onFocus($event)&quot;
                (ionBlur)&#x3D;&quot;onBlur($event)&quot;&gt;&lt;/ion-searchbar&gt;
 
-&lt;ng-template #defaultTemplate let-attrs&#x3D;&quot;attrs&quot;&gt;
+&lt;ng-template #defaultTemplate
+             let-attrs&#x3D;&quot;attrs&quot;&gt;
     &lt;span [innerHTML]&#x3D;&#x27;attrs.label | boldprefix:attrs.keyword&#x27;&gt;&lt;/span&gt;
 &lt;/ng-template&gt;
 
-&lt;ul *ngIf&#x3D;&quot;!disabled &amp;&amp; suggestions.length &gt; 0 &amp;&amp; showList&quot;
-    [ngStyle]&#x3D;&quot;getStyle()&quot;&gt;
-    &lt;li *ngFor&#x3D;&quot;let suggestion of suggestions&quot;
+&lt;ng-template #defaultEmptyTemplate
+             let-attrs&#x3D;&quot;attrs&quot;
+             class&#x3D;&quot;ion-text-center&quot;&gt;
+    {{ options.noItems }}
+&lt;/ng-template&gt;
+
+&lt;ul *ngIf&#x3D;&quot;!(disabled || (this.maxSelected !&#x3D;&#x3D; null &amp;&amp; this.selected.length &gt;&#x3D; this.maxSelected)) &amp;&amp; suggestions.length &gt; 0 &amp;&amp; showList&quot;
+    [ngStyle]&#x3D;&quot;listStyles()&quot;&gt;
+    &lt;li *ngFor&#x3D;&quot;let suggestion of suggestions| slice:0:maxResults; let index &#x3D; index&quot;
+        [ngClass]&#x3D;&quot;{ &#x27;focus&#x27;: focusedOption &#x3D;&#x3D;&#x3D; index }&quot;
+        [ngStyle]&#x3D;&quot;styles.listItem&quot;
         (click)&#x3D;&quot;handleSelectTap($event, suggestion)&quot;
         (tap)&#x3D;&quot;handleSelectTap($event, suggestion)&quot;&gt;
         &lt;ng-template [ngTemplateOutlet]&#x3D;&quot;template || defaultTemplate&quot;
@@ -4442,12 +5313,90 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p *ngIf&#x3D;&quot;suggestions.length &#x3D;&#x3D; 0 &amp;&amp; showList &amp;&amp; options.noItems&quot;&gt;
-    {{ options.noItems }}
-&lt;/p&gt;
+&lt;ul *ngIf&#x3D;&quot;suggestions.length &#x3D;&#x3D;&#x3D; 0 &amp;&amp; showList &amp;&amp; options.noItems&quot;
+    [ngStyle]&#x3D;&quot;listStyles()&quot;&gt;
+    &lt;li [ngStyle]&#x3D;&quot;styles.listItem&quot;&gt;
+        &lt;ng-template [ngTemplateOutlet]&#x3D;&quot;emptyTemplate || defaultEmptyTemplate&quot;
+                     [ngTemplateOutletContext]&#x3D;&quot;{
+                        attrs:{
+                          keyword: keyword
+                        }
+                     }&quot;&gt;&lt;/ng-template&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
 </code></pre>
     </div>
 
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./auto-complete.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">ion-auto-complete {
+  overflow: hidden !important;
+  width:    90vw;
+  display:  inline-block;
+
+  ion-searchbar {
+    padding: 1px !important;
+  }
+
+  .disabled input.searchbar-input {
+    pointer-events: none;
+    cursor: default;
+  }
+
+  ul {
+    position:        absolute;
+    width:           90vw;
+    margin-top:      0;
+    background:      #FFF;
+    list-style-type: none;
+    padding:         0;
+    left:            16px;
+    z-index:         999;
+    box-shadow:      0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+    li {
+      padding:       15px;
+      border-bottom: 1px solid #c1c1c1;
+    }
+
+    ion-auto-complete-item {
+      height: 40px;
+      width:  100%;
+    }
+
+    li:last-child {
+      border: none;
+    }
+
+    li:focus,
+    li.focus,
+    li:hover {
+      cursor:     pointer;
+      background: #f1f1f1
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .loading input.searchbar-input {
+    background:      white url(/assets/loading.gif) no-repeat right 4px center;
+    background-size: 25px 25px;
+  }
+
+  .searchbar-clear-button.sc-ion-searchbar-md {
+    right: 34px;
+  }
+
+  .selected-items {
+    float: left;
+  }
+}
+</code></pre>
+    </div>
 
     <div class="tab-pane fade " id="c-tree">
         <div id="tree-container"></div>
@@ -4474,8 +5423,8 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div *ngIf="multi">    <div *ngFor="let item of selected"         class="selected-items">        <ion-chip class="{{ removeButtonClasses }}"                  [color]="removeButtonColor"                  [outline]="true"                  (click)="removeItem(item)">            <ion-icon *ngIf="frontIcon"                      [name]="frontIcon"                      [slot]="\'start\'"                      color="primary"></ion-icon>            <ion-label>{{ getLabel(item) }}</ion-label>            <ion-icon *ngIf="removeButtonIcon"                      [name]="removeButtonIcon"                      [slot]="removeButtonSlot"></ion-icon>        </ion-chip>    </div></div><ion-input #inputElem           [name]="name"           (keyup)="getItems($event)"           (tap)="handleTap($event)"           [(ngModel)]="keyword"           (ngModelChange)="updateModel($event)"           [placeholder]="options.placeholder == null ? defaultOpts.placeholder : options.placeholder"           [type]="options.type == null ? defaultOpts.type : options.type"           [clearOnEdit]="options.clearOnEdit == null ? defaultOpts.clearOnEdit : options.clearOnEdit"           [clearInput]="options.clearInput == null ? defaultOpts.clearInput : options.clearInput"           [color]="options.color == null ? null : options.color"           [mode]="options.mode == null ? defaultOpts.mode : options.mode"           [disabled]="disabled"           [ngClass]="{ \'hidden\': !useIonInput, \'loading\': isLoading }"           (ionFocus)="onFocus($event)"           (ionBlur)="onBlur($event)"></ion-input><ion-searchbar #searchbarElem               [name]="name"               [animated]="options.animated == null ? defaultOpts.animated : options.animated"               (ionInput)="getItems($event)"               (tap)="handleTap($event)"               [(ngModel)]="keyword"               (ngModelChange)="updateModel($event)"               [cancelButtonIcon]="options.cancelButtonIcon == null ? defaultOpts.cancelButtonIcon : options.cancelButtonIcon"               [cancelButtonText]="options.cancelButtonText == null ? defaultOpts.cancelButtonText : options.cancelButtonText"               [clearIcon]="options.clearIcon == null ? defaultOpts.clearIcon : options.clearIcon"               [color]="options.color == null ? null : options.color"               [showCancelButton]="options.showCancelButton == null ? defaultOpts.showCancelButton : options.showCancelButton"               [debounce]="options.debounce == null ? defaultOpts.debounce : options.debounce"               [placeholder]="options.placeholder == null ? defaultOpts.placeholder : options.placeholder"               [autocomplete]="options.autocomplete == null ? defaultOpts.autocomplete : options.autocomplete"               [autocorrect]="options.autocorrect == null ? defaultOpts.autocorrect : options.autocorrect"               [mode]="options.mode == null ? defaultOpts.mode : options.mode"               [searchIcon]="options.searchIcon == null ? defaultOpts.searchIcon : options.searchIcon"               [spellcheck]="options.spellcheck == null ? defaultOpts.spellcheck : options.spellcheck"               [type]="options.type == null ? defaultOpts.type : options.type"               [ngClass]="{ \'hidden\': useIonInput, \'loading\': isLoading, \'disabled\': disabled }"               (ionClear)="clearValue(true)"               (ionFocus)="onFocus($event)"               (ionBlur)="onBlur($event)"></ion-searchbar><ng-template #defaultTemplate let-attrs="attrs">    <span [innerHTML]=\'attrs.label | boldprefix:attrs.keyword\'></span></ng-template><ul *ngIf="!disabled && suggestions.length > 0 && showList"    [ngStyle]="getStyle()">    <li *ngFor="let suggestion of suggestions"        (click)="handleSelectTap($event, suggestion)"        (tap)="handleSelectTap($event, suggestion)">        <ng-template [ngTemplateOutlet]="template || defaultTemplate"                     [ngTemplateOutletContext]="{                        attrs:{                          data:               suggestion,                          label:              getLabel(suggestion),                          keyword:            keyword,                          formValue:          getFormValue(suggestion),                          labelAttribute:     getLabel(suggestion),                          formValueAttribute: getFormValue(suggestion)                        }                     }"></ng-template>    </li></ul><p *ngIf="suggestions.length == 0 && showList && options.noItems">    {{ options.noItems }}</p></div>'
-    var COMPONENTS = [{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'}];
+        var COMPONENT_TEMPLATE = '<div><ng-template #defaultSelection             let-attrs="attrs">    <ion-chip class="{{ attrs.removeButtonClasses }}"              [color]="attrs.removeButtonColor"              [outline]="true">        <ion-icon *ngIf="frontIcon"                  [name]="frontIcon"                  [slot]="\'start\'"                  color="primary"></ion-icon>        <ion-label>{{ attrs.label }}</ion-label>        <ion-icon *ngIf="attrs.removeButtonIcon"                  [name]="attrs.removeButtonIcon"                  [slot]="attrs.removeButtonSlot"></ion-icon>    </ion-chip></ng-template><div *ngIf="multi">    <div *ngFor="let item of selected"         class="selected-items"         (click)="removeItem(item)">        <ng-template [ngTemplateOutlet]="selectionTemplate || defaultSelection"                     [ngTemplateOutletContext]="{                            attrs: {                              data:                item,                              label:               getLabel(item),                              removeButtonClasses: removeButtonClasses,                              removeButtonColor:   removeButtonColor,                              removeButtonIcon:    removeButtonIcon,                              removeButtonSlot:    removeButtonSlot                            }                         }"></ng-template>    </div></div><ion-input #inputElem           [autocomplete]="enableBrowserAutoComplete ? \'on\' : \'off\'"           [name]="name"           (keyup)="keyupIonInput($event)"           (tap)="handleTap($event)"           [(ngModel)]="keyword"           (ngModelChange)="updateModel($event)"           [placeholder]="options.placeholder == null ? defaultOpts.placeholder : options.placeholder"           [type]="options.type == null ? defaultOpts.type : options.type"           [clearOnEdit]="options.clearOnEdit == null ? defaultOpts.clearOnEdit : options.clearOnEdit"           [clearInput]="options.clearInput == null ? defaultOpts.clearInput : options.clearInput"           [color]="options.color == null ? null : options.color"           [mode]="options.mode == null ? defaultOpts.mode : options.mode"           [disabled]="disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected)"           [ngClass]="{ \'hidden\': !useIonInput, \'loading\': isLoading }"           [ngStyle]="styles.searchbar"           (keyup.arrowDown)="highlightItem(-1)"           (keyup.arrowUp)="highlightItem(1)"           (keyup.enter)="handleSelectTap($event, suggestions[focusedOption])"           (keyup.escape)="hideItemList()"           (ionFocus)="onFocus($event)"           (ionBlur)="onBlur($event)"></ion-input><ion-searchbar #searchbarElem               [autocomplete]="enableBrowserAutoComplete ? \'on\' : \'off\'"               [name]="name"               [animated]="options.animated == null ? defaultOpts.animated : options.animated"               (ionInput)="keyupIonSearchbar($event)"               (tap)="handleTap($event)"               [(ngModel)]="keyword"               (ngModelChange)="updateModel($event)"               [cancelButtonIcon]="options.cancelButtonIcon == null ? defaultOpts.cancelButtonIcon : options.cancelButtonIcon"               [cancelButtonText]="options.cancelButtonText == null ? defaultOpts.cancelButtonText : options.cancelButtonText"               [clearIcon]="options.clearIcon == null ? defaultOpts.clearIcon : options.clearIcon"               [color]="options.color == null ? null : options.color"               [showCancelButton]="options.showCancelButton == null ?                                        (defaultOpts.showCancelButton ? \'always\' : \'never\') :                                        (options.showCancelButton ? \'always\' : \'never\')"               [debounce]="options.debounce == null ? defaultOpts.debounce : options.debounce"               [placeholder]="options.placeholder == null ? defaultOpts.placeholder : options.placeholder"               [autocorrect]="options.autocorrect == null ? defaultOpts.autocorrect : options.autocorrect"               [mode]="options.mode == null ? defaultOpts.mode : options.mode"               [searchIcon]="options.searchIcon == null ? defaultOpts.searchIcon : options.searchIcon"               [spellcheck]="options.spellcheck == null ? defaultOpts.spellcheck : options.spellcheck"               [type]="options.type == null ? defaultOpts.type : options.type"               [ngClass]="{ \'hidden\': useIonInput, \'loading\': isLoading, \'disabled\': disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected) }"               [ngStyle]="styles.searchbar"               (keyup.arrowDown)="highlightItem(-1)"               (keyup.arrowUp)="highlightItem(1)"               (keyup.enter)="handleSelectTap($event, suggestions[focusedOption])"               (keyup.escape)="hideItemList()"               (ionClear)="clickClear()"               (ionFocus)="onFocus($event)"               (ionBlur)="onBlur($event)"></ion-searchbar><ng-template #defaultTemplate             let-attrs="attrs">    <span [innerHTML]=\'attrs.label | boldprefix:attrs.keyword\'></span></ng-template><ng-template #defaultEmptyTemplate             let-attrs="attrs"             class="ion-text-center">    {{ options.noItems }}</ng-template><ul *ngIf="!(disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected)) && suggestions.length > 0 && showList"    [ngStyle]="listStyles()">    <li *ngFor="let suggestion of suggestions| slice:0:maxResults; let index = index"        [ngClass]="{ \'focus\': focusedOption === index }"        [ngStyle]="styles.listItem"        (click)="handleSelectTap($event, suggestion)"        (tap)="handleSelectTap($event, suggestion)">        <ng-template [ngTemplateOutlet]="template || defaultTemplate"                     [ngTemplateOutletContext]="{                        attrs:{                          data:               suggestion,                          label:              getLabel(suggestion),                          keyword:            keyword,                          formValue:          getFormValue(suggestion),                          labelAttribute:     getLabel(suggestion),                          formValueAttribute: getFormValue(suggestion)                        }                     }"></ng-template>    </li></ul><ul *ngIf="suggestions.length === 0 && showList && options.noItems"    [ngStyle]="listStyles()">    <li [ngStyle]="styles.listItem">        <ng-template [ngTemplateOutlet]="emptyTemplate || defaultEmptyTemplate"                     [ngTemplateOutletContext]="{                        attrs:{                          keyword: keyword                        }                     }"></ng-template>    </li></ul></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'CustomTemplateComponent', 'selector': 'custom-template'},{'name': 'HomePage', 'selector': 'home-page'},{'name': 'MultiFunctionComponent', 'selector': 'multi-function'},{'name': 'SimpleFunctionComponent', 'selector': 'simple-function'},{'name': 'SimpleServiceComponent', 'selector': 'simple-service'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AutoCompleteComponent'};
 </script>
@@ -4513,6 +5462,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
             var COMPODOC_CURRENT_PAGE_URL = 'AutoCompleteComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

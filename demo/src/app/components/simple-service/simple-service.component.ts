@@ -14,7 +14,7 @@ import {SimpleService} from '../../services/simple-service.service';
 export class SimpleServiceComponent {
   public options:AutoCompleteOptions;
 
-  public selected:any = '';
+  public selected:string = '';
 
   constructor(
     public provider:SimpleService
@@ -27,7 +27,18 @@ export class SimpleServiceComponent {
     this.options.type = 'add-friend.svg';
   }
 
-  itemSelected(item:string) {
-    console.log('Item selected:' +  item[this.provider.labelAttribute]);
+  random():void {
+    this.provider.getResults().subscribe(
+      (results) => {
+        const count = results.length;
+
+        this.selected = results[Math.round(Math.random() * count)]
+      }
+    );
+  }
+
+  on(output, event):void {
+    console.log(output);
+    // console.log(event);
   }
 }
