@@ -1,6 +1,6 @@
 {
   "name": "ionic4-auto-complete",
-  "version": "2.0.0",
+  "version": "1.10.0",
   "scripts": {
     "publish": "npm publish dist",
     "build": "ng-packagr -p package.json && cp -fr src/scss/auto-complete.scss dist/auto-complete.scss",
@@ -15,7 +15,9 @@
     "lib": {
       "cssUrl": "inline",
       "entryFile": "src/index.ts",
-      "styleIncludePaths": ["./src/scss"]
+      "styleIncludePaths": [
+        "./src/scss"
+      ]
     }
   },
   "repository": {
@@ -34,19 +36,23 @@
     "url": "https://github.com/jrquick17/ionic4-auto-complete/issues"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "^0.803.1",
-    "@angular-devkit/build-angular": "^0.803.1",
-    "@angular-devkit/core": "^8.3.1",
-    "@angular-devkit/schematics": "^8.3.1",
-    "@angular/cli": "^8.3.1",
-    "@angular/compiler": "^8.2.4",
-    "@angular/compiler-cli": "^8.2.4",
-    "@angular/language-service": "^8.2.4",
-    "@compodoc/compodoc": "^1.1.10",
-    "@ionic-native/core": "5.12.0",
-    "@ionic/angular": "^4.8.1",
-    "@ionic/angular-toolkit": "^2.0.0",
-    "@ionic/app-scripts": "3.2.4",
+    "@angular-devkit/core": "^7.3.9",
+    "@angular-devkit/schematics": "^7.3.9",
+    "@angular/common": "^7.2.16",
+    "@angular/compiler": "7.2.15",
+    "@angular/compiler-cli": "7.2.15",
+    "@angular/core": "^7.2.16",
+    "@angular/forms": "7.2.15",
+    "@angular/http": "7.2.15",
+    "@angular/platform-browser": "^7.2.16",
+    "@angular/platform-browser-dynamic": "7.2.15",
+    "@angular/router": "^7.2.16",
+    "@compodoc/compodoc": "^1.1.9",
+    "@ionic-native/core": "5.6.0",
+    "@ionic-native/splash-screen": "5.6.0",
+    "@ionic-native/status-bar": "5.6.0",
+    "@ionic/angular": "^4.4.2",
+    "@ionic/app-scripts": "3.2.3",
     "@ionic/cli-plugin-cordova": "1.6.2",
     "@ionic/cli-plugin-ionic-angular": "1.4.1",
     "@ionic/pro": "2.0.4",
@@ -54,6 +60,8 @@
     "@types/jasmine": "3.4.0",
     "@types/node": "^12.7.2",
     "codelyzer": "~5.1.0",
+    "cordova-plugin-ionic": "^5.4.6",
+    "eslint": "^5.16.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.3.0",
@@ -69,25 +77,11 @@
     "ts-node": "~8.3.0",
     "tsickle": "^0.37.0",
     "tslint": "~5.19.0",
-    "typescript": "^3.5.3",
-    "webpack": "^4.39.3"
+    "typescript": "^3.2.4",
+    "webpack": "^3.12.0",
+    "zone.js": "^0.8.29"
   },
   "engines": {
     "node": ">=6.0.0"
-  },
-  "peerDependencies": {
-    "@angular/animations": "^8.2.4",
-    "@angular/cdk": "^8.1.4",
-    "@angular/common": "^8.2.4",
-    "@angular/core": "^8.2.4",
-    "@angular/forms": "^8.2.4",
-    "@angular/platform-browser": "^8.2.4",
-    "@angular/platform-browser-dynamic": "^8.2.4",
-    "@angular/router": "^8.2.4",
-    "@angular/service-worker": "^8.2.4",
-    "cordova-plugin-ionic": "^5.4.4",
-    "core-js": "^3.2.1",
-    "ionicons": "^4.6.3",
-    "zone.js": "^0.9.1"
   }
 }
