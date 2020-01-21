@@ -102,9 +102,9 @@
     "@angular/platform-browser-dynamic": ">=8.0.0",
     "@angular/router": ">=8.0.0",
     "@angular/service-worker": ">=8.0.0",
-    "cordova-plugin-ionic": ">=2.0.0",
+    "cordova-plugin-ionic": ">=5.0.0",
     "core-js": ">=3.0.0",
-    "ionicons": ">=2.0.1",
+    "ionicons": ">=4.0.0",
     "zone.js": "~0.9.1"
   }
 }
