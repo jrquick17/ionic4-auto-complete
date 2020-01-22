@@ -7,10 +7,12 @@ import {IonicModule} from '@ionic/angular';
 import {AutoCompleteComponent} from './auto-complete/auto-complete.component';
 import {BoldPrefix} from './bold-prefix.pipe';
 
-export * from './auto-complete/auto-complete.component';
-export * from './auto-complete.service';
-export * from './bold-prefix.pipe';
 export * from './auto-complete-options.model';
+
+export * from './auto-complete.service';
+
+export * from './auto-complete/auto-complete.component';
+export * from './bold-prefix.pipe';
 
 @NgModule({
   declarations: [
