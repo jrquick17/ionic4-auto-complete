@@ -6,14 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [Released]
+
 ## [2.5.1]
 ### Fixed
 * Suggestions only populating after two characters on new page loads by [jrquick17](https://github.com/jrquick17)
 
 ### Removed
 * Renderer2 by [jrquick17](https://github.com/jrquick17)
-
-## [Released]
 
 ## [2.5.0]
 ### Added
