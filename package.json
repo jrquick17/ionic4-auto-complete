@@ -22,7 +22,10 @@
       "entryFile": "src/index.ts",
       "styleIncludePaths": [
         "./src/scss"
-      ]
+      ],
+      "umdModuleIds": {
+        "@ionic/angular": "@ionic/angular"
+      }
     }
   },
   "repository": {
@@ -48,7 +51,6 @@
     "@angular/compiler-cli": "7.2.15",
     "@angular/core": "^7.2.16",
     "@angular/forms": "7.2.15",
-    "@angular/http": "7.2.15",
     "@angular/platform-browser": "^7.2.16",
     "@angular/platform-browser-dynamic": "7.2.15",
     "@angular/router": "^7.2.16",
