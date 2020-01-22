@@ -1,6 +1,6 @@
 {
   "name": "ionic4-auto-complete",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "readme": "README.md",
   "scripts": {
     "build": "ng-packagr -p package.json && cp src/auto-complete/auto-complete.component.scss dist/auto-complete.scss && cp -r src/assets dist/assets",
@@ -22,7 +22,10 @@
       "entryFile": "src/index.ts",
       "styleIncludePaths": [
         "./src/scss"
-      ]
+      ],
+      "umdModuleIds": {
+        "@ionic/angular": "@ionic/angular"
+      }
     }
   },
   "repository": {

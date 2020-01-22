@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.5.1]
+### Added
+* `@ionic/angular` to UMD module IDs by [jrquick17](https://github.com/jrquick17)
+
 ## [Released]
 
 ## [2.5.1]
