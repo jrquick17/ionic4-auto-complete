@@ -8,8 +8,7 @@ import {
   ViewChild,
   HostListener,
   ElementRef,
-  AfterViewChecked,
-  Renderer2
+  AfterViewChecked
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
@@ -77,7 +76,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   }
 
   set model(selected) {
-    if (typeof selected !== 'undefined') {
+    if (typeof selected !== 'undefined' && selected !== null) {
       this.selected = selected;
 
       this.keyword = this.getLabel(selected)
@@ -154,9 +153,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   /**
    * Create a new instance
    */
-  public constructor(
-      private renderer:Renderer2
-  ) {
+  public constructor() {
     this.autoBlur = new EventEmitter<any>();
     this.autoFocus = new EventEmitter<any>();
     this.blur = new EventEmitter<any>();
