@@ -76,7 +76,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   }
 
   set model(selected) {
-    if (typeof selected !== 'undefined') {
+    if (typeof selected !== 'undefined' && selected !== null) {
       this.selected = selected;
 
       this.keyword = this.getLabel(selected)
