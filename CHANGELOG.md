@@ -118,6 +118,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Upgraded to support Angular 8 by [jrquick17](https://github.com/jrquick17)
 
+## [1.10.0]
+### Fixed
+- Production builds by [jrquick17](https://github.com/jrquick17)
+- Migrate all changes up to `v2.5.1` (ng8) by [jrquick17](https://github.com/jrquick17)
+
 ## [1.9.0]
 ### Added
 - Added `frontIcon` to selection chips by [jrquick17](https://github.com/jrquick17)
