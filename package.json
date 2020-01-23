@@ -35,7 +35,8 @@
   },
   "author": {
     "name": "Jeremy Quick",
-    "email": "me@jrquick.com"
+    "email": "me@jrquick.com",
+    "url": "https://jrquick.com"
   },
   "keywords": [
     "angular",
