@@ -2,6 +2,7 @@
   "name": "ionic4-auto-complete",
   "version": "2.5.2",
   "readme": "README.md",
+  "homepage": "https://ionic4-auto-complete.jrquick.com",
   "scripts": {
     "build": "ng-packagr -p package.json && cp src/auto-complete/auto-complete.component.scss dist/auto-complete.scss && cp -r src/assets dist/assets",
     "demo": "cd demo && ionic serve",
