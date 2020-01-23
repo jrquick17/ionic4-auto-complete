@@ -71,7 +71,7 @@
     "protractor": "~5.4.2",
     "ts-node": "~8.6.2",
     "tslint": "~5.20.1",
-    "typescript": "^3.5.3"
+    "typescript": "~3.5.3"
   },
   "description": "Demo for ionic4-auto-complete",
   "cordova": {
