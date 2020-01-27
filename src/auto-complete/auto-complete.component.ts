@@ -190,7 +190,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     }
   }
 
-  ngDoCheck() {
+  ngDoCheck():void {
     if (!this.hasFocus) {
       if (this.clearInvalidInput && (this.selected === null || this.multi)) {
         if (this.keyword !== '') {
@@ -247,7 +247,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    *
    * @private
    */
-  public getFormValue(selection:any): any {
+  public getFormValue(selection:any):any {
     if (selection == null || typeof this.dataProvider === 'function') {
       return null;
     }
