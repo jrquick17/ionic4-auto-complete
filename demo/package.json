@@ -70,7 +70,7 @@
     "karma-jasmine-html-reporter": "^1.5.1",
     "protractor": "~5.4.2",
     "ts-node": "~8.6.2",
-    "tslint": "~6.0.0",
+    "tslint": "~5.6.0",
     "typescript": "~3.5.3"
   },
   "description": "Demo for ionic4-auto-complete",
