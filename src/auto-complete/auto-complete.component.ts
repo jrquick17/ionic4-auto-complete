@@ -523,6 +523,10 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   }
 
   highlightItem(direction:number):void {
+    if (this.showSuggestions === false) {
+      this.showItemList();
+    }
+
     const max = this.suggestions.length - 1;
 
     if (direction < 0) {
