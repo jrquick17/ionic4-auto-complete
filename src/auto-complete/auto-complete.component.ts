@@ -34,7 +34,7 @@ import {AutoCompleteStyles} from '../auto-complete-styles.model';
   templateUrl: 'auto-complete.component.html'
 })
 export class AutoCompleteComponent implements AfterViewChecked, ControlValueAccessor, DoCheck {
-  @Input() public alwaysShowList:boolean;
+  @Input() public alwaysShowList:boolean = false;
   @Input() public enableBrowserAutoComplete:boolean = false;
   @Input() public clearInvalidInput:boolean = true;
   @Input() public dataProvider:AutoCompleteService|Function;
@@ -132,23 +132,26 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   public formValue:any;
   public selected:any[];
   public selection:any;
+  public showSuggestions:boolean = false;
   public suggestions:any[];
   public promise;
 
   public get showList():boolean {
-    return this._showList;
+    return this.showSuggestions;
   }
 
   public set showList(value:boolean) {
-    if (this._showList === value) {
+    if (typeof value === 'undefined') {
       return;
     }
 
-    this._showList = value;
+    if (this.showSuggestions === value) {
+      return;
+    }
+
+    this.showSuggestions = value === true;
     this.showListChanged = true;
   }
-
-  private _showList:boolean;
 
   private showListChanged:boolean = false;
 
@@ -171,7 +174,6 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
     this.keyword = '';
     this.suggestions = [];
-    this._showList = false;
 
     this.options = new AutoCompleteOptions();
 
@@ -186,7 +188,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   ngAfterViewChecked():void {
     if (this.showListChanged) {
       this.showListChanged = false;
-      this.showList ? this.itemsShown.emit() : this.itemsHidden.emit();
+      this.showSuggestions ? this.itemsShown.emit() : this.itemsHidden.emit();
     }
   }
 
@@ -518,7 +520,11 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * Hide item list
    */
   public hideItemList():void {
-    this.showList = this.alwaysShowList;
+    if (this.showSuggestions === false && this.alwaysShowList === false) {
+      this.showListChanged = true;
+    }
+
+    this.showSuggestions = this.alwaysShowList;
     this.focusedOption = -1;
   }
 
@@ -761,7 +767,11 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * Show item list
    */
   public showItemList():void {
-    this.showList = true;
+    if (this.showSuggestions === false) {
+      this.showListChanged = true;
+    }
+
+    this.showSuggestions = true;
   }
 
   /**

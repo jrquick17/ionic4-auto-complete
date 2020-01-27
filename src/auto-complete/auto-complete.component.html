@@ -100,7 +100,7 @@
     {{ options.noItems }}
 </ng-template>
 
-<ul *ngIf="!(disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected)) && suggestions.length > 0 && showList"
+<ul *ngIf="!(disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected)) && suggestions.length > 0 && showSuggestions"
     [ngStyle]="listStyles()">
     <li *ngFor="let suggestion of suggestions| slice:0:maxResults; let index = index"
         [ngClass]="{ 'focus': focusedOption === index }"
@@ -121,7 +121,7 @@
     </li>
 </ul>
 
-<ul *ngIf="suggestions.length === 0 && showList"
+<ul *ngIf="suggestions.length === 0 && showSuggestions"
     [ngStyle]="listStyles()">
     <li [ngStyle]="styles.listItem">
         <ng-template [ngTemplateOutlet]="emptyTemplate || defaultEmptyTemplate"
