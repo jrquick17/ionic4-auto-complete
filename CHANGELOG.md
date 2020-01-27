@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [Released]
+
 ## [2.5.2]
 ### Added
 * `@ionic/angular` to UMD module IDs by [jrquick17](https://github.com/jrquick17)
@@ -13,8 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 * Empty template were breaking when options were passed without `noItems` set by [jrquick17](https://github.com/jrquick17)
-
-## [Released]
+* Show suggestions when the user presses the up/down arrow keys by [jrquick17](https://github.com/jrquick17)
 
 ## [2.5.1]
 ### Fixed
