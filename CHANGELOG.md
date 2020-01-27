@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [2.5.2]
 ### Added
 * `@ionic/angular` to UMD module IDs by [jrquick17](https://github.com/jrquick17)
+* Do not allow hitting return key when a value is not selected by [jrquick17](https://github.com/jrquick17)
 
 ## [Released]
 

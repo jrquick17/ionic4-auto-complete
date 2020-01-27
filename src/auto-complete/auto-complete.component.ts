@@ -495,18 +495,20 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * @param $event
    * @param suggestion
    */
-  public handleSelectTap($event, suggestion:any):boolean {
-    this.selectItem(suggestion);
+  public handleSelectTap($event, suggestion?:any):false {
+    if (typeof suggestion !== 'undefined') {
+      this.selectItem(suggestion);
 
-    if ($event.srcEvent) {
-      if ($event.srcEvent.stopPropagation) {
-        $event.srcEvent.stopPropagation();
+      if ($event.srcEvent) {
+        if ($event.srcEvent.stopPropagation) {
+          $event.srcEvent.stopPropagation();
+        }
+        if ($event.srcEvent.preventDefault) {
+          $event.srcEvent.preventDefault();
+        }
+      } else if ($event.preventDefault) {
+        $event.preventDefault();
       }
-      if ($event.srcEvent.preventDefault) {
-        $event.srcEvent.preventDefault();
-      }
-    } else if ($event.preventDefault) {
-      $event.preventDefault();
     }
 
     return false;
