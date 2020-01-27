@@ -13,7 +13,7 @@
     "docs:serve": "npm run docs:build -- -s",
     "docs:watch": "npm run docs:build -- -s -w",
     "lint": "tslint --project tsconfig.json src/**/*.ts",
-    "publish": "npm publish dist",
+    "publish": "npm publish dist --tag ng7",
     "shipit": "npm run lint && npm run test && npm run demo:build && npm run docs:build && npm run publish",
     "test": "tsc && karma start"
   },
