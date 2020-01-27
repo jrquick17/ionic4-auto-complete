@@ -1,3 +1,20 @@
+.country-suggestions-empty {
+  background: lightgray;
+
+  ion-text {
+    color: white;
+    display: block;
+    font-size: large;
+    margin: 0 auto;
+    width: 225px;
+  }
+
+  div.country-suggestions-empty-icon {
+    background: lightgray url(assets/icons/not-found.svg) no-repeat center;
+    min-height: 130px;
+  }
+}
+
 .flag {
   width: 50px;
   height: 50px;

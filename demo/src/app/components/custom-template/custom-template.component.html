@@ -1,6 +1,10 @@
 <ng-template #empty
              let-attrs="attrs">
-    <ion-text class="ion-text-right ion-padding-vertical">That country does not exist!</ion-text>
+    <div class="country-suggestions-empty">
+        <ion-text>That country does not exist!</ion-text>
+
+        <div class="country-suggestions-empty-icon"></div>
+    </div>
 </ng-template>
 
 <ng-template #selection
