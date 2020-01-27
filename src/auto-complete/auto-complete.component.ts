@@ -107,8 +107,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @ViewChild(
     'searchbarElem',
     {
-      read:   ElementRef,
-      static: false
+      read:   ElementRef
     }
   )
   private searchbarElem:ElementRef;
@@ -116,8 +115,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @ViewChild(
     'inputElem',
     {
-      read:   ElementRef,
-      static: false
+      read:   ElementRef
     }
   )
   private inputElem:ElementRef;
