@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * `@ionic/angular` to UMD module IDs by [jrquick17](https://github.com/jrquick17)
 * Do not allow hitting return key when a value is not selected by [jrquick17](https://github.com/jrquick17)
 
+### Fixed
+* Empty template were breaking when options were passed without `noItems` set by [jrquick17](https://github.com/jrquick17)
+
 ## [Released]
 
 ## [2.5.1]
