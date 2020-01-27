@@ -1,6 +1,6 @@
 {
   "name": "ionic4-auto-complete",
-  "version": "2.5.2",
+  "version": "1.10.1",
   "readme": "README.md",
   "homepage": "https://ionic4-auto-complete.jrquick.com",
   "scripts": {
@@ -40,6 +40,7 @@
   },
   "keywords": [
     "angular",
+    "angularjs",
     "autocomplete",
     "ionic"
   ],
