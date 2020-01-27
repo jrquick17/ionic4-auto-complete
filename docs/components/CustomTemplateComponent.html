@@ -436,7 +436,11 @@ export class CustomTemplateComponent {
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;ng-template #empty
              let-attrs&#x3D;&quot;attrs&quot;&gt;
-    &lt;ion-text class&#x3D;&quot;ion-text-right ion-padding-vertical&quot;&gt;That country does not exist!&lt;/ion-text&gt;
+    &lt;div class&#x3D;&quot;country-suggestions-empty&quot;&gt;
+        &lt;ion-text&gt;That country does not exist!&lt;/ion-text&gt;
+
+        &lt;div class&#x3D;&quot;country-suggestions-empty-icon&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
 &lt;/ng-template&gt;
 
 &lt;ng-template #selection
@@ -487,7 +491,24 @@ export class CustomTemplateComponent {
                 <p class="comment">
                     <code>custom-template.component.scss</code>
                 </p>
-                <pre class="line-numbers"><code class="language-scss">.flag {
+                <pre class="line-numbers"><code class="language-scss">.country-suggestions-empty {
+  background: lightgray;
+
+  ion-text {
+    color: white;
+    display: block;
+    font-size: large;
+    margin: 0 auto;
+    width: 225px;
+  }
+
+  div.country-suggestions-empty-icon {
+    background: lightgray url(assets/icons/not-found.svg) no-repeat center;
+    min-height: 130px;
+  }
+}
+
+.flag {
   width: 50px;
   height: 50px;
 }
@@ -519,7 +540,7 @@ export class CustomTemplateComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ng-template #empty             let-attrs="attrs">    <ion-text class="ion-text-right ion-padding-vertical">That country does not exist!</ion-text></ng-template><ng-template #selection             let-attrs="attrs">        <ion-img class="flag ion-float-left ion-margin-horizontal"                 style="height: 50px;"                 [slot]="\'start\'"                 [src]="attrs.data.flag"></ion-img></ng-template><ng-template #suggestions             let-attrs="attrs">    <ion-item>        <ion-img class="flag"                 [slot]="\'start\'"                 [src]="attrs.data.flag"></ion-img>        <ion-text>            <span [innerHtml]="attrs.data.name | boldprefix:attrs.keyword"></span> ({{ attrs.data.nativeName }})        </ion-text>    </ion-item></ng-template><ion-auto-complete [(model)]="selected"                   [eager]="true"                   [multi]="true"                   [dataProvider]="provider"                   [disabled]="false"                   [maxSelected]="3"                   [template]="suggestions"                   [emptyTemplate]="empty"                   [selectionTemplate]="selection"                   (blur)="on(\'blur\', $event)"                   (autoFocus)="on(\'autoFocus\', $event)"                   (autoBlur)="on(\'autoBlur\', $event)"                   (focus)="on(\'focus\', $event)"                   (ionAutoInput)="on(\'ionAutoInput\', $event)"                   (itemsChange)="on(\'itemsChange\', $event)"                   (itemsCleared)="on(\'itemsCleared\', $event)"                   (itemsHidden)="on(\'itemsHidden\', $event)"                   (itemRemoved)="on(\'itemRemoved\', $event)"                   (itemSelected)="on(\'itemSelected\', $event)"                   (itemsShown)="on(\'itemsShown\', $event)"></ion-auto-complete></div>'
+        var COMPONENT_TEMPLATE = '<div><ng-template #empty             let-attrs="attrs">    <div class="country-suggestions-empty">        <ion-text>That country does not exist!</ion-text>        <div class="country-suggestions-empty-icon"></div>    </div></ng-template><ng-template #selection             let-attrs="attrs">        <ion-img class="flag ion-float-left ion-margin-horizontal"                 style="height: 50px;"                 [slot]="\'start\'"                 [src]="attrs.data.flag"></ion-img></ng-template><ng-template #suggestions             let-attrs="attrs">    <ion-item>        <ion-img class="flag"                 [slot]="\'start\'"                 [src]="attrs.data.flag"></ion-img>        <ion-text>            <span [innerHtml]="attrs.data.name | boldprefix:attrs.keyword"></span> ({{ attrs.data.nativeName }})        </ion-text>    </ion-item></ng-template><ion-auto-complete [(model)]="selected"                   [eager]="true"                   [multi]="true"                   [dataProvider]="provider"                   [disabled]="false"                   [maxSelected]="3"                   [template]="suggestions"                   [emptyTemplate]="empty"                   [selectionTemplate]="selection"                   (blur)="on(\'blur\', $event)"                   (autoFocus)="on(\'autoFocus\', $event)"                   (autoBlur)="on(\'autoBlur\', $event)"                   (focus)="on(\'focus\', $event)"                   (ionAutoInput)="on(\'ionAutoInput\', $event)"                   (itemsChange)="on(\'itemsChange\', $event)"                   (itemsCleared)="on(\'itemsCleared\', $event)"                   (itemsHidden)="on(\'itemsHidden\', $event)"                   (itemRemoved)="on(\'itemRemoved\', $event)"                   (itemSelected)="on(\'itemSelected\', $event)"                   (itemsShown)="on(\'itemsShown\', $event)"></ion-auto-complete></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoCompleteComponent', 'selector': ''},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'CustomTemplateComponent', 'selector': 'custom-template'},{'name': 'HomePage', 'selector': 'home-page'},{'name': 'MultiFunctionComponent', 'selector': 'multi-function'},{'name': 'SimpleFunctionComponent', 'selector': 'simple-function'},{'name': 'SimpleServiceComponent', 'selector': 'simple-service'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'CustomTemplateComponent'};
