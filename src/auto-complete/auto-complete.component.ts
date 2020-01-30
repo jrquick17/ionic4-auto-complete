@@ -61,7 +61,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @Input() public useIonInput:boolean = false;
 
   @Input()
-  get model():any[] {
+  get model():any|any[] {
     let model = this.selected;
     if (!this.multi && typeof this.selected.length !== 'undefined') {
       if (this.selected.length === 0) {
@@ -74,7 +74,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     return model;
   }
 
-  set model(selected) {
+  set model(selected:any|any[]) {
     if (typeof selected !== 'undefined' && selected !== null) {
       this.selected = selected;
 
@@ -100,7 +100,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     }
   }
 
-  @Output() public modelChange:EventEmitter<any>;
+  @Output() public modelChange:EventEmitter<any|any[]>;
 
   @Input()
   set eager(eager:boolean) {
@@ -147,7 +147,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   public isLoading:boolean = false;
   public focusedOption:number = -1;
   public formValue:any;
-  public selected:any[];
+  public selected:any|any[];
   public selection:any;
   public showSuggestions:boolean = false;
   public suggestions:any[];
@@ -187,7 +187,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     this.itemRemoved = new EventEmitter<any>();
     this.itemSelected = new EventEmitter<any>();
     this.itemsShown = new EventEmitter<any>();
-    this.modelChange = new EventEmitter<any>();
+    this.modelChange = new EventEmitter<any|any[]>();
 
     this.keyword = '';
     this.suggestions = [];
