@@ -49,7 +49,6 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @Input() public maxSelected:number = null;
   @Input() public multi:boolean = false;
   @Input() public name:string = '';
-  @Input() public options:AutoCompleteOptions = new AutoCompleteOptions();
   @Input() public removeButtonClasses:string = '';
   @Input() public removeButtonColor:string = 'primary';
   @Input() public removeButtonIcon:string|false = 'close-circle';
@@ -80,6 +79,24 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
       this.selected = selected;
 
       this.keyword = this.getLabel(selected)
+    }
+  }
+
+  public autocompleteOptions:AutoCompleteOptions = new AutoCompleteOptions();
+
+  @Input()
+  set options(options:AutoCompleteOptions|any) {
+    this.autocompleteOptions = new AutoCompleteOptions();
+
+    const keys = Object.keys(this.autocompleteOptions);
+
+    const keysLength = keys.length;
+    for (let i = 0; i < keysLength; i++) {
+      const key = keys[i];
+
+      if (typeof options[key] !== 'undefined') {
+        this.autocompleteOptions[key] = options[key];
+      }
     }
   }
 
@@ -175,7 +192,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     this.keyword = '';
     this.suggestions = [];
 
-    this.options = new AutoCompleteOptions();
+    this.autocompleteOptions = new AutoCompleteOptions();
 
     this.defaultOpts = new AutoCompleteOptions();
 
@@ -390,7 +407,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
         this.ionAutoInput.emit(this.keyword);
       },
-      this.options.debounce
+      this.autocompleteOptions.debounce
     );
   }
 

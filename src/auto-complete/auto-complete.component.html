@@ -41,12 +41,12 @@
            (tap)="handleTap($event)"
            [(ngModel)]="keyword"
            (ngModelChange)="updateModel($event)"
-           [placeholder]="options.placeholder == null ? defaultOpts.placeholder : options.placeholder"
-           [type]="options.type == null ? defaultOpts.type : options.type"
-           [clearOnEdit]="options.clearOnEdit == null ? defaultOpts.clearOnEdit : options.clearOnEdit"
-           [clearInput]="options.clearInput == null ? defaultOpts.clearInput : options.clearInput"
-           [color]="options.color == null ? null : options.color"
-           [mode]="options.mode == null ? defaultOpts.mode : options.mode"
+           [placeholder]="autocompleteOptions.placeholder == null ? defaultOpts.placeholder : autocompleteOptions.placeholder"
+           [type]="autocompleteOptions.type == null ? defaultOpts.type : autocompleteOptions.type"
+           [clearOnEdit]="autocompleteOptions.clearOnEdit == null ? defaultOpts.clearOnEdit : autocompleteOptions.clearOnEdit"
+           [clearInput]="autocompleteOptions.clearInput == null ? defaultOpts.clearInput : autocompleteOptions.clearInput"
+           [color]="autocompleteOptions.color == null ? null : autocompleteOptions.color"
+           [mode]="autocompleteOptions.mode == null ? defaultOpts.mode : autocompleteOptions.mode"
            [disabled]="disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected)"
            [ngClass]="{ 'hidden': !useIonInput, 'loading': isLoading }"
            [ngStyle]="styles.searchbar"
@@ -60,25 +60,25 @@
 <ion-searchbar #searchbarElem
                [autocomplete]="enableBrowserAutoComplete ? 'on' : 'off'"
                [name]="name"
-               [animated]="options.animated == null ? defaultOpts.animated : options.animated"
+               [animated]="autocompleteOptions.animated == null ? defaultOpts.animated : autocompleteOptions.animated"
                (ionInput)="keyupIonSearchbar($event)"
                (tap)="handleTap($event)"
                [(ngModel)]="keyword"
                (ngModelChange)="updateModel($event)"
-               [cancelButtonIcon]="options.cancelButtonIcon == null ? defaultOpts.cancelButtonIcon : options.cancelButtonIcon"
-               [cancelButtonText]="options.cancelButtonText == null ? defaultOpts.cancelButtonText : options.cancelButtonText"
-               [clearIcon]="options.clearIcon == null ? defaultOpts.clearIcon : options.clearIcon"
-               [color]="options.color == null ? null : options.color"
-               [showCancelButton]="options.showCancelButton == null ?
+               [cancelButtonIcon]="autocompleteOptions.cancelButtonIcon == null ? defaultOpts.cancelButtonIcon : autocompleteOptions.cancelButtonIcon"
+               [cancelButtonText]="autocompleteOptions.cancelButtonText == null ? defaultOpts.cancelButtonText : autocompleteOptions.cancelButtonText"
+               [clearIcon]="autocompleteOptions.clearIcon == null ? defaultOpts.clearIcon : autocompleteOptions.clearIcon"
+               [color]="autocompleteOptions.color == null ? null : autocompleteOptions.color"
+               [showCancelButton]="autocompleteOptions.showCancelButton == null ?
                                         (defaultOpts.showCancelButton ? 'always' : 'never') :
-                                        (options.showCancelButton ? 'always' : 'never')"
-               [debounce]="options.debounce == null ? defaultOpts.debounce : options.debounce"
-               [placeholder]="options.placeholder == null ? defaultOpts.placeholder : options.placeholder"
-               [autocorrect]="options.autocorrect == null ? defaultOpts.autocorrect : options.autocorrect"
-               [mode]="options.mode == null ? defaultOpts.mode : options.mode"
-               [searchIcon]="options.searchIcon == null ? defaultOpts.searchIcon : options.searchIcon"
-               [spellcheck]="options.spellcheck == null ? defaultOpts.spellcheck : options.spellcheck"
-               [type]="options.type == null ? defaultOpts.type : options.type"
+                                        (autocompleteOptions.showCancelButton ? 'always' : 'never')"
+               [debounce]="autocompleteOptions.debounce == null ? defaultOpts.debounce : autocompleteOptions.debounce"
+               [placeholder]="autocompleteOptions.placeholder == null ? defaultOpts.placeholder : autocompleteOptions.placeholder"
+               [autocorrect]="autocompleteOptions.autocorrect == null ? defaultOpts.autocorrect : autocompleteOptions.autocorrect"
+               [mode]="autocompleteOptions.mode == null ? defaultOpts.mode : autocompleteOptions.mode"
+               [searchIcon]="autocompleteOptions.searchIcon == null ? defaultOpts.searchIcon : autocompleteOptions.searchIcon"
+               [spellcheck]="autocompleteOptions.spellcheck == null ? defaultOpts.spellcheck : autocompleteOptions.spellcheck"
+               [type]="autocompleteOptions.type == null ? defaultOpts.type : autocompleteOptions.type"
                [ngClass]="{ 'hidden': useIonInput, 'loading': isLoading, 'disabled': disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected) }"
                [ngStyle]="styles.searchbar"
                (keyup.arrowDown)="highlightItem(-1)"
@@ -97,7 +97,7 @@
 <ng-template #defaultEmptyTemplate
              let-attrs="attrs"
              class="ion-text-center">
-    {{ options.noItems }}
+    {{ autocompleteOptions.noItems }}
 </ng-template>
 
 <ul *ngIf="!(disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected)) && suggestions.length > 0 && showSuggestions"
