@@ -37,7 +37,7 @@
 <ion-input #inputElem
            [autocomplete]="enableBrowserAutoComplete ? 'on' : 'off'"
            [name]="name"
-           (keyup)="keyupIonInput($event)"
+           (ionInput)="getItems($event)"
            (tap)="handleTap($event)"
            [(ngModel)]="keyword"
            (ngModelChange)="updateModel($event)"
@@ -61,7 +61,7 @@
                [autocomplete]="enableBrowserAutoComplete ? 'on' : 'off'"
                [name]="name"
                [animated]="autocompleteOptions.animated == null ? defaultOpts.animated : autocompleteOptions.animated"
-               (ionInput)="keyupIonSearchbar($event)"
+               (ionInput)="getItems($event)"
                (tap)="handleTap($event)"
                [(ngModel)]="keyword"
                (ngModelChange)="updateModel($event)"

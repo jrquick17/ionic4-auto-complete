@@ -337,21 +337,13 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     return;
   }
 
-  keyupIonSearchbar(event, show?:boolean):void {
-    this.getItems(event.detail.target.value, show);
-  }
-
-  keyupIonInput(event, show?:boolean):void {
-    this.getItems(event.target.value, show);
-  }
-
   /**
    * Get items for auto-complete
    *
-   * @param keyword
+   * @param event
    * @param show
    */
-  public getItems(keyword?:string, show?:boolean):void {
+  public getItems(event?, show?:boolean):void {
     this.isLoading = true;
 
     if (this.promise) {
@@ -361,7 +353,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     this.promise = setTimeout(
       () => {
         if (event) {
-          this.keyword = keyword;
+          this.keyword = event.detail.target.value;
         }
 
         let result;
