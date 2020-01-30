@@ -35,6 +35,7 @@ import {AutoCompleteStyles} from '../auto-complete-styles.model';
 })
 export class AutoCompleteComponent implements AfterViewChecked, ControlValueAccessor, DoCheck {
   @Input() public alwaysShowList:boolean = false;
+  @Input() public autoFocusSingleSuggestion:boolean = true;
   @Input() public enableBrowserAutoComplete:boolean = false;
   @Input() public clearInvalidInput:boolean = true;
   @Input() public dataProvider:AutoCompleteService|Function;
@@ -782,6 +783,14 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
     if (show || typeof show === 'undefined') {
       this.showItemList();
+    }
+
+    if (this.autoFocusSingleSuggestion) {
+      if (this.suggestions.length === 1) {
+        this.focusedOption = 0;
+      } else {
+        this.focusedOption = -1;
+      }
     }
   }
 
