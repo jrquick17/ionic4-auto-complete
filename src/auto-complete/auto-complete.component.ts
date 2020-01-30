@@ -745,6 +745,9 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * Set focus of searchbar
    */
   public setFocus():void {
+    if (this.useIonInput && this.inputElem) {
+      this.inputElem.nativeElement.setFocus();
+    }
     if (this.searchbarElem) {
       this.searchbarElem.nativeElement.setFocus();
     }
