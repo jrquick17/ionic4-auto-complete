@@ -384,6 +384,8 @@ npm install ionic4-auto-complete --save
 * `[maxResults]` (number) - limits the max number of suggestions shown (Default `8`).
 * `[alwaysShowList]` (boolean) - always show the list - defaults to false).
 * `[hideListOnSelection]` (boolean) - if allowing multiple selections, it might be nice not to dismiss the list after each selection - defaults to true).
+* `[selectOnTabOut]` (boolean) - select the currently highlighed option when the user presses the tab key (Default `false`)
+* `[autoFocusSingleSuggestion]` (boolean) - when only a single suggestion is available it might be nice for it to be highlighted automatically to allow selection by pressing enter key (Default `true`)
 
 ### Searchbar Methods ###
 
