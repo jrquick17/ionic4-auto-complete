@@ -7,9 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [2.6.0]
+### Added
+* Select on tab out by [Birdstown](https://github.com/Birdstown)
+* Auto highlight first result by [Birdstown](https://github.com/Birdstown)
+
 ### Fixed
-* Select on tab out by [Birdstown](https://github.com/jrquick17)
-* Auto highlight first result by [Birdstown](https://github.com/jrquick17)
+* Highlighting on hover when used with arrow keys by [jrquick17](https://github.com/jrquick17)
 
 ## [Released]
 

@@ -38,8 +38,7 @@ ion-auto-complete {
     }
 
     li:focus,
-    li.focus,
-    li:hover {
+    li.focus {
       cursor:     pointer;
       background: #f1f1f1
     }

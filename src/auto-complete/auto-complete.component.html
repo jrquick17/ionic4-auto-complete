@@ -109,6 +109,7 @@
     <li *ngFor="let suggestion of suggestions| slice:0:maxResults; let index = index"
         [ngClass]="{ 'focus': focusedOption === index }"
         [ngStyle]="styles.listItem"
+        (mouseenter)="focusedOption = index"
         (click)="handleSelectTap($event, suggestion)"
         (tap)="handleSelectTap($event, suggestion)">
         <ng-template [ngTemplateOutlet]="template || defaultTemplate"
