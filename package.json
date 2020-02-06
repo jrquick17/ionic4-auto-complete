@@ -15,7 +15,7 @@
     "lint": "tslint --project tsconfig.json src/**/*.ts",
     "publish": "npm publish dist",
     "shipit": "npm run lint && npm run test && npm run demo:build && npm run docs:build && npm run publish",
-    "test": "ng test --browsers ChromeHeadless"
+    "test": "ng test --browsers PhantomJS --progress --watch false"
   },
   "ngPackage": {
     "lib": {
@@ -85,6 +85,7 @@
     "karma-coverage-istanbul-reporter": "~2.1.1",
     "karma-jasmine": "~3.1.0",
     "karma-jasmine-html-reporter": "^1.5.2",
+    "karma-phantomjs-launcher": "^1.0.4",
     "ng-packagr": "^5.7.1",
     "protractor": "~6.0.0",
     "rollup": "^1.31.0",
@@ -107,5 +108,9 @@
     "@angular/platform-browser-dynamic": "^8.0.0",
     "@angular/router": "^8.0.0",
     "@angular/service-worker": "^8.0.0"
+  },
+  "dependencies": {
+    "hammerjs": "^2.0.8",
+    "intl": "^1.2.5"
   }
 }
