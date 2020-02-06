@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.6.0]
+### Fixed
+* Select on tab out by [Birdstown](https://github.com/jrquick17)
+* Auto highlight first result by [Birdstown](https://github.com/jrquick17)
+
 ## [Released]
 
 ## [2.5.3]

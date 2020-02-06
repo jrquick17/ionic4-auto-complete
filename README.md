@@ -422,6 +422,7 @@ To contribute, clone the repo. Then, run `npm install` to get the packages neede
 * [jrquick17](https://github.com/jrquick17)
 * [kadoshms](https://github.com/kadoshms)
 * [gnowland](https://github.com/gnowland)
+* [Birdstown](https://github.com/Birdstown)
 
 ## Issues ##
 
