@@ -56,7 +56,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @Input() public removeButtonSlot:string = 'end';
   @Input() public removeDuplicateSuggestions:boolean = true;
   @Input() public selectionTemplate:TemplateRef<any>;
-  @Input() public selectOnTabOut:boolean = false;
+  @Input() public selectOnTabOut:boolean = true;
   @Input() public showResultsFirst:boolean;
   @Input() public styles = new AutoCompleteStyles;
   @Input() public template:TemplateRef<any>;
@@ -498,7 +498,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * @param event
    */
   public handleTabOut(event):void {
-    if (this.selectOnTabOut && this.suggestions.length > 0) {
+    if (this.selectOnTabOut && this.suggestions.length !== 0) {
       if (this.focusedOption !== -1) {
         this.selectItem(this.suggestions[this.focusedOption]);
       } else {
