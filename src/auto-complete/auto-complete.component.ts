@@ -504,11 +504,11 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
       } else {
         this.hideItemList();
       }
-      this.onBlur(event);
     } else {
       this.hideItemList();
-      this.onBlur(event);
     }
+
+    this.onBlur(event);
   }
 
   /**
