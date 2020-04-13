@@ -25,8 +25,8 @@ export class HomePage implements OnInit {
       label: 'Multi Select'
     },
     {
-      key:   'custom-template',
-      label: 'Custom Template'
+      key:   'country-picker',
+      label: 'Pick Countries'
     }
   ];
 

@@ -5,19 +5,19 @@ import {IonicModule} from '@ionic/angular';
 
 import {AutoCompleteModule} from 'ionic4-auto-complete';
 
-import {MultiFunctionComponent} from './multi-function.component';
+import {CountryPickerComponent} from './country-picker.component';
 
 import {SimpleFunction} from '../../services/simple-function.service';
 
 @NgModule({
   declarations: [
-    MultiFunctionComponent
+    CountryPickerComponent
   ],
   entryComponents: [
-    MultiFunctionComponent
+    CountryPickerComponent
   ],
   exports: [
-    MultiFunctionComponent
+    CountryPickerComponent
   ],
   imports: [
     AutoCompleteModule,
@@ -29,4 +29,4 @@ import {SimpleFunction} from '../../services/simple-function.service';
     SimpleFunction
   ]
 })
-export class MultiFunctionModule {}
+export class CountryPickerModule {}

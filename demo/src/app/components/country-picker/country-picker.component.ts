@@ -6,12 +6,12 @@ import {SimpleService} from '../../services/simple-service.service';
 
 @Component({
   selector:    'custom-template',
-  templateUrl: 'custom-template.component.html',
+  templateUrl: 'country-picker.component.html',
   styleUrls: [
-    'custom-template.component.scss'
+    'country-picker.component.scss'
   ]
 })
-export class CustomTemplateComponent {
+export class CountryPickerComponent {
   public options:AutoCompleteOptions;
 
   public selected:string[] = [];
