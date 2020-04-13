@@ -40,33 +40,33 @@
 <title>cluster_CustomTemplateModule_providers</title>
 <polygon fill="none" stroke="#000000" points="16,-78 16,-130 178,-130 178,-78 16,-78"/>
 </g>
-<!-- CustomTemplateComponent -->
+<!-- CountryPickerComponent -->
 <g id="node1" class="node">
-<title>CustomTemplateComponent</title>
+<title>CountryPickerComponent</title>
 <polygon fill="#ffffb3" stroke="#000000" points="537.7632,-122 360.2368,-122 360.2368,-86 537.7632,-86 537.7632,-122"/>
-<text text-anchor="middle" x="449" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">CustomTemplateComponent</text>
+<text text-anchor="middle" x="449" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">CountryPickerComponent</text>
 </g>
-<!-- CustomTemplateModule -->
+<!-- CountryPickerModule -->
 <g id="node2" class="node">
-<title>CustomTemplateModule</title>
+<title>CountryPickerModule</title>
 <polygon fill="#8dd3c7" stroke="#000000" points="342.9804,-187 339.9804,-191 318.9804,-191 315.9804,-187 187.0196,-187 187.0196,-151 342.9804,-151 342.9804,-187"/>
-<text text-anchor="middle" x="265" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">CustomTemplateModule</text>
+<text text-anchor="middle" x="265" y="-164.8" font-family="Times,serif" font-size="14.00" fill="#000000">CountryPickerModule</text>
 </g>
-<!-- CustomTemplateComponent&#45;&gt;CustomTemplateModule -->
+<!-- CountryPickerComponent&#45;&gt;CountryPickerModule -->
 <g id="edge1" class="edge">
-<title>CustomTemplateComponent&#45;&gt;CustomTemplateModule</title>
+<title>CountryPickerComponent&#45;&gt;CountryPickerModule</title>
 <path fill="none" stroke="#000000" d="M449,-122.1061C449,-141.3391 449,-169 449,-169 449,-169 353.0326,-169 353.0326,-169"/>
 <polygon fill="#000000" stroke="#000000" points="353.0326,-165.5001 343.0326,-169 353.0325,-172.5001 353.0326,-165.5001"/>
 </g>
-<!-- CustomTemplateComponent  -->
+<!-- CountryPickerComponent  -->
 <g id="node4" class="node">
-<title>CustomTemplateComponent </title>
+<title>CountryPickerComponent </title>
 <polygon fill="#fb8072" stroke="#000000" points="355.7632,-252 174.2368,-252 174.2368,-216 355.7632,-216 355.7632,-252"/>
-<text text-anchor="middle" x="265" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">CustomTemplateComponent </text>
+<text text-anchor="middle" x="265" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">CountryPickerComponent </text>
 </g>
-<!-- CustomTemplateModule&#45;&gt;CustomTemplateComponent  -->
+<!-- CountryPickerModule&#45;&gt;CountryPickerComponent  -->
 <g id="edge3" class="edge">
-<title>CustomTemplateModule&#45;&gt;CustomTemplateComponent </title>
+<title>CountryPickerModule&#45;&gt;CountryPickerComponent </title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M265,-187.1061C265,-187.1061 265,-205.991 265,-205.991"/>
 <polygon fill="#000000" stroke="#000000" points="261.5001,-205.9909 265,-215.991 268.5001,-205.991 261.5001,-205.9909"/>
 </g>
@@ -76,9 +76,9 @@
 <polygon fill="#8dd3c7" stroke="#000000" points="335.9846,-122 332.9846,-126 311.9846,-126 308.9846,-122 194.0154,-122 194.0154,-86 335.9846,-86 335.9846,-122"/>
 <text text-anchor="middle" x="265" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">AutoCompleteModule</text>
 </g>
-<!-- AutoCompleteModule&#45;&gt;CustomTemplateModule -->
+<!-- AutoCompleteModule&#45;&gt;CountryPickerModule -->
 <g id="edge2" class="edge">
-<title>AutoCompleteModule&#45;&gt;CustomTemplateModule</title>
+<title>AutoCompleteModule&#45;&gt;CountryPickerModule</title>
 <path fill="none" stroke="#000000" d="M265,-122.1061C265,-122.1061 265,-140.991 265,-140.991"/>
 <polygon fill="#000000" stroke="#000000" points="261.5001,-140.9909 265,-150.991 268.5001,-140.991 261.5001,-140.9909"/>
 </g>
@@ -88,9 +88,9 @@
 <ellipse fill="#fdb462" stroke="#000000" cx="97" cy="-104" rx="72.9722" ry="18"/>
 <text text-anchor="middle" x="97" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">SimpleFunction</text>
 </g>
-<!-- SimpleFunction&#45;&gt;CustomTemplateModule -->
+<!-- SimpleFunction&#45;&gt;CountryPickerModule -->
 <g id="edge4" class="edge">
-<title>SimpleFunction&#45;&gt;CustomTemplateModule</title>
+<title>SimpleFunction&#45;&gt;CountryPickerModule</title>
 <path fill="none" stroke="#000000" d="M97,-122.1061C97,-141.3391 97,-169 97,-169 97,-169 176.9019,-169 176.9019,-169"/>
 <polygon fill="#000000" stroke="#000000" points="176.902,-172.5001 186.9019,-169 176.9019,-165.5001 176.902,-172.5001"/>
 </g>

@@ -91,27 +91,27 @@
 <path fill="none" stroke="#000000" d="M728,-122.2843C728,-143.3211 728,-175 728,-175 728,-175 491.6533,-175 491.6533,-175"/>
 <polygon fill="#000000" stroke="#000000" points="491.6534,-171.5001 481.6533,-175 491.6533,-178.5001 491.6534,-171.5001"/>
 </g>
-<!-- CustomTemplateModule -->
+<!-- CountryPickerModule -->
 <g id="node3" class="node">
-<title>CustomTemplateModule</title>
+<title>CountryPickerModule</title>
 <polygon fill="#8dd3c7" stroke="#000000" points="664.9804,-122 661.9804,-126 640.9804,-126 637.9804,-122 509.0196,-122 509.0196,-86 664.9804,-86 664.9804,-122"/>
-<text text-anchor="middle" x="587" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">CustomTemplateModule</text>
+<text text-anchor="middle" x="587" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">CountryPickerModule</text>
 </g>
-<!-- CustomTemplateModule&#45;&gt;HomePageModule -->
+<!-- CountryPickerModule&#45;&gt;HomePageModule -->
 <g id="edge2" class="edge">
-<title>CustomTemplateModule&#45;&gt;HomePageModule</title>
+<title>CountryPickerModule&#45;&gt;HomePageModule</title>
 <path fill="none" stroke="#000000" d="M587,-122.0225C587,-139.3734 587,-163 587,-163 587,-163 491.8697,-163 491.8697,-163"/>
 <polygon fill="#000000" stroke="#000000" points="491.8697,-159.5001 481.8697,-163 491.8696,-166.5001 491.8697,-159.5001"/>
 </g>
-<!-- MultiFunctionModule -->
+<!-- TeamPickerModule -->
 <g id="node4" class="node">
-<title>MultiFunctionModule</title>
+<title>TeamPickerModule</title>
 <polygon fill="#8dd3c7" stroke="#000000" points="491.4453,-122 488.4453,-126 467.4453,-126 464.4453,-122 350.5547,-122 350.5547,-86 491.4453,-86 491.4453,-122"/>
-<text text-anchor="middle" x="421" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">MultiFunctionModule</text>
+<text text-anchor="middle" x="421" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">TeamPickerModule</text>
 </g>
-<!-- MultiFunctionModule&#45;&gt;HomePageModule -->
+<!-- TeamPickerModule&#45;&gt;HomePageModule -->
 <g id="edge3" class="edge">
-<title>MultiFunctionModule&#45;&gt;HomePageModule</title>
+<title>TeamPickerModule&#45;&gt;HomePageModule</title>
 <path fill="none" stroke="#000000" d="M421,-122.1061C421,-122.1061 421,-140.991 421,-140.991"/>
 <polygon fill="#000000" stroke="#000000" points="417.5001,-140.9909 421,-150.991 424.5001,-140.991 417.5001,-140.9909"/>
 </g>
@@ -191,10 +191,10 @@
                                 class="icon ion-ios-information-circle-outline"></a></h3>
                     <ul class="list-group">
                         <li class="list-group-item">
-                            <a href="../modules/CustomTemplateModule.html">CustomTemplateModule</a>
+                            <a href="../modules/CustomTemplateModule.html">CountryPickerModule</a>
                         </li>
                         <li class="list-group-item">
-                            <a href="../modules/MultiFunctionModule.html">MultiFunctionModule</a>
+                            <a href="../modules/MultiFunctionModule.html">TeamPickerModule</a>
                         </li>
                         <li class="list-group-item">
                             <a href="../modules/SimpleFunctionModule.html">SimpleFunctionModule</a>
@@ -221,8 +221,8 @@ import {IonicModule} from &#x27;@ionic/angular&#x27;;
 
 import {HomePage} from &#x27;./home.page&#x27;;
 
-import {CustomTemplateModule} from &#x27;../../components/custom-template/custom-template.module&#x27;;
-import {MultiFunctionModule} from &#x27;../../components/multi-function/multi-function.module&#x27;;
+import {CountryPickerModule} from &#x27;../../components/custom-template/custom-template.module&#x27;;
+import {TeamPickerModule} from &#x27;../../components/multi-function/multi-function.module&#x27;;
 import {SimpleFunctionModule} from &#x27;../../components/simple-function/simple-function.module&#x27;;
 import {SimpleServiceModule} from &#x27;../../components/simple-service/simple-service.module&#x27;;
 
@@ -232,10 +232,10 @@ import {SimpleServiceModule} from &#x27;../../components/simple-service/simple-s
   ],
   imports: [
     CommonModule,
-    CustomTemplateModule,
+    CountryPickerModule,
     FormsModule,
     IonicModule,
-    MultiFunctionModule,
+    TeamPickerModule,
     RouterModule.forChild([
       {
         path: &#x27;&#x27;,
