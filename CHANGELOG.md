@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 * `listTemplate` by [jrquick17](https://github.com/jrquick17)
 
+### Fixed
+* Clear input by [rgolea](https://github.com/rgolea)
+
 ## [Released]
 
 ## [2.6.0]
