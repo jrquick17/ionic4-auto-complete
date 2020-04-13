@@ -21,8 +21,8 @@ export class HomePage implements OnInit {
       label: 'Data Provider'
     },
     {
-      key:   'multi-function',
-      label: 'Multi Select'
+      key:   'team-picker',
+      label: 'Pick Teams'
     },
     {
       key:   'country-picker',

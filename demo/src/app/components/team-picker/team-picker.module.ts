@@ -5,19 +5,19 @@ import {IonicModule} from '@ionic/angular';
 
 import {AutoCompleteModule} from 'ionic4-auto-complete';
 
-import {CustomTemplateComponent} from './custom-template.component';
+import {TeamPickerComponent} from './team-picker.component';
 
 import {SimpleFunction} from '../../services/simple-function.service';
 
 @NgModule({
   declarations: [
-    CustomTemplateComponent
+    TeamPickerComponent
   ],
   entryComponents: [
-    CustomTemplateComponent
+    TeamPickerComponent
   ],
   exports: [
-    CustomTemplateComponent
+    TeamPickerComponent
   ],
   imports: [
     AutoCompleteModule,
@@ -29,4 +29,4 @@ import {SimpleFunction} from '../../services/simple-function.service';
     SimpleFunction
   ]
 })
-export class CustomTemplateModule {}
+export class TeamPickerModule {}
