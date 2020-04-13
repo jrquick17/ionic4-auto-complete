@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [Released]
+
 ## [2.6.0]
 ### Added
 * Select on tab out by [Birdstown](https://github.com/Birdstown)
@@ -13,8 +15,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 * Highlighting on hover when used with arrow keys by [jrquick17](https://github.com/jrquick17)
-
-## [Released]
 
 ## [2.5.3]
 ### Fixed
