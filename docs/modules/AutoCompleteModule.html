@@ -201,7 +201,7 @@
                 <td class="col-md-4">
 
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://angular.io/api/core/ModuleWithProviders" target="_blank" >ModuleWithProviders</a></code>
+                        <b>Returns : </b>    <code>ModuleWithProviders&lt;AutoCompleteModule&gt;</code>
 
                     </div>
                 </td>
@@ -245,7 +245,7 @@ export * from &#x27;./bold-prefix.pipe&#x27;;
   ]
 })
 export class AutoCompleteModule {
-  static forRoot():ModuleWithProviders {
+  static forRoot():ModuleWithProviders&lt;AutoCompleteModule&gt; {
     return {
       ngModule: AutoCompleteModule,
       providers: []

@@ -440,7 +440,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>        <code><a href="../classes/Segment.html" target="_self" >Segment[]</a></code>
+                            <i>Type : </i>        <code><a href="../classes/SegmentModel.html" target="_self" >SegmentModel[]</a></code>
 
                         </td>
                     </tr>
@@ -448,12 +448,12 @@
                         <td class="col-md-4">
                             <i>Default value : </i><code>[
     {
-      key:   &#x27;simple-function&#x27;,
-      label: &#x27;Simple Function&#x27;
+      key:   &#x27;simple-service&#x27;,
+      label: &#x27;Basic&#x27;
     },
     {
-      key:   &#x27;simple-service&#x27;,
-      label: &#x27;Data Provider&#x27;
+      key:   &#x27;ingredients&#x27;,
+      label: &#x27;Ingredients&#x27;
     },
     {
       key:   &#x27;team-picker&#x27;,
@@ -517,7 +517,7 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Component, OnInit} from &#x27;@angular/core&#x27;;
 import {ActivatedRoute, Router} from &#x27;@angular/router&#x27;;
 
-import {Segment} from &#x27;../../models/segment.model&#x27;;
+import {SegmentModel} from &#x27;../../models/segment.model&#x27;;
 
 @Component({
   selector:    &#x27;home-page&#x27;,
@@ -527,14 +527,14 @@ import {Segment} from &#x27;../../models/segment.model&#x27;;
   ],
 })
 export class HomePage implements OnInit {
-  public segments:Segment[] &#x3D; [
-    {
-      key:   &#x27;simple-function&#x27;,
-      label: &#x27;Simple Function&#x27;
-    },
+  public segments:SegmentModel[] &#x3D; [
     {
       key:   &#x27;simple-service&#x27;,
-      label: &#x27;Data Provider&#x27;
+      label: &#x27;Basic&#x27;
+    },
+    {
+      key:   &#x27;ingredients&#x27;,
+      label: &#x27;Ingredients&#x27;
     },
     {
       key:   &#x27;team-picker&#x27;,
@@ -620,15 +620,15 @@ export class HomePage implements OnInit {
 
     &lt;ion-item-divider&gt;&lt;/ion-item-divider&gt;
 
-    &lt;ion-card *ngIf&#x3D;&quot;selectedSegment &#x3D;&#x3D;&#x3D; &#x27;simple-function&#x27;&quot;
+    &lt;ion-card *ngIf&#x3D;&quot;selectedSegment &#x3D;&#x3D;&#x3D; &#x27;ingredients&#x27;&quot;
               style&#x3D;&quot;height: 100%;&quot;&gt;
       &lt;ion-card-content&gt;
         &lt;ion-row&gt;
           &lt;ion-col class&#x3D;&quot;label&quot;&gt;
-            Select Anybody
+            Select Ingredients
           &lt;/ion-col&gt;
           &lt;ion-col [size]&#x3D;&quot;12&quot;&gt;
-            &lt;simple-function&gt;&lt;/simple-function&gt;
+            &lt;ingredient-picker&gt;&lt;/ingredient-picker&gt;
           &lt;/ion-col&gt;
         &lt;/ion-row&gt;
       &lt;/ion-card-content&gt;
@@ -712,8 +712,8 @@ export class HomePage implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-title>      Demo: ionic4-auto-complete    </ion-title>  </ion-toolbar></ion-header><ion-content>  <ion-list style="height: 100%;">    <ion-segment (ionChange)="onClickSegment($event)">      <ion-segment-button *ngFor="let segment of segments"                          [value]="segment.key"                          [checked]="segment.key === selectedSegment">        <ion-label>          {{ segment.label }}        </ion-label>      </ion-segment-button>    </ion-segment>    <ion-item-divider></ion-item-divider>    <ion-card *ngIf="selectedSegment === \'simple-function\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select Anybody          </ion-col>          <ion-col [size]="12">            <simple-function></simple-function>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>    <ion-card *ngIf="selectedSegment === \'simple-service\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select Any Country          </ion-col>          <ion-col [size]="12">            <simple-service></simple-service>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>    <ion-card *ngIf="selectedSegment === \'team-picker\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select Multiple People          </ion-col>          <ion-col [size]="12">            <multi-function></multi-function>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>    <ion-card *ngIf="selectedSegment === \'country-picker\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select up to 3 Countries          </ion-col>          <ion-col [size]="12">            <custom-template></custom-template>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>  </ion-list></ion-content></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoCompleteComponent', 'selector': ''},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'CountryPickerComponent', 'selector': 'custom-template'},{'name': 'HomePage', 'selector': 'home-page'},{'name': 'IngredientPickerComponent', 'selector': 'simple-function'},{'name': 'SimpleServiceComponent', 'selector': 'simple-service'},{'name': 'TeamPickerComponent', 'selector': 'multi-function'}];
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-title>      Demo: ionic4-auto-complete    </ion-title>  </ion-toolbar></ion-header><ion-content>  <ion-list style="height: 100%;">    <ion-segment (ionChange)="onClickSegment($event)">      <ion-segment-button *ngFor="let segment of segments"                          [value]="segment.key"                          [checked]="segment.key === selectedSegment">        <ion-label>          {{ segment.label }}        </ion-label>      </ion-segment-button>    </ion-segment>    <ion-item-divider></ion-item-divider>    <ion-card *ngIf="selectedSegment === \'ingredients\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select Ingredients          </ion-col>          <ion-col [size]="12">            <ingredient-picker></ingredient-picker>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>    <ion-card *ngIf="selectedSegment === \'simple-service\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select Any Country          </ion-col>          <ion-col [size]="12">            <simple-service></simple-service>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>    <ion-card *ngIf="selectedSegment === \'team-picker\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select Multiple People          </ion-col>          <ion-col [size]="12">            <multi-function></multi-function>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>    <ion-card *ngIf="selectedSegment === \'country-picker\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select up to 3 Countries          </ion-col>          <ion-col [size]="12">            <custom-template></custom-template>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>  </ion-list></ion-content></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoCompleteComponent', 'selector': ''},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'CountryPickerComponent', 'selector': 'custom-template'},{'name': 'HomePage', 'selector': 'home-page'},{'name': 'IngredientPickerComponent', 'selector': 'ingredient-picker'},{'name': 'SimpleServiceComponent', 'selector': 'simple-service'},{'name': 'TeamPickerComponent', 'selector': 'multi-function'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomePage'};
 </script>
