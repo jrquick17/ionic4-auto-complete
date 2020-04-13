@@ -6,13 +6,13 @@ import {map} from 'rxjs/operators';
 
 import {AutoCompleteService} from 'ionic4-auto-complete';
 
-import {Country} from '../models/country.model';
+import {CountryModel} from '../models/country.model';
 
 @Injectable()
-export class SimpleService implements AutoCompleteService {
+export class CountryService implements AutoCompleteService {
   labelAttribute = 'name';
 
-  private countries:Country[] = [];
+  private countries:CountryModel[] = [];
 
   constructor(
     private http:HttpClient
@@ -28,7 +28,7 @@ export class SimpleService implements AutoCompleteService {
     if (this.countries.length === 0) {
       observable = this.http.get('https://restcountries.eu/rest/v2/all').pipe(
         map(
-          (results:Country[]) => {
+          (results:CountryModel[]) => {
             if (results) {
               this.countries = results;
             }

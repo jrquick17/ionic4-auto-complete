@@ -2,13 +2,13 @@ import {Injectable} from '@angular/core';
 
 import {AutoCompleteService} from 'ionic4-auto-complete';
 
-import {User} from '../models/user.model';
+import {UserModel} from '../models/user.model';
 
 @Injectable()
-export class SimpleFunction implements AutoCompleteService {
+export class PeopleService implements AutoCompleteService {
   labelAttribute = 'full_name';
 
-  public objects:User[] = [
+  public objects:UserModel[] = [
       {
           first_name: 'Dominic',
           last_name: 'Elliot',

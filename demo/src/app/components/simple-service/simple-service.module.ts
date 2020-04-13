@@ -7,7 +7,7 @@ import {AutoCompleteModule} from 'ionic4-auto-complete';
 
 import {SimpleServiceComponent} from './simple-service.component';
 
-import {SimpleService} from '../../services/simple-service.service';
+import {CountryService} from '../../services/country.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import {SimpleService} from '../../services/simple-service.service';
     IonicModule
   ],
   providers: [
-    SimpleService
+    CountryService
   ]
 })
 export class SimpleServiceModule {}

@@ -20,15 +20,15 @@
 
     <ion-item-divider></ion-item-divider>
 
-    <ion-card *ngIf="selectedSegment === 'simple-function'"
+    <ion-card *ngIf="selectedSegment === 'ingredients'"
               style="height: 100%;">
       <ion-card-content>
         <ion-row>
           <ion-col class="label">
-            Select Anybody
+            Select Ingredients
           </ion-col>
           <ion-col [size]="12">
-            <simple-function></simple-function>
+            <ingredient-picker></ingredient-picker>
           </ion-col>
         </ion-row>
       </ion-card-content>

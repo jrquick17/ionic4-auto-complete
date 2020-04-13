@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
-import {Segment} from '../../models/segment.model';
+import {SegmentModel} from '../../models/segment.model';
 
 @Component({
   selector:    'home-page',
@@ -11,14 +11,14 @@ import {Segment} from '../../models/segment.model';
   ],
 })
 export class HomePage implements OnInit {
-  public segments:Segment[] = [
-    {
-      key:   'simple-function',
-      label: 'Simple Function'
-    },
+  public segments:SegmentModel[] = [
     {
       key:   'simple-service',
-      label: 'Data Provider'
+      label: 'Basic'
+    },
+    {
+      key:   'ingredients',
+      label: 'Ingredients'
     },
     {
       key:   'team-picker',

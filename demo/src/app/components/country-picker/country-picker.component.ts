@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 
 import {AutoCompleteOptions} from 'ionic4-auto-complete';
 
-import {SimpleService} from '../../services/simple-service.service';
+import {CountryService} from '../../services/country.service';
 
 @Component({
   selector:    'custom-template',
@@ -17,7 +17,7 @@ export class CountryPickerComponent {
   public selected:string[] = [];
 
   constructor(
-      public provider:SimpleService
+      public provider:CountryService
   ) {
     this.options = new AutoCompleteOptions();
 

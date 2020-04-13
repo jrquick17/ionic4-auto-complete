@@ -7,7 +7,7 @@ import {AutoCompleteModule} from 'ionic4-auto-complete';
 
 import {TeamPickerComponent} from './team-picker.component';
 
-import {SimpleFunction} from '../../services/simple-function.service';
+import {PeopleService} from '../../services/people.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import {SimpleFunction} from '../../services/simple-function.service';
     IonicModule
   ],
   providers: [
-    SimpleFunction
+    PeopleService
   ]
 })
 export class TeamPickerModule {}

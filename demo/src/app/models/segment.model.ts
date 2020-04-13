@@ -1,4 +1,4 @@
-export class Segment {
+export class SegmentModel {
   public key:string;
   public label:string;
 

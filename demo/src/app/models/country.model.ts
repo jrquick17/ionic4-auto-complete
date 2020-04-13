@@ -1,4 +1,4 @@
-export class Country {
+export class CountryModel {
   public alpha2Code:string;
   public alpha3Code:string;
   public altSpellings:string[];

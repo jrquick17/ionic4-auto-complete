@@ -18,10 +18,10 @@ import {SimpleServiceModule} from '../../components/simple-service/simple-servic
   ],
   imports: [
     CommonModule,
-    CustomTemplateModule,
+    CountryPickerModule,
     FormsModule,
     IonicModule,
-    MultiFunctionModule,
+    TeamPickerModule,
     RouterModule.forChild([
       {
         path: '',

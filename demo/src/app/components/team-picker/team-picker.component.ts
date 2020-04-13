@@ -2,8 +2,8 @@ import {Component} from '@angular/core';
 
 import {AutoCompleteOptions} from 'ionic4-auto-complete';
 
-import {SimpleFunction} from '../../services/simple-function.service';
-import {User} from '../../models/user.model';
+import {PeopleService} from '../../services/people.service';
+import {UserModel} from '../../models/user.model';
 
 @Component({
   selector:    'multi-function',
@@ -17,11 +17,11 @@ export class TeamPickerComponent {
   public otherTeamIsSelecting:boolean = false;
   public teamOptions:AutoCompleteOptions;
 
-  public otherTeam:User[] = [];
-  public selected:User[] = [];
+  public otherTeam:UserModel[] = [];
+  public selected:UserModel[] = [];
 
   constructor(
-    public provider:SimpleFunction
+    public provider:PeopleService
   ) {
     this.teamOptions = new AutoCompleteOptions();
     this.teamOptions.autocomplete = 'on';
