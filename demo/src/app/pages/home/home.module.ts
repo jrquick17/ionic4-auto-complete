@@ -8,8 +8,8 @@ import {IonicModule} from '@ionic/angular';
 import {HomePage} from './home.page';
 
 import {CountryPickerModule} from '../../components/country-picker/country-picker.module';
-import {MultiFunctionModule} from '../../components/multi-function/multi-function.module';
-import {SimpleFunctionModule} from '../../components/simple-function/simple-function.module';
+import {TeamPickerModule} from '../../components/team-picker/team-picker.module';
+import {IngredientPickerModule} from '../../components/ingredient-picker/ingredient-picker.module';
 import {SimpleServiceModule} from '../../components/simple-service/simple-service.module';
 
 @NgModule({
@@ -28,7 +28,7 @@ import {SimpleServiceModule} from '../../components/simple-service/simple-servic
         component: HomePage
       }
     ]),
-    SimpleFunctionModule,
+    IngredientPickerModule,
     SimpleServiceModule
   ]
 })

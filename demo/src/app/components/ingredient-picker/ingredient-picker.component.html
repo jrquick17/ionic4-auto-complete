@@ -1,7 +1,20 @@
+<ng-template #empty
+             let-attrs="attrs">
+    <div class="country-suggestions-empty">
+        <ion-text>Sorry, we could not find that ingredient!</ion-text>
+
+        <ion-button [size]="'full'"
+                    (click)="add()">
+            Add Anyways
+        </ion-button>
+    </div>
+</ng-template>
+
 <ion-auto-complete [(model)]="selected"
-                   [multi]="false"
+                   [multi]="true"
                    [dataProvider]="provider"
                    [disabled]="false"
+                   [emptyTemplate]="empty"
                    [options]="options"
                    [removeButtonIcon]="'assets/icons/clear.svg'"
                    [removeButtonColor]="'dark'"
