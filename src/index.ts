@@ -30,7 +30,7 @@ export * from './bold-prefix.pipe';
   ]
 })
 export class AutoCompleteModule {
-  static forRoot():ModuleWithProviders {
+  static forRoot():ModuleWithProviders<AutoCompleteModule> {
     return {
       ngModule: AutoCompleteModule,
       providers: []

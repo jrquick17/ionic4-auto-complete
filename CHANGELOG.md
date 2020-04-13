@@ -6,14 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.7.1]
+### Updated
+* Specify type of ModuleWithProviders by [jrquick17](https://github.com/jrquick17)
+
+## [Released]
+
 ## [2.7.0]
 ### Added
 * `listTemplate` by [jrquick17](https://github.com/jrquick17)
 
 ### Fixed
 * Clear input by [rgolea](https://github.com/rgolea)
-
-## [Released]
 
 ## [2.6.0]
 ### Added
