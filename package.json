@@ -14,7 +14,7 @@
     "docs:watch": "npm run docs:build -- -s -w",
     "lint": "tslint --project tsconfig.json src/**/*.ts",
     "publish": "npm publish dist",
-    "shipit": "npm run lint && npm run test && npm run demo:build && npm run docs:build && npm run publish",
+    "shipit": "npm run lint && npm run test && npm run build && npm run docs:build && npm run publish",
     "test": "ng test --browsers PhantomJS --progress --watch false"
   },
   "ngPackage": {

@@ -456,12 +456,12 @@
       label: &#x27;Data Provider&#x27;
     },
     {
-      key:   &#x27;multi-function&#x27;,
-      label: &#x27;Multi Select&#x27;
+      key:   &#x27;team-picker&#x27;,
+      label: &#x27;Pick Teams&#x27;
     },
     {
-      key:   &#x27;custom-template&#x27;,
-      label: &#x27;Custom Template&#x27;
+      key:   &#x27;country-picker&#x27;,
+      label: &#x27;Pick Countries&#x27;
     }
   ]</code>
                         </td>
@@ -537,12 +537,12 @@ export class HomePage implements OnInit {
       label: &#x27;Data Provider&#x27;
     },
     {
-      key:   &#x27;multi-function&#x27;,
-      label: &#x27;Multi Select&#x27;
+      key:   &#x27;team-picker&#x27;,
+      label: &#x27;Pick Teams&#x27;
     },
     {
-      key:   &#x27;custom-template&#x27;,
-      label: &#x27;Custom Template&#x27;
+      key:   &#x27;country-picker&#x27;,
+      label: &#x27;Pick Countries&#x27;
     }
   ];
 
@@ -648,7 +648,7 @@ export class HomePage implements OnInit {
       &lt;/ion-card-content&gt;
     &lt;/ion-card&gt;
 
-    &lt;ion-card *ngIf&#x3D;&quot;selectedSegment &#x3D;&#x3D;&#x3D; &#x27;multi-function&#x27;&quot;
+    &lt;ion-card *ngIf&#x3D;&quot;selectedSegment &#x3D;&#x3D;&#x3D; &#x27;team-picker&#x27;&quot;
               style&#x3D;&quot;height: 100%;&quot;&gt;
       &lt;ion-card-content&gt;
         &lt;ion-row&gt;
@@ -662,7 +662,7 @@ export class HomePage implements OnInit {
       &lt;/ion-card-content&gt;
     &lt;/ion-card&gt;
 
-    &lt;ion-card *ngIf&#x3D;&quot;selectedSegment &#x3D;&#x3D;&#x3D; &#x27;custom-template&#x27;&quot;
+    &lt;ion-card *ngIf&#x3D;&quot;selectedSegment &#x3D;&#x3D;&#x3D; &#x27;country-picker&#x27;&quot;
               style&#x3D;&quot;height: 100%;&quot;&gt;
       &lt;ion-card-content&gt;
         &lt;ion-row&gt;
@@ -712,8 +712,8 @@ export class HomePage implements OnInit {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-title>      Demo: ionic4-auto-complete    </ion-title>  </ion-toolbar></ion-header><ion-content>  <ion-list style="height: 100%;">    <ion-segment (ionChange)="onClickSegment($event)">      <ion-segment-button *ngFor="let segment of segments"                          [value]="segment.key"                          [checked]="segment.key === selectedSegment">        <ion-label>          {{ segment.label }}        </ion-label>      </ion-segment-button>    </ion-segment>    <ion-item-divider></ion-item-divider>    <ion-card *ngIf="selectedSegment === \'simple-function\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select Anybody          </ion-col>          <ion-col [size]="12">            <simple-function></simple-function>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>    <ion-card *ngIf="selectedSegment === \'simple-service\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select Any Country          </ion-col>          <ion-col [size]="12">            <simple-service></simple-service>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>    <ion-card *ngIf="selectedSegment === \'multi-function\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select Multiple People          </ion-col>          <ion-col [size]="12">            <multi-function></multi-function>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>    <ion-card *ngIf="selectedSegment === \'custom-template\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select up to 3 Countries          </ion-col>          <ion-col [size]="12">            <custom-template></custom-template>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>  </ion-list></ion-content></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoCompleteComponent', 'selector': ''},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'CustomTemplateComponent', 'selector': 'custom-template'},{'name': 'HomePage', 'selector': 'home-page'},{'name': 'MultiFunctionComponent', 'selector': 'multi-function'},{'name': 'SimpleFunctionComponent', 'selector': 'simple-function'},{'name': 'SimpleServiceComponent', 'selector': 'simple-service'}];
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar>    <ion-title>      Demo: ionic4-auto-complete    </ion-title>  </ion-toolbar></ion-header><ion-content>  <ion-list style="height: 100%;">    <ion-segment (ionChange)="onClickSegment($event)">      <ion-segment-button *ngFor="let segment of segments"                          [value]="segment.key"                          [checked]="segment.key === selectedSegment">        <ion-label>          {{ segment.label }}        </ion-label>      </ion-segment-button>    </ion-segment>    <ion-item-divider></ion-item-divider>    <ion-card *ngIf="selectedSegment === \'simple-function\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select Anybody          </ion-col>          <ion-col [size]="12">            <simple-function></simple-function>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>    <ion-card *ngIf="selectedSegment === \'simple-service\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select Any Country          </ion-col>          <ion-col [size]="12">            <simple-service></simple-service>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>    <ion-card *ngIf="selectedSegment === \'team-picker\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select Multiple People          </ion-col>          <ion-col [size]="12">            <multi-function></multi-function>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>    <ion-card *ngIf="selectedSegment === \'country-picker\'"              style="height: 100%;">      <ion-card-content>        <ion-row>          <ion-col class="label">            Select up to 3 Countries          </ion-col>          <ion-col [size]="12">            <custom-template></custom-template>          </ion-col>        </ion-row>      </ion-card-content>    </ion-card>  </ion-list></ion-content></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoCompleteComponent', 'selector': ''},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'CountryPickerComponent', 'selector': 'custom-template'},{'name': 'HomePage', 'selector': 'home-page'},{'name': 'IngredientPickerComponent', 'selector': 'simple-function'},{'name': 'SimpleServiceComponent', 'selector': 'simple-service'},{'name': 'TeamPickerComponent', 'selector': 'multi-function'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'HomePage'};
 </script>
