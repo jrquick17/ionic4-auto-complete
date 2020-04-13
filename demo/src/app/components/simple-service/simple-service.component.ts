@@ -27,16 +27,6 @@ export class SimpleServiceComponent {
     this.options.type = 'add-friend.svg';
   }
 
-  random():void {
-    this.provider.getResults().subscribe(
-      (results) => {
-        const count = results.length;
-
-        this.selected = results[Math.round(Math.random() * count)]
-      }
-    );
-  }
-
   on(output, event):void {
     console.log(output);
     // console.log(event);
