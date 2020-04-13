@@ -59,6 +59,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @Input() public selectOnTabOut:boolean = true;
   @Input() public showResultsFirst:boolean;
   @Input() public styles = new AutoCompleteStyles;
+  @Input() public listTemplate:TemplateRef<any>;
   @Input() public template:TemplateRef<any>;
   @Input() public useIonInput:boolean = false;
 

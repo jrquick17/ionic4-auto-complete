@@ -104,36 +104,51 @@
     {{ autocompleteOptions.noItems }}
 </ng-template>
 
-<ul *ngIf="!(disabled || (this.maxSelected !== null && this.selected.length >= this.maxSelected)) && suggestions.length > 0 && showSuggestions"
-    [ngStyle]="listStyles()">
-    <li *ngFor="let suggestion of suggestions| slice:0:maxResults; let index = index"
-        [ngClass]="{ 'focus': focusedOption === index }"
-        [ngStyle]="styles.listItem"
-        (mouseenter)="focusedOption = index"
-        (click)="handleSelectTap($event, suggestion)"
-        (tap)="handleSelectTap($event, suggestion)">
-        <ng-template [ngTemplateOutlet]="template || defaultTemplate"
-                     [ngTemplateOutletContext]="{
-                        attrs:{
-                          data:               suggestion,
-                          label:              getLabel(suggestion),
-                          keyword:            keyword,
-                          formValue:          getFormValue(suggestion),
-                          labelAttribute:     getLabel(suggestion),
-                          formValueAttribute: getFormValue(suggestion)
-                        }
-                     }"></ng-template>
-    </li>
-</ul>
+<ng-template [ngTemplateOutlet]="listTemplate || defaultList"
+             [ngTemplateOutletContext]="{
+                        attrs: {
+                            data:            suggestions,
+                            keyword:         keyword,
+                            maxResults:      maxResults,
+                            maxSelected:     maxSelected,
+                            selected:        selected,
+                            showSuggestions: showSuggestions
+                          }
+                        }"></ng-template>
 
-<ul *ngIf="suggestions.length === 0 && showSuggestions"
-    [ngStyle]="listStyles()">
-    <li [ngStyle]="styles.listItem">
-        <ng-template [ngTemplateOutlet]="emptyTemplate || defaultEmptyTemplate"
-                     [ngTemplateOutletContext]="{
+<ng-template #defaultList
+             let-attrs="attrs">
+    <ul *ngIf="!(disabled || (attrs.maxSelected !== null && attrs.selected.length >= attrs.maxSelected)) && attrs.data.length > 0 && attrs.showSuggestions"
+        [ngStyle]="listStyles()">
+        <li *ngFor="let suggestion of attrs.data| slice:0:attrs.maxResults; let index = index"
+            [ngClass]="{ 'focus': focusedOption === index }"
+            [ngStyle]="styles.listItem"
+            (mouseenter)="focusedOption = index"
+            (click)="handleSelectTap($event, suggestion)"
+            (tap)="handleSelectTap($event, suggestion)">
+            <ng-template [ngTemplateOutlet]="template || defaultTemplate"
+                         [ngTemplateOutletContext]="{
+                            attrs:{
+                              data:               suggestion,
+                              label:              getLabel(suggestion),
+                              keyword:            keyword,
+                              formValue:          getFormValue(suggestion),
+                              labelAttribute:     getLabel(suggestion),
+                              formValueAttribute: getFormValue(suggestion)
+                            }
+                         }"></ng-template>
+        </li>
+    </ul>
+
+    <ul *ngIf="suggestions.length === 0 && showSuggestions"
+        [ngStyle]="listStyles()">
+        <li [ngStyle]="styles.listItem">
+            <ng-template [ngTemplateOutlet]="emptyTemplate || defaultEmptyTemplate"
+                         [ngTemplateOutletContext]="{
                         attrs:{
                           keyword: keyword
                         }
                      }"></ng-template>
-    </li>
-</ul>
+        </li>
+    </ul>
+</ng-template>
