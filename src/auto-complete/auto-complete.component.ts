@@ -256,7 +256,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     if (
       (this.searchbarElem && this.searchbarElem.nativeElement && !this.searchbarElem.nativeElement.contains(<string><unknown>event.target))
       ||
-      (!this.inputElem && this.inputElem.nativeElement && this.inputElem.nativeElement.contains(<string><unknown>event.target))
+      (this.inputElem && this.inputElem.nativeElement && this.inputElem.nativeElement.contains(<string><unknown>event.target))
     ) {
       this.hideItemList();
     }
