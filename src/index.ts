@@ -8,6 +8,7 @@ import {AutoCompleteComponent} from './auto-complete/auto-complete.component';
 import {BoldPrefix} from './bold-prefix.pipe';
 
 export * from './auto-complete-options.model';
+export * from './auto-complete-styles.model';
 
 export * from './auto-complete.service';
 
