@@ -565,7 +565,10 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
       this.showItemList();
     }
 
-    const max = this.suggestions.length > this.maxResults ? this.maxResults - 1 : this.suggestions.length - 1;
+    let max = this.suggestions.length - 1;
+    if (max > this.maxResults) {
+      max = this.maxResults - 1;
+    }
 
     if (direction < 0) {
       if (this.focusedOption === -1 || this.focusedOption === max) {

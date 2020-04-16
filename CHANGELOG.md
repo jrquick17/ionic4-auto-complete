@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## [2.7.2]
+### Updated
+* Fix highlighting on lists with [max] by [Birdstown](https://github.com/Birdstown)
+* Export AutoCompleteStyles by [Birdstown](https://github.com/Birdstown)
+
 ## [2.7.1]
 ### Updated
 * Specify type of ModuleWithProviders by [jrquick17](https://github.com/jrquick17)
