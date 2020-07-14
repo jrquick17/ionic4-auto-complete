@@ -339,6 +339,16 @@ npm install ionic4-auto-complete --save
 
 ### Styling ###
     
+#### Label ####
+    
+* To use ion-label position you must enable ion-input (`[useIonInput]="true"`)
+ 
+     ```
+     <ion-auto-complete [dataProvider]="service" 
+                        [label]="'This is a label'" 
+                        [labelPosition]="'floating'"></ion-auto-complete>
+    ```
+    
 #### Resize ####
     
 * For best visual results use `viewport size / fixed size` ( in pixels).

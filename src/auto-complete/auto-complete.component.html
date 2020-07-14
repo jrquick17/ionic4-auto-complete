@@ -34,6 +34,9 @@
     </div>
 </div>
 
+<ion-label *ngIf="label.length !== 0"
+           [position]="labelPosition">{{ label }}</ion-label>
+
 <ion-input #inputElem
            [autocomplete]="enableBrowserAutoComplete ? 'on' : 'off'"
            [name]="name"
