@@ -81,96 +81,19 @@
 
 
 
-
-
             <tr>
-                <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>ion-auto-complete</code></td>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code>{
+    provide: NG_VALUE_ACCESSOR, useExisting: AutoCompleteComponent, multi: true
+}</code>
+                </td>
             </tr>
 
 
 
-            <tr>
-                <td class="col-md-3">template</td>
-                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;div *ngIf&#x3D;&quot;multi&quot;&gt;
-    &lt;div *ngFor&#x3D;&quot;let item of selected&quot;
-         class&#x3D;&quot;selected-items&quot;&gt;
-        &lt;ion-button class&#x3D;&quot;{{ removeButtonClasses }}&quot;
-                    [color]&#x3D;&quot;removeButtonColor&quot;
-                    [fill]&#x3D;&quot;&#x27;outline&#x27;&quot;
-                    [shape]&#x3D;&quot;&#x27;round&#x27;&quot;
-                    (click)&#x3D;&quot;removeItem(item)&quot;&gt;
-            {{ getLabel(item) }}
-            &lt;ion-icon [name]&#x3D;&quot;removeButtonIcon&quot;
-                      [slot]&#x3D;&quot;removeButtonSlot&quot;&gt;&lt;/ion-icon&gt;
-        &lt;/ion-button&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-&lt;ion-input
-        #inputElem
-        (keyup)&#x3D;&quot;getItems($event)&quot;
-        (tap)&#x3D;&quot;handleTap($event)&quot;
-        [(ngModel)]&#x3D;&quot;keyword&quot;
-        (ngModelChange)&#x3D;&quot;updateModel()&quot;
-        [placeholder]&#x3D;&quot;options.placeholder &#x3D;&#x3D; null ? defaultOpts.placeholder : options.placeholder&quot;
-        [type]&#x3D;&quot;options.type &#x3D;&#x3D; null ? defaultOpts.type : options.type&quot;
-        [clearOnEdit]&#x3D;&quot;options.clearOnEdit &#x3D;&#x3D; null ? defaultOpts.clearOnEdit : options.clearOnEdit&quot;
-        [clearInput]&#x3D;&quot;options.clearInput &#x3D;&#x3D; null ? defaultOpts.clearInput : options.clearInput&quot;
-        [mode]&#x3D;&quot;options.mode &#x3D;&#x3D; null ? defaultOpts.mode : options.mode&quot;
-        [disabled]&#x3D;&quot;disabled || isInitializing&quot;
-        [ngClass]&#x3D;&quot;{ &#x27;hidden&#x27;: !useIonInput, &#x27;loading&#x27;: isLoading }&quot;
-        (ionFocus)&#x3D;&quot;onFocus()&quot;
-        (ionBlur)&#x3D;&quot;onBlur()&quot;
-&gt;
-&lt;/ion-input&gt;
-&lt;ion-searchbar
-        #searchbarElem
-        [animated]&#x3D;&quot;options.animated &#x3D;&#x3D; null ? defaultOpts.animated : options.animated&quot;
-        (ionInput)&#x3D;&quot;getItems($event)&quot;
-        (tap)&#x3D;&quot;handleTap($event)&quot;
-        [(ngModel)]&#x3D;&quot;keyword&quot;
-        (ngModelChange)&#x3D;&quot;updateModel()&quot;
-        [cancelButtonIcon]&#x3D;&quot;options.cancelButtonIcon &#x3D;&#x3D; null ? defaultOpts.cancelButtonIcon : options.cancelButtonIcon&quot;
-        [cancelButtonText]&#x3D;&quot;options.cancelButtonText &#x3D;&#x3D; null ? defaultOpts.cancelButtonText : options.cancelButtonText&quot;
-        [clearIcon]&#x3D;&quot;options.clearIcon &#x3D;&#x3D; null ? defaultOpts.clearIcon : options.clearIcon&quot;
-        [showCancelButton]&#x3D;&quot;options.showCancelButton &#x3D;&#x3D; null ? defaultOpts.showCancelButton : options.showCancelButton&quot;
-        [debounce]&#x3D;&quot;options.debounce &#x3D;&#x3D; null ? defaultOpts.debounce : options.debounce&quot;
-        [placeholder]&#x3D;&quot;options.placeholder &#x3D;&#x3D; null ? defaultOpts.placeholder : options.placeholder&quot;
-        [autocomplete]&#x3D;&quot;options.autocomplete &#x3D;&#x3D; null ? defaultOpts.autocomplete : options.autocomplete&quot;
-        [autocorrect]&#x3D;&quot;options.autocorrect &#x3D;&#x3D; null ? defaultOpts.autocorrect : options.autocorrect&quot;
-        [mode]&#x3D;&quot;options.mode &#x3D;&#x3D; null ? defaultOpts.mode : options.mode&quot;
-        [searchIcon]&#x3D;&quot;options.searchIcon &#x3D;&#x3D; null ? defaultOpts.searchIcon : options.searchIcon&quot;
-        [spellcheck]&#x3D;&quot;options.spellcheck &#x3D;&#x3D; null ? defaultOpts.spellcheck : options.spellcheck&quot;
-        [type]&#x3D;&quot;options.type &#x3D;&#x3D; null ? defaultOpts.type : options.type&quot;
-        [ngClass]&#x3D;&quot;{ &#x27;hidden&#x27;: useIonInput, &#x27;loading&#x27;: isLoading, &#x27;disabled&#x27;: disabled || isInitializing }&quot;
-        (ionClear)&#x3D;&quot;clearValue(true)&quot;
-        (ionFocus)&#x3D;&quot;onFocus()&quot;
-        (ionBlur)&#x3D;&quot;onBlur()&quot;
-&gt;
-&lt;/ion-searchbar&gt;
-&lt;ng-template #defaultTemplate let-attrs&#x3D;&quot;attrs&quot;&gt;
-    &lt;span [innerHTML]&#x3D;&#x27;attrs.label | boldprefix:attrs.keyword&#x27;&gt;&lt;/span&gt;
-&lt;/ng-template&gt;
-&lt;ul *ngIf&#x3D;&quot;!disabled &amp;&amp; suggestions.length &gt; 0 &amp;&amp; showList&quot;
-    [ngStyle]&#x3D;&quot;getStyle()&quot;&gt;
-    &lt;li *ngFor&#x3D;&quot;let suggestion of suggestions&quot;
-        (click)&#x3D;&quot;handleSelectTap($event, suggestion)&quot;
-        (tap)&#x3D;&quot;handleSelectTap($event, suggestion)&quot;&gt;
-        &lt;ng-template
-                [ngTemplateOutlet]&#x3D;&quot;template || defaultTemplate&quot;
-                [ngTemplateOutletContext]&#x3D;&quot;
-                        {attrs:{
-                          data: suggestion,
-                          label: getLabel(suggestion),
-                          keyword: keyword,
-                          formValue: _getFormValue(suggestion),
-                          labelAttribute: dataProvider.labelAttribute,
-                          formValueAttribute: dataProvider.formValueAttribute }}&quot;&gt;&lt;/ng-template&gt;
-    &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p *ngIf&#x3D;&quot;suggestions.length &#x3D;&#x3D; 0 &amp;&amp; showList &amp;&amp; options.noItems&quot;&gt;{{ options.noItems }}&lt;/p&gt;
-</code></pre></td>
-            </tr>
+
+
 
 
 
@@ -4147,8 +4070,8 @@ export class AutoCompleteComponent implements ControlValueAccessor {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div *ngIf="multi">    <div *ngFor="let item of selected"         class="selected-items">        <ion-button class="{{ removeButtonClasses }}"                    [color]="removeButtonColor"                    [fill]="\'outline\'"                    [shape]="\'round\'"                    (click)="removeItem(item)">            {{ getLabel(item) }}            <ion-icon [name]="removeButtonIcon"                      [slot]="removeButtonSlot"></ion-icon>        </ion-button>    </div></div><ion-input        #inputElem        (keyup)="getItems($event)"        (tap)="handleTap($event)"        [(ngModel)]="keyword"        (ngModelChange)="updateModel()"        [placeholder]="options.placeholder == null ? defaultOpts.placeholder : options.placeholder"        [type]="options.type == null ? defaultOpts.type : options.type"        [clearOnEdit]="options.clearOnEdit == null ? defaultOpts.clearOnEdit : options.clearOnEdit"        [clearInput]="options.clearInput == null ? defaultOpts.clearInput : options.clearInput"        [mode]="options.mode == null ? defaultOpts.mode : options.mode"        [disabled]="disabled || isInitializing"        [ngClass]="{ \'hidden\': !useIonInput, \'loading\': isLoading }"        (ionFocus)="onFocus()"        (ionBlur)="onBlur()"></ion-input><ion-searchbar        #searchbarElem        [animated]="options.animated == null ? defaultOpts.animated : options.animated"        (ionInput)="getItems($event)"        (tap)="handleTap($event)"        [(ngModel)]="keyword"        (ngModelChange)="updateModel()"        [cancelButtonIcon]="options.cancelButtonIcon == null ? defaultOpts.cancelButtonIcon : options.cancelButtonIcon"        [cancelButtonText]="options.cancelButtonText == null ? defaultOpts.cancelButtonText : options.cancelButtonText"        [clearIcon]="options.clearIcon == null ? defaultOpts.clearIcon : options.clearIcon"        [showCancelButton]="options.showCancelButton == null ? defaultOpts.showCancelButton : options.showCancelButton"        [debounce]="options.debounce == null ? defaultOpts.debounce : options.debounce"        [placeholder]="options.placeholder == null ? defaultOpts.placeholder : options.placeholder"        [autocomplete]="options.autocomplete == null ? defaultOpts.autocomplete : options.autocomplete"        [autocorrect]="options.autocorrect == null ? defaultOpts.autocorrect : options.autocorrect"        [mode]="options.mode == null ? defaultOpts.mode : options.mode"        [searchIcon]="options.searchIcon == null ? defaultOpts.searchIcon : options.searchIcon"        [spellcheck]="options.spellcheck == null ? defaultOpts.spellcheck : options.spellcheck"        [type]="options.type == null ? defaultOpts.type : options.type"        [ngClass]="{ \'hidden\': useIonInput, \'loading\': isLoading, \'disabled\': disabled || isInitializing }"        (ionClear)="clearValue(true)"        (ionFocus)="onFocus()"        (ionBlur)="onBlur()"></ion-searchbar><ng-template #defaultTemplate let-attrs="attrs">    <span [innerHTML]=\'attrs.label | boldprefix:attrs.keyword\'></span></ng-template><ul *ngIf="!disabled && suggestions.length > 0 && showList"    [ngStyle]="getStyle()">    <li *ngFor="let suggestion of suggestions"        (click)="handleSelectTap($event, suggestion)"        (tap)="handleSelectTap($event, suggestion)">        <ng-template                [ngTemplateOutlet]="template || defaultTemplate"                [ngTemplateOutletContext]="                        {attrs:{                          data: suggestion,                          label: getLabel(suggestion),                          keyword: keyword,                          formValue: _getFormValue(suggestion),                          labelAttribute: dataProvider.labelAttribute,                          formValueAttribute: dataProvider.formValueAttribute }}"></ng-template>    </li></ul><p *ngIf="suggestions.length == 0 && showList && options.noItems">{{ options.noItems }}</p></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoCompleteComponent', 'selector': ''},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'CountryPickerComponent', 'selector': 'custom-template'},{'name': 'HomePage', 'selector': 'home-page'},{'name': 'IngredientPickerComponent', 'selector': 'ingredient-picker'},{'name': 'SimpleServiceComponent', 'selector': 'simple-service'},{'name': 'TeamPickerComponent', 'selector': 'multi-function'}];
+        var COMPONENT_TEMPLATE = '<div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'AutoCompleteComponent', 'selector': ''},{'name': 'AutoCompleteComponent', 'selector': 'ion-auto-complete'},{'name': 'CountryPickerComponent', 'selector': 'custom-template'},{'name': 'HomePage', 'selector': 'home-page'},{'name': 'IngredientPickerComponent', 'selector': 'ingredient-picker'},{'name': 'SimpleServiceComponent', 'selector': 'simple-service'},{'name': 'TeamPickerComponent', 'selector': 'multi-function'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AutoCompleteComponent-1'};
 </script>
