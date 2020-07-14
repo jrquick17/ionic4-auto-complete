@@ -1,5 +1,5 @@
 export class AutoCompleteStyles {
-  public list = {};
-  public listItem = {};
-  public searchbar = {};
+  public list? = {};
+  public listItem? = {};
+  public searchbar? = {};
 }
