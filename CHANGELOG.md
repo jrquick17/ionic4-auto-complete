@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## [2.8.1]
+### Removed
+* Required fields from AutocompleteStyles by [jrquick17](https://github.com/jrquick17)
+
 ## [2.8.0]
 ### Added
 * Support for ion-labels by [jrquick17](https://github.com/jrquick17)
