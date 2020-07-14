@@ -26,14 +26,12 @@ export class TeamPickerComponent {
     this.teamOptions = new AutoCompleteOptions();
     this.teamOptions.autocomplete = 'on';
     this.teamOptions.debounce = 750;
-    this.teamOptions.placeholder = 'Filter and select multiple..';
     this.teamOptions.searchIcon = 'assets/icons/add-user.svg';
     this.teamOptions.type = 'search';
 
     this.otherTeamOptions = new AutoCompleteOptions();
     this.otherTeamOptions.autocomplete = 'on';
     this.otherTeamOptions.debounce = 750;
-    this.otherTeamOptions.placeholder = 'Pick or click random';
     this.teamOptions.searchIcon = 'assets/icons/add-user.svg';
     this.teamOptions.type = 'search';
   }

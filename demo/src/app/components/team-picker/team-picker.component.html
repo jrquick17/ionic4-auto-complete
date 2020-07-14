@@ -1,10 +1,6 @@
 <ion-row>
     <ion-col [size]="12">
         <ion-card style="overflow: inherit; padding: 15px;">
-            <ion-card-title class="ion-text-center">
-                Your Team
-            </ion-card-title>
-
             <ion-item style="overflow: inherit;">
                 <ion-auto-complete [(model)]="selected"
                                    [multi]="true"
@@ -15,6 +11,8 @@
                                    [removeButtonIcon]="'assets/icons/clear.svg'"
                                    [removeButtonColor]="'dark'"
                                    [useIonInput]="true"
+                                   [label]="'Your Team'"
+                                   [labelPosition]="'floating'"
                                    (blur)="on('blur', $event)"
                                    (autoFocus)="on('autoFocus', $event)"
                                    (autoBlur)="on('autoBlur', $event)"
@@ -34,10 +32,6 @@
 <ion-row>
     <ion-col [size]="12">
         <ion-card style="overflow: inherit; padding: 15px;">
-            <ion-card-title class="ion-text-center">
-                The Other Team
-            </ion-card-title>
-
             <ion-item style="overflow: inherit;">
                 <ion-auto-complete [(model)]="otherTeam"
                                    [multi]="true"
@@ -48,6 +42,8 @@
                                    [removeButtonIcon]="'assets/icons/clear.svg'"
                                    [removeButtonColor]="'dark'"
                                    [useIonInput]="true"
+                                   [label]="'The Other Team'"
+                                   [labelPosition]="'floating'"
                                    (blur)="on('blur', $event)"
                                    (autoFocus)="on('autoFocus', $event)"
                                    (autoBlur)="on('autoBlur', $event)"
