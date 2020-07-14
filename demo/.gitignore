@@ -1,9 +1,6 @@
-# Temp - Remove build
-# www/
 !*.js
 !*.map
 !*.d.ts
-# Temp - Remove build
 
 *~
 *.log
