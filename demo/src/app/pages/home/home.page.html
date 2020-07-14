@@ -8,10 +8,10 @@
 
 <ion-content>
   <ion-list style="height: 100%;">
-    <ion-segment (ionChange)="onClickSegment($event)">
+    <ion-segment [value]="selectedSegment"
+                 (ionChange)="onClickSegment($event)">
       <ion-segment-button *ngFor="let segment of segments"
-                          [value]="segment.key"
-                          [checked]="segment.key === selectedSegment">
+                          [value]="segment.key">
         <ion-label>
           {{ segment.label }}
         </ion-label>
