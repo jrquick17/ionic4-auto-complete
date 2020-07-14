@@ -8,8 +8,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
-## [2.7.2]
+## [2.7.4]
+### Fixed
+* Data provider undefined by [jrquick17](https://github.com/jrquick17)
+
 ### Updated
+* Update demo to Angular 10 by [jrquick17](https://github.com/jrquick17)
+
+## [2.7.3]
+### Updated
+* Update npm compatibility to Angular 10 by [spasma](https://github.com/spasma)
+
+## [2.7.2]
+### Fixed
 * Fix highlighting on lists with [max] by [Birdstown](https://github.com/Birdstown)
 * Export AutoCompleteStyles by [Birdstown](https://github.com/Birdstown)
 

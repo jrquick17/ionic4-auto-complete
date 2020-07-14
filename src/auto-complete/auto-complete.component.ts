@@ -270,6 +270,10 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * @private
    */
   public getFormValue(selection:any):any {
+    if (typeof this.dataProvider === 'undefined') {
+      return null;
+    }
+
     if (selection == null || typeof this.dataProvider === 'function') {
       return null;
     }
@@ -412,6 +416,10 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * @param selection
    */
   public getLabel(selection:any|any[]):string {
+    if (typeof this.dataProvider === 'undefined') {
+      return '';
+    }
+
     if (selection == null || typeof this.dataProvider === 'function') {
       return '';
     }
