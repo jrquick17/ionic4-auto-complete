@@ -13,7 +13,6 @@
 src/assets/config.json
 log.txt
 npm-debug.log*
-package-lock.json
 composer.lock
 
 .idea/
