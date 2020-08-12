@@ -126,7 +126,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Upgraded to support Angular 8 by [jrquick17](https://github.com/jrquick17)
 
-## [1.10.1]
+## [1.10.2]
 ### Update
 - Dependencies by [jrquick17](https://github.com/jrquick17)
 

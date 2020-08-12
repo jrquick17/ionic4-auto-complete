@@ -30,7 +30,7 @@ This is a component based on Ionic's search-bar component, with the addition of 
 
 * For Angular 2-7: 
 ```
-npm install ionic4-auto-complete@1.10.0 --save
+npm install ionic4-auto-complete@1.10.2 --save
 ```
 
 * For Angular 8+: 
