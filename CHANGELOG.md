@@ -10,12 +10,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Updates
 * To Angular 10 [jrquick17](https://github.com/jrquick17)
 
+## [Released]
+
 ## [2.8.2]
 ### Added
 * Lock files to the commit by [jrquick17](https://github.com/jrquick17)
 * Default options placeholder value to 'Search' by [jrquick17](https://github.com/jrquick17)
-
-## [Released]
 
 ## [2.8.1]
 ### Removed
