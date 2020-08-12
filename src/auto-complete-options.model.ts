@@ -11,7 +11,7 @@ export class AutoCompleteOptions {
   public debounce:number = 250;
   public mode:'ios'|'md' = 'md';
   public noItems:string = 'No items found.';
-  public placeholder:string;
+  public placeholder:string = 'Search';
   public searchIcon:string = 'search';
   public showCancelButton:boolean = false;
   public spellcheck:'on'|'off' = 'off';
