@@ -130,6 +130,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Update
 - Dependencies by [jrquick17](https://github.com/jrquick17)
 
+### Added
+- Include lock files by [jrquick17](https://github.com/jrquick17)
+
 ## [1.10.0]
 ### Fixed
 - Production builds by [jrquick17](https://github.com/jrquick17)
