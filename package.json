@@ -48,7 +48,7 @@
     "url": "https://github.com/jrquick17/ionic4-auto-complete/issues"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "^0.803.28",
+    "@angular-devkit/architect": "^0.1000.5",
     "@angular-devkit/build-angular": "^0.1000.5",
     "@angular-devkit/core": "^10.0.5",
     "@angular-devkit/schematics": "^10.0.5",
@@ -101,5 +101,14 @@
   "engines": {
     "node": ">=6.0.0"
   },
-  "peerDependencies": {}
+  "peerDependencies": {
+    "@angular/animations": "^8.0.0 || ^9.0.0 || ^10.0.0",
+    "@angular/common": "^8.0.0 || ^9.0.0 || ^10.0.0",
+    "@angular/core": "^8.0.0 || ^9.0.0 || ^10.0.0",
+    "@angular/forms": "^8.0.0 || ^9.0.0 || ^10.0.0",
+    "@angular/platform-browser": "^8.0.0 || ^9.0.0 || ^10.0.0",
+    "@angular/platform-browser-dynamic": "^8.0.0 || ^9.0.0 || ^10.0.0",
+    "@angular/router": "^8.0.0 || ^9.0.0 || ^10.0.0",
+    "@angular/service-worker": "^8.0.0 || ^9.0.0 || ^10.0.0"
+  }
 }
