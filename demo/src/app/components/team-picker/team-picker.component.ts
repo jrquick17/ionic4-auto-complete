@@ -28,12 +28,14 @@ export class TeamPickerComponent {
     this.teamOptions.debounce = 750;
     this.teamOptions.searchIcon = 'assets/icons/add-user.svg';
     this.teamOptions.type = 'search';
+    this.teamOptions.placeholder = 'Select team member';
 
     this.otherTeamOptions = new AutoCompleteOptions();
     this.otherTeamOptions.autocomplete = 'on';
     this.otherTeamOptions.debounce = 750;
     this.teamOptions.searchIcon = 'assets/icons/add-user.svg';
     this.teamOptions.type = 'search';
+    this.teamOptions.placeholder = 'Select opponent';
   }
 
   on(output, event):void {
