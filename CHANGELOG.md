@@ -6,6 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.9.1]
+### Added 
+* `autocomplete` option for setting the autocomplete hint by [jrquick17](https://github.com/jrquick17)
+
+### Updated
+* To Angular 10 [jrquick17](https://github.com/jrquick17)
+
+### Removed
+* `enableBrowserAutocomplete` option
+
 ## [2.9.0]
 ### Updates
 * To Angular 10 [jrquick17](https://github.com/jrquick17)

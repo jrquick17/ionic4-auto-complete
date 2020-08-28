@@ -38,7 +38,7 @@
            [position]="labelPosition">{{ label }}</ion-label>
 
 <ion-input #inputElem
-           [autocomplete]="enableBrowserAutoComplete ? 'on' : 'off'"
+           [autocomplete]="autocomplete"
            [name]="name"
            (ionInput)="getItems($event)"
            (tap)="handleTap($event)"
@@ -63,7 +63,7 @@
            (ionBlur)="onBlur($event)"></ion-input>
 
 <ion-searchbar #searchbarElem
-               [autocomplete]="enableBrowserAutoComplete ? 'on' : 'off'"
+               [autocomplete]="autocomplete"
                [name]="name"
                [animated]="autocompleteOptions.animated == null ? defaultOpts.animated : autocompleteOptions.animated"
                (ionInput)="getItems($event)"

@@ -35,8 +35,8 @@ import {AutoCompleteStyles} from '../auto-complete-styles.model';
 })
 export class AutoCompleteComponent implements AfterViewChecked, ControlValueAccessor, DoCheck {
   @Input() public alwaysShowList:boolean = false;
+  @Input() public autocomplete:string = 'off';
   @Input() public autoFocusSuggestion:boolean = true;
-  @Input() public enableBrowserAutoComplete:boolean = false;
   @Input() public clearInvalidInput:boolean = true;
   @Input() public dataProvider:AutoCompleteService|Function;
   @Input() public disabled:boolean = false;
