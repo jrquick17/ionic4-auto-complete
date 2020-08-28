@@ -16,11 +16,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 * `enableBrowserAutocomplete` option
 
+## [Released]
+
 ## [2.9.0]
 ### Updates
 * To Angular 10 [jrquick17](https://github.com/jrquick17)
-
-## [Released]
 
 ## [2.8.2]
 ### Added
