@@ -38,7 +38,6 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @Input() public autocomplete:string = 'off';
   @Input() public autoFocusSuggestion:boolean = true;
   @Input() public clearInvalidInput:boolean = true;
-  @Input() public dataProvider:AutoCompleteService|Function;
   @Input() public disabled:boolean = false;
   @Input() public emptyTemplate:TemplateRef<any>;
   @Input() public exclude:any[] = [];
@@ -52,6 +51,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @Input() public maxSelected:number = null;
   @Input() public multi:boolean = false;
   @Input() public name:string = '';
+  @Input() public provider:AutoCompleteService|Function;
   @Input() public removeButtonClasses:string = '';
   @Input() public removeButtonColor:string = 'primary';
   @Input() public removeButtonIcon:string|false = 'close-circle';
@@ -64,6 +64,17 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @Input() public listTemplate:TemplateRef<any>;
   @Input() public template:TemplateRef<any>;
   @Input() public useIonInput:boolean = false;
+
+  @Input()
+  set dataProvider(provider:AutoCompleteService|Function) {
+    if (typeof provider !== 'undefined') {
+      this.provider = provider;
+
+      if (typeof this.selected !== 'undefined') {
+        this.keyword = this.getLabel(this.selected);
+      }
+    }
+  }
 
   @Input()
   get model():any|any[] {
@@ -270,16 +281,16 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * @private
    */
   public getFormValue(selection:any):any {
-    if (typeof this.dataProvider === 'undefined') {
+    if (typeof this.provider === 'undefined') {
       return null;
     }
 
-    if (selection == null || typeof this.dataProvider === 'function') {
+    if (selection == null || typeof this.provider === 'function') {
       return null;
     }
 
-    let attr = this.dataProvider.formValueAttribute == null ?
-        this.dataProvider.labelAttribute : this.dataProvider.formValueAttribute;
+    let attr = this.provider.formValueAttribute == null ?
+        this.provider.labelAttribute : this.provider.formValueAttribute;
 
     if (typeof selection === 'object' && attr) {
       return selection[attr];
@@ -369,14 +380,14 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
           this.keyword = '';
         }
 
-        if (typeof this.dataProvider === 'function') {
-          result = this.dataProvider(this.keyword);
+        if (typeof this.provider === 'function') {
+          result = this.provider(this.keyword);
 
           this.setSuggestions(result, show);
 
           this.isLoading = false;
         } else {
-          result = this.dataProvider.getResults(this.keyword);
+          result = this.provider.getResults(this.keyword);
 
           if (result instanceof Subject) {
             result = result.asObservable();
@@ -416,21 +427,21 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * @param selection
    */
   public getLabel(selection:any|any[]):string {
-    if (typeof this.dataProvider === 'undefined') {
+    if (typeof this.provider === 'undefined') {
       return '';
     }
 
-    if (selection == null || typeof this.dataProvider === 'function') {
+    if (selection == null || typeof this.provider === 'function') {
       return '';
     }
 
-    let attr = this.dataProvider.formValueAttribute == null ?
-        this.dataProvider.labelAttribute : this.dataProvider.formValueAttribute;
+    let attr = this.provider.formValueAttribute == null ?
+        this.provider.labelAttribute : this.provider.formValueAttribute;
 
     let value = selection;
 
-    if (this.dataProvider.getItemLabel) {
-      value = this.dataProvider.getItemLabel(value);
+    if (this.provider.getItemLabel) {
+      value = this.provider.getItemLabel(value);
     }
 
     if (!this.multi && typeof value !== 'undefined' && Object.prototype.toString.call(value) === '[object Array]') {
