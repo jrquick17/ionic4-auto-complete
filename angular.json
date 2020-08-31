@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ionic4-auto-complete"
+    }
+  },
+  "defaultProject": "ionic4-auto-complete",
+  "cli": {
+    "analytics": "2d3ed528-3679-45fc-8865-1d849b6ea6cf"
+  }
 }
