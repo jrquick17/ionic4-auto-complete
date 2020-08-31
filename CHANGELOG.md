@@ -6,19 +6,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [Released]
+
 ## [2.9.1]
 ### Fixed 
 * Fix member-ordering for tslint by [jrquick17](https://github.com/jrquick17)
 * `autocomplete` option should accept 'off' or a key by [jrquick17](https://github.com/jrquick17)
 
 ### Updated
-* To Angular 10 by [jrquick17](https://github.com/jrquick17)
 * Order of [dataProvider] and [model] should not matter by [jrquick17](https://github.com/jrquick17)
 
 ### Removed
 * `enableBrowserAutocomplete` option
-
-## [Released]
 
 ## [2.9.0]
 ### Updates

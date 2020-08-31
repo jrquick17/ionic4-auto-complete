@@ -20,7 +20,7 @@
   "ngPackage": {
     "lib": {
       "cssUrl": "inline",
-      "entryFile": "src/index.ts",
+      "entryFile": "src/main.ts",
       "styleIncludePaths": [
         "./src/scss"
       ],
