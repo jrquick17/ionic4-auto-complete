@@ -34,6 +34,22 @@ import {AutoCompleteStyles} from '../auto-complete-styles.model';
   templateUrl: 'auto-complete.component.html'
 })
 export class AutoCompleteComponent implements AfterViewChecked, ControlValueAccessor, DoCheck {
+  public autocompleteOptions:AutoCompleteOptions = new AutoCompleteOptions();
+  public defaultOpts:AutoCompleteOptions;
+  public hasFocus:boolean = false;
+  public isLoading:boolean = false;
+  public focusedOption:number = -1;
+  public formValue:any;
+  public promise;
+  public selected:any|any[];
+  public selection:any;
+  public showSuggestions:boolean = false;
+  public suggestions:any[];
+
+  private onTouchedCallback:Function|false = false;
+  private onChangeCallback:Function|false = false;
+  private showListChanged:boolean = false;
+
   @Input() public alwaysShowList:boolean = false;
   @Input() public autocomplete:string = 'off';
   @Input() public autoFocusSuggestion:boolean = true;
@@ -46,6 +62,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @Input() public keyword:string;
   @Input() public label:string = '';
   @Input() public labelPosition:string = 'fixed';
+  @Input() public listTemplate:TemplateRef<any>;
   @Input() public location:string = 'auto';
   @Input() public maxResults:number = 8;
   @Input() public maxSelected:number = null;
@@ -61,9 +78,37 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @Input() public selectOnTabOut:boolean = true;
   @Input() public showResultsFirst:boolean;
   @Input() public styles = new AutoCompleteStyles;
-  @Input() public listTemplate:TemplateRef<any>;
   @Input() public template:TemplateRef<any>;
   @Input() public useIonInput:boolean = false;
+
+  @Output() public autoFocus:EventEmitter<any>;
+  @Output() public autoBlur:EventEmitter<any>;
+  @Output() public blur:EventEmitter<any>;
+  @Output() public focus:EventEmitter<any>;
+  @Output() public ionAutoInput:EventEmitter<string>;
+  @Output() public itemsChange:EventEmitter<any>;
+  @Output() public itemsCleared:EventEmitter<boolean>;
+  @Output() public itemsHidden:EventEmitter<any>;
+  @Output() public itemRemoved:EventEmitter<any>;
+  @Output() public itemSelected:EventEmitter<any>;
+  @Output() public itemsShown:EventEmitter<any>;
+  @Output() public modelChange:EventEmitter<any|any[]>;
+
+  @ViewChild(
+    'searchbarElem',
+    {
+    read: ElementRef
+}
+  )
+  private searchbarElem:ElementRef;
+
+  @ViewChild(
+    'inputElem',
+    {
+      read: ElementRef
+    }
+  )
+  private inputElem:ElementRef;
 
   @Input()
   set dataProvider(provider:AutoCompleteService|Function) {
@@ -72,6 +117,29 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
       if (typeof this.selected !== 'undefined') {
         this.keyword = this.getLabel(this.selected);
+      }
+    }
+  }
+
+  @Input()
+  set eager(eager:boolean) {
+    if (eager) {
+      this.getItems(null, false);
+    }
+  }
+
+  @Input()
+  set options(options:AutoCompleteOptions|any) {
+    this.autocompleteOptions = new AutoCompleteOptions();
+
+    const keys = Object.keys(this.autocompleteOptions);
+
+    const keysLength = keys.length;
+    for (let i = 0; i < keysLength; i++) {
+      const key = keys[i];
+
+      if (typeof options[key] !== 'undefined') {
+        this.autocompleteOptions[key] = options[key];
       }
     }
   }
@@ -98,75 +166,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     }
   }
 
-  public autocompleteOptions:AutoCompleteOptions = new AutoCompleteOptions();
-
   @Input()
-  set options(options:AutoCompleteOptions|any) {
-    this.autocompleteOptions = new AutoCompleteOptions();
-
-    const keys = Object.keys(this.autocompleteOptions);
-
-    const keysLength = keys.length;
-    for (let i = 0; i < keysLength; i++) {
-      const key = keys[i];
-
-      if (typeof options[key] !== 'undefined') {
-        this.autocompleteOptions[key] = options[key];
-      }
-    }
-  }
-
-  @Output() public modelChange:EventEmitter<any|any[]>;
-
-  @Input()
-  set eager(eager:boolean) {
-    if (eager) {
-      this.getItems(null, false);
-    }
-  }
-
-  @Output() public blur:EventEmitter<any>;
-  @Output() public autoFocus:EventEmitter<any>;
-  @Output() public autoBlur:EventEmitter<any>;
-  @Output() public focus:EventEmitter<any>;
-  @Output() public ionAutoInput:EventEmitter<string>;
-  @Output() public itemsChange:EventEmitter<any>;
-  @Output() public itemsCleared:EventEmitter<boolean>;
-  @Output() public itemsHidden:EventEmitter<any>;
-  @Output() public itemRemoved:EventEmitter<any>;
-  @Output() public itemSelected:EventEmitter<any>;
-  @Output() public itemsShown:EventEmitter<any>;
-
-  @ViewChild(
-    'searchbarElem',
-    {
-    read: ElementRef
-}
-  )
-  private searchbarElem:ElementRef;
-
-  @ViewChild(
-    'inputElem',
-    {
-    read: ElementRef
-}
-  )
-  private inputElem:ElementRef;
-
-  private onTouchedCallback:Function|false = false;
-  private onChangeCallback:Function|false = false;
-
-  public defaultOpts:AutoCompleteOptions;
-  public hasFocus:boolean = false;
-  public isLoading:boolean = false;
-  public focusedOption:number = -1;
-  public formValue:any;
-  public selected:any|any[];
-  public selection:any;
-  public showSuggestions:boolean = false;
-  public suggestions:any[];
-  public promise;
-
   public get showList():boolean {
     return this.showSuggestions;
   }
@@ -183,8 +183,6 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     this.showSuggestions = value === true;
     this.showListChanged = true;
   }
-
-  private showListChanged:boolean = false;
 
   /**
    * Create a new instance
