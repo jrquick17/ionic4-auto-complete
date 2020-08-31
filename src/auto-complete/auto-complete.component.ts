@@ -458,17 +458,6 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   }
 
   /**
-   * Get current selection
-   */
-  public getSelection():any|any[] {
-    if (this.multi) {
-      return this.selection;
-    } else {
-      return this.selected;
-    }
-  }
-
-  /**
    * Get menu style
    */
   public listStyles():any {
