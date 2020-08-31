@@ -492,13 +492,6 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   }
 
   /**
-   * Get current input value
-   */
-  public getValue():any {
-    return this.formValue;
-  }
-
-  /**
    * Handles tab key press.
    * If `selectOnTabOut` is `true`, will select currently focused item
    * 
