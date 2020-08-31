@@ -795,17 +795,6 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   }
 
   /**
-   * Set current input value
-   *
-   * @param selection
-   */
-  public setValue(selection: any):void {
-    this.formValue = this.getFormValue(selection);
-    this.keyword = this.getLabel(selection);
-    return;
-  }
-
-  /**
    * Show item list
    */
   public showItemList():void {
