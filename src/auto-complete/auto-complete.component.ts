@@ -110,6 +110,37 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   )
   private inputElem:ElementRef;
 
+  /**
+   * Get element's position on screen
+   *
+   * @param el
+   *
+   * @private
+   */
+  private static _getPosition(el):any {
+    let xPos = 0;
+    let yPos = 0;
+
+    while (el) {
+      if (el.tagName === 'BODY') {
+        const xScroll = el.scrollLeft || document.documentElement.scrollLeft;
+        const yScroll = el.scrollTop || document.documentElement.scrollTop;
+
+        xPos += (el.offsetLeft - xScroll + el.clientLeft);
+        yPos += (el.offsetTop - yScroll + el.clientTop);
+      } else {
+        xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+        yPos += (el.offsetTop - el.scrollTop + el.clientTop);
+      }
+
+      el = el.offsetParent;
+    }
+    return {
+      x: xPos,
+      y: yPos
+    };
+  }
+
   @Input()
   set dataProvider(provider:AutoCompleteService|Function) {
     if (typeof provider !== 'undefined') {
@@ -297,37 +328,6 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     return selection;
   }
 
-  /**
-   * Get element's position on screen
-   *
-   * @param el
-   *
-   * @private
-   */
-  private _getPosition(el):any {
-    let xPos = 0;
-    let yPos = 0;
-
-    while (el) {
-      if (el.tagName === 'BODY') {
-        const xScroll = el.scrollLeft || document.documentElement.scrollLeft;
-        const yScroll = el.scrollTop || document.documentElement.scrollTop;
-
-        xPos += (el.offsetLeft - xScroll + el.clientLeft);
-        yPos += (el.offsetTop - yScroll + el.clientTop);
-      } else {
-        xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
-        yPos += (el.offsetTop - el.scrollTop + el.clientTop);
-      }
-
-      el = el.offsetParent;
-    }
-    return {
-      x: xPos,
-      y: yPos
-    };
-  }
-
   clickClear():void {
     this.clearValue(true);
 
@@ -480,7 +480,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     let location = this.location;
 
     if (this.location === 'auto') {
-      const elementY = this._getPosition(
+      const elementY = AutoCompleteComponent._getPosition(
         this.searchbarElem.nativeElement
       ).y;
 
