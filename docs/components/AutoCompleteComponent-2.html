@@ -315,6 +315,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#setValue">setValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#showItemList">showItemList</a>
                             </li>
                             <li>
@@ -3431,6 +3435,81 @@ If <code>selectOnTabOut</code> is <code>true</code>, will select currently focus
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="setValue"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            setValue
+                        </b>
+                        <a href="#setValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setValue(selection: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="804"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:804</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Set current input value</p>
+<p>Used externally (ie don&#39;t delete)</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>selection</td>
+                                    <td>
+                                                <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="showItemList"></a>
                     <span class="name">
                         <b>
@@ -3451,8 +3530,8 @@ If <code>selectOnTabOut</code> is <code>true</code>, will select currently focus
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="800"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:800</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="813"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:813</a></div>
                 </td>
             </tr>
 
@@ -3494,8 +3573,8 @@ If <code>selectOnTabOut</code> is <code>true</code>, will select currently focus
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="811"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:811</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="824"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:824</a></div>
                 </td>
             </tr>
 
@@ -3568,8 +3647,8 @@ If <code>selectOnTabOut</code> is <code>true</code>, will select currently focus
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="832"
-                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:832</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="845"
+                            class="link-to-prism">src/auto-complete/auto-complete.component.ts:845</a></div>
                 </td>
             </tr>
 
@@ -5212,6 +5291,19 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
         this.focusedOption &#x3D; 0;
       }
     }
+  }
+
+  /**
+   * Set current input value
+   *
+   * Used externally (ie don&#x27;t delete)
+   *
+   * @param selection
+   */
+  public setValue(selection: any):void {
+    this.formValue &#x3D; this.getFormValue(selection);
+    this.keyword &#x3D; this.getLabel(selection);
+    return;
   }
 
   /**
