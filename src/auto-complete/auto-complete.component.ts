@@ -797,6 +797,8 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   /**
    * Set current input value
    *
+   * Used externally (ie don't delete)
+   *
    * @param selection
    */
   public setValue(selection: any):void {
