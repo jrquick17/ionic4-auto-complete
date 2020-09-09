@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## [2.9.2]
+### Added 
+* setValue function back by [jrquick17](https://github.com/jrquick17)
+
 ## [2.9.1]
 ### Fixed 
 * Fix member-ordering for tslint by [jrquick17](https://github.com/jrquick17)
