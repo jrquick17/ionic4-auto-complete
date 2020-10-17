@@ -1,7 +1,14 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar #toolbar>
     <ion-title>
       Demo: ionic4-auto-complete
+
+    <ion-auto-complete [(model)]="selectedSegment"
+                       [eager]="true"
+                       [multi]="true"
+                       [provider]="segmentProvider"
+                       [disabled]="false"
+                       [maxSelected]="1"></ion-auto-complete>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,7 +18,7 @@
     <ion-segment [value]="selectedSegment"
                  (ionChange)="onClickSegment($event)">
       <ion-segment-button *ngFor="let segment of segments"
-                          [value]="segment.key">
+                          [value]="segment">
         <ion-label>
           {{ segment.label }}
         </ion-label>
@@ -20,7 +27,7 @@
 
     <ion-item-divider></ion-item-divider>
 
-    <ion-card *ngIf="selectedSegment === 'ingredients'"
+    <ion-card *ngIf="selectedSegment.key === 'ingredients'"
               style="height: 100%;">
       <ion-card-content>
         <ion-row>
@@ -34,7 +41,7 @@
       </ion-card-content>
     </ion-card>
 
-    <ion-card *ngIf="selectedSegment === 'simple-service'"
+    <ion-card *ngIf="selectedSegment.key === 'simple-service'"
               style="height: 100%;">
       <ion-card-content>
         <ion-row>
@@ -48,7 +55,7 @@
       </ion-card-content>
     </ion-card>
 
-    <ion-card *ngIf="selectedSegment === 'team-picker'"
+    <ion-card *ngIf="selectedSegment.key === 'team-picker'"
               style="height: 100%;">
       <ion-card-content>
         <ion-row>
@@ -62,7 +69,7 @@
       </ion-card-content>
     </ion-card>
 
-    <ion-card *ngIf="selectedSegment === 'country-picker'"
+    <ion-card *ngIf="selectedSegment.key === 'country-picker'"
               style="height: 100%;">
       <ion-card-content>
         <ion-row>

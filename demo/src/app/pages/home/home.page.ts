@@ -1,7 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 
+import {injectStyles} from 'shadow-dom-inject-styles';
+
 import {SegmentModel} from '../../models/segment.model';
+import {SegmentService} from '../../services/segment.service';
 
 @Component({
   selector:    'home-page',
@@ -10,41 +13,64 @@ import {SegmentModel} from '../../models/segment.model';
     'home.page.scss'
   ],
 })
-export class HomePage implements OnInit {
-  public segments:SegmentModel[] = [
-    {
-      key:   'simple-service',
-      label: 'Basic'
-    },
-    {
-      key:   'ingredients',
-      label: 'Ingredients'
-    },
-    {
-      key:   'team-picker',
-      label: 'Pick Teams'
-    },
-    {
-      key:   'country-picker',
-      label: 'Pick Countries'
-    }
-  ];
+export class HomePage implements OnInit, AfterViewInit {
+  public selectedSegment:SegmentModel;
+  public segments:SegmentModel[];
 
-  public selectedSegment:string = this.segments[0].key;
+  @ViewChild(
+      'toolbar',
+      {
+        read: ElementRef
+      }
+  )
+  private toolbar:ElementRef;
 
   constructor(
+      public segmentProvider:SegmentService,
       private route:ActivatedRoute,
       private router:Router
   ) {
-
+    this.loadSegments();
   }
 
   ngOnInit():void {
     this.route.fragment.subscribe(
         (fragment) => {
-          this.setSegment(fragment);
+          const segments = this.segmentProvider.getResults(fragment);
+          if (segments.length !== 0) {
+            this.setSegment(segments[0]);
+          }
         }
     );
+  }
+
+  ngAfterViewInit() {
+    if (this.toolbar && this.toolbar.nativeElement) {
+      const styles = `
+          ion-toolbar {
+          contain: none !important;
+          overflow: visible !important;
+        }
+        
+        .toolbar-container {
+          contain: none !important;
+          overflow: visible !important;
+        }
+        
+        .toolbar-container .toolbar-content {
+          contain: none !important;
+          overflow: visible !important;
+        }
+      `;
+
+      injectStyles(this.toolbar.nativeElement, '.toolbar-background', styles);
+    }
+  }
+
+  loadSegments():void {
+    this.segments = this.segmentProvider.getAll();
+
+    this.selectedSegment = this.segments[0];
   }
 
   onClickSegment(event:CustomEvent):void {
@@ -55,13 +81,11 @@ export class HomePage implements OnInit {
     }
   }
 
-  setSegment(segment:string):void {
-    if (typeof segment === 'string') {
-      segment = segment.toLowerCase();
-
+  setSegment(segment:SegmentModel):void {
+    if (typeof segment !== 'undefined') {
       const arrayHas = this.segments.some(
         (candidate) => {
-          return candidate.key === segment;
+          return candidate.key === segment.key;
         }
       );
 
@@ -71,7 +95,7 @@ export class HomePage implements OnInit {
         this.router.navigate(
            [],
            {
-             fragment: segment
+             fragment: segment.key
            }
         ).then();
       }
