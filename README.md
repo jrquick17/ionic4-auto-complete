@@ -28,12 +28,17 @@ This is a component based on Ionic's search-bar component, with the addition of 
 
 ### Install Node ###
 
-* For Angular 2-7: 
+* For Angular 2-6: 
 ```
-npm install ionic4-auto-complete@1.10.2 --save
+npm install ionic4-auto-complete@^1.10.1 --save
 ```
 
-* For Angular 8+: 
+* For Angular 7-8: 
+```
+npm install ionic4-auto-complete@2.8.2 --save
+```
+
+* For Angular 9+: 
 ```
 npm install ionic4-auto-complete --save
 ```
