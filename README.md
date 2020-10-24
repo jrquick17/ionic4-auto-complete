@@ -35,7 +35,7 @@ npm install ionic4-auto-complete@^1.10.1 --save
 
 * For Angular 7-8: 
 ```
-npm install ionic4-auto-complete@2.8.2 --save
+npm install ionic4-auto-complete@~2.8.2 --save
 ```
 
 * For Angular 9+: 
