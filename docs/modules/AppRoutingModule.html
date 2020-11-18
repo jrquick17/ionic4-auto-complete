@@ -91,7 +91,7 @@ const routes: Routes &#x3D; [
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { relativeLinkResolution: &#x27;legacy&#x27; })
   ],
   exports: [
     RouterModule
