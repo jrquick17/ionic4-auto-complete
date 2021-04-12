@@ -52,4 +52,8 @@ export class IngredientPickerComponent {
     console.log(output);
     // console.log(event);
   }
+
+  reset():void {
+    this.selected = null;
+  }
 }
