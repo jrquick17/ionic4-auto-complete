@@ -26,6 +26,10 @@ ion-auto-complete {
     li {
       padding:       15px;
       border-bottom: 1px solid #c1c1c1;
+
+      span {
+        pointer-events: none;
+      }
     }
 
     ion-auto-complete-item {
