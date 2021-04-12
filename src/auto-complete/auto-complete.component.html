@@ -122,8 +122,9 @@
 <ng-template #defaultList
              let-attrs="attrs">
     <ul *ngIf="!(disabled || (attrs.maxSelected !== null && attrs.selected.length >= attrs.maxSelected)) && attrs.data.length > 0 && attrs.showSuggestions"
+        #itemList
         [ngStyle]="listStyles()">
-        <li *ngFor="let suggestion of attrs.data| slice:0:attrs.maxResults; let index = index"
+        <li *ngFor="let suggestion of attrs.data| slice:0 : attrs.maxResults; let index = index"
             [ngClass]="{ 'focus': focusedOption === index }"
             [ngStyle]="styles.listItem"
             (mouseenter)="focusedOption = index"

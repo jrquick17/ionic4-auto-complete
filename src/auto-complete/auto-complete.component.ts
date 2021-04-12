@@ -8,7 +8,8 @@ import {
   ViewChild,
   HostListener,
   ElementRef,
-  AfterViewChecked
+  AfterViewChecked,
+  ViewContainerRef
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
@@ -97,8 +98,8 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   @ViewChild(
     'searchbarElem',
     {
-    read: ElementRef
-}
+      read: ElementRef
+    }
   )
   private searchbarElem:ElementRef;
 
@@ -110,36 +111,13 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   )
   private inputElem:ElementRef;
 
-  /**
-   * Get element's position on screen
-   *
-   * @param el
-   *
-   * @private
-   */
-  private static _getPosition(el):any {
-    let xPos = 0;
-    let yPos = 0;
-
-    while (el) {
-      if (el.tagName === 'BODY') {
-        const xScroll = el.scrollLeft || document.documentElement.scrollLeft;
-        const yScroll = el.scrollTop || document.documentElement.scrollTop;
-
-        xPos += (el.offsetLeft - xScroll + el.clientLeft);
-        yPos += (el.offsetTop - yScroll + el.clientTop);
-      } else {
-        xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
-        yPos += (el.offsetTop - el.scrollTop + el.clientTop);
-      }
-
-      el = el.offsetParent;
+  @ViewChild(
+    'itemList',
+    {
+      read: ElementRef
     }
-    return {
-      x: xPos,
-      y: yPos
-    };
-  }
+  )
+  private itemList:ElementRef;
 
   @Input()
   set dataProvider(provider:AutoCompleteService|Function) {
@@ -222,6 +200,26 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   }
 
   /**
+   * Handle document click
+   *
+   * @param event
+   *
+   * @private
+   */
+  @HostListener('document:click', ['$event'])
+  public documentClickHandler(event:Event):void {
+    if (
+        this.isEventWithinElement(this.searchbarElem, event)
+        || this.isEventWithinElement(this.inputElem, event)
+        || (this.isEventWithinElement(this.itemList, event))
+    ) {
+      this.setSuggestions(this.suggestions);
+    } else {
+      this.hideItemList();
+    }
+  }
+
+  /**
    * Create a new instance
    */
   public constructor() {
@@ -248,9 +246,6 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     this.selected = [];
   }
 
-  /**
-   *
-   */
   ngAfterViewChecked():void {
     if (this.showListChanged) {
       this.showListChanged = false;
@@ -291,21 +286,53 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   }
 
   /**
-   * Handle document click
+   * Get element's position on screen
    *
-   * @param event
+   * @param el
    *
    * @private
    */
-  @HostListener('document:click', ['$event'])
-  public documentClickHandler(event:Event):void {
-    if (
-      (this.searchbarElem && this.searchbarElem.nativeElement && !this.searchbarElem.nativeElement.contains(<string><unknown>event.target))
-      ||
-      (this.inputElem && this.inputElem.nativeElement && this.inputElem.nativeElement.contains(<string><unknown>event.target))
-    ) {
-      this.hideItemList();
+  private _getPosition(el):any {
+    let xPos = 0;
+    let yPos = 0;
+
+    while (el) {
+      if (el.tagName === 'BODY') {
+        const xScroll = el.scrollLeft || document.documentElement.scrollLeft;
+        const yScroll = el.scrollTop || document.documentElement.scrollTop;
+
+        xPos += (el.offsetLeft - xScroll + el.clientLeft);
+        yPos += (el.offsetTop - yScroll + el.clientTop);
+      } else {
+        xPos += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+        yPos += (el.offsetTop - el.scrollTop + el.clientTop);
+      }
+
+      el = el.offsetParent;
     }
+    return {
+      x: xPos,
+      y: yPos
+    };
+  }
+
+  private isEventWithinElement(elementOrTemplate:ElementRef|TemplateRef<any>|ViewContainerRef, event:Event):boolean {
+    if (typeof elementOrTemplate === 'undefined') {
+      return false;
+    }
+
+    let element:ElementRef;
+    if (elementOrTemplate instanceof TemplateRef) {
+      element = elementOrTemplate.elementRef;
+    } else if (elementOrTemplate instanceof ViewContainerRef) {
+      element = elementOrTemplate.element.nativeElement;
+    } else {
+      element = elementOrTemplate;
+    }
+
+    return element
+        && element.nativeElement
+        && element.nativeElement.contains(<string><unknown>event.target);
   }
 
   /**
@@ -335,26 +362,23 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   }
 
   clickClear():void {
-    this.clearValue(true);
+    this.clearValue();
+    this.hideItemList();
 
     this.itemsCleared.emit(true);
   }
 
   /**
    * Clear current input value
-   *
-   * @param hideItemList
    */
-  public clearValue(hideItemList:boolean = false):void {
+  public clearValue():void {
     this.keyword = '';
     this.selection = null;
     this.formValue = null;
 
-    if (hideItemList) {
-      this.hideItemList();
+    if (this.focusedOption > 0) {
+      this.focusedOption = this.focusedOption - 1;
     }
-
-    this.focusedOption = -1;
 
     return;
   }
@@ -475,7 +499,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     let location = this.location;
 
     if (this.location === 'auto') {
-      const elementY = AutoCompleteComponent._getPosition(
+      const elementY = this._getPosition(
         this.searchbarElem.nativeElement
       ).y;
 
@@ -736,7 +760,6 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   public selectItem(selection:any):void {
     this.keyword = this.getLabel(selection);
     this.formValue = this.getFormValue(selection);
-    this.hideItemList();
 
     this.updateModel(this.formValue);
 
