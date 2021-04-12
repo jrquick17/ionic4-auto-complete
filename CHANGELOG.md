@@ -6,12 +6,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.9.7]
+### Fixed
+* Respect `value` when passed within options by [jrquick17](https://github.com/jrquick17)
+
+## [Released]
+
 ## [2.9.6]
 ### Fixed
 * `hideListOnSelection` not having affect by [jrquick17](https://github.com/jrquick17)
 * Double-click bug on IOS by [jrquick17](https://github.com/jrquick17)
-
-## [Released]
 
 ## [2.9.5]
 ### Added
