@@ -5,6 +5,7 @@
   "homepage": "https://ionic4-auto-complete.jrquick.com",
   "scripts": {
     "build": "ng-packagr -p package.json && cp src/auto-complete/auto-complete.component.scss dist/auto-complete.scss && cp -r src/assets dist/assets",
+    "build:link": "npm run build && cd dist/ && npm link",
     "demo": "cd demo && ionic serve",
     "demo:build": "cd demo && npm install && ionic build --prod && cd ..",
     "demo:test": "npm run build && cd demo && cp -fr ../dist/* node_modules/ionic4-auto-complete/ && cd .. && npm run demo",
