@@ -36,7 +36,7 @@
     "core-js": "^3.10.1",
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
-    "ionic4-auto-complete": "^2.9.4",
+    "ionic4-auto-complete": "^2.9.5",
     "ionicons": "^5.5.1",
     "ngx-bootstrap": "^6.2.0",
     "path": "^0.12.7",
