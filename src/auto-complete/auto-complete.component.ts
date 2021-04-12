@@ -52,7 +52,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   private showListChanged:boolean = false;
 
   @Input() public alwaysShowList:boolean = false;
-  @Input() public autocomplete:string = 'off';
+  @Input() public autocomplete:string;
   @Input() public autoFocusSuggestion:boolean = true;
   @Input() public clearInvalidInput:boolean = true;
   @Input() public disabled:boolean = false;
@@ -141,7 +141,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   set options(options:AutoCompleteOptions|any) {
     this.autocompleteOptions = new AutoCompleteOptions();
 
-    const keys = Object.keys(this.autocompleteOptions);
+    const keys = Object.keys(options);
 
     const keysLength = keys.length;
     for (let i = 0; i < keysLength; i++) {
@@ -150,6 +150,26 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
       if (typeof options[key] !== 'undefined') {
         this.autocompleteOptions[key] = options[key];
       }
+    }
+
+    if (typeof this.selected === 'undefined') {
+      if (typeof this.autocompleteOptions.value !== 'undefined') {
+        this.selected = this.autocompleteOptions.value;
+      } else {
+        if (this.multi) {
+          this.selected = [];
+        } else {
+          this.selected = null;
+        }
+      }
+
+      this.keyword = this.getLabel(this.selected);
+    }
+
+    if (this.autocompleteOptions.autocomplete) {
+      this.autocomplete = this.autocompleteOptions.autocomplete;
+    } else {
+      this.autocomplete = 'off';
     }
   }
 
@@ -168,17 +188,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   }
 
   set model(selected:any|any[]) {
-    if (typeof selected === 'undefined') {
-      if (this.multi) {
-        selected = [];
-      } else {
-        selected = null;
-      }
-    }
-
     this.selected = selected;
-
-    this.keyword = this.getLabel(selected)
   }
 
   @Input()
@@ -238,12 +248,6 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
     this.keyword = '';
     this.suggestions = [];
-
-    this.autocompleteOptions = new AutoCompleteOptions();
-
-    this.defaultOpts = new AutoCompleteOptions();
-
-    this.selected = [];
   }
 
   ngAfterViewChecked():void {
