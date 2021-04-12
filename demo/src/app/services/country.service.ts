@@ -26,7 +26,7 @@ export class CountryService implements AutoCompleteService {
     let observable:Observable<any>;
 
     if (this.countries.length === 0) {
-      observable = this.http.get('assets/countries.json').pipe(
+      observable = this.http.get('https://restcountries.eu/rest/v2/all').pipe(
         map(
           (results:CountryModel[]) => {
             if (results) {
