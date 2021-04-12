@@ -354,7 +354,7 @@ export class CountryService implements AutoCompleteService {
 
     return observable.pipe(
       map(
-        (result) &#x3D;&gt; {
+        (result:CountryModel[]) &#x3D;&gt; {
           return result.filter(
             (item) &#x3D;&gt; {
               return item.name.toLowerCase().startsWith(
