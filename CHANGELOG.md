@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Released]
 
+## [2.9.9]
+### Updated
+* Support for ng 12 by [jrquick17](https://github.com/jrquick17)
+
 ## [2.9.8]
 ### Fixed
 * Do not show empty result template when searching by [jrquick17](https://github.com/jrquick17)
