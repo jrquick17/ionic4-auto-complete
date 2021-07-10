@@ -1,6 +1,5 @@
 ion-auto-complete {
   overflow: hidden !important;
-  width:    90vw;
   display:  inline-block;
 
   ion-searchbar {
@@ -14,7 +13,6 @@ ion-auto-complete {
 
   ul {
     position:        absolute;
-    width:           90vw;
     margin-top:      0;
     background:      #FFF;
     list-style-type: none;
