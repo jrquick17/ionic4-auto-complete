@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	      <link rel="stylesheet" href="./styles/style.css">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -73,17 +74,17 @@
 }</code></pre></div><h3 id="import-module">Import module</h3>
 <ul>
 <li><p>Import <code>AutoCompleteModule</code> by adding the following to your parent module (i.e. <code>app.module.ts</code>):</p>
-<div><pre class="line-numbers"><code class="language-none">  import { AutoCompleteModule } from &#39;ionic4-auto-complete&#39;;
+<div><pre class="line-numbers"><code class="language-none">import { AutoCompleteModule } from &#39;ionic4-auto-complete&#39;;
 
-  &#64;NgModule({
+&#64;NgModule({
+  ...
+  imports: [
+    AutoCompleteModule,
     ...
-    imports: [
-      AutoCompleteModule,
-      ...
-    ],
-    ...
-  })
-  export class AppModule {}</code></pre></div></li>
+  ],
+  ...
+})
+export class AppModule {}</code></pre></div></li>
 </ul>
 <h3 id="add-styles">Add styles</h3>
 <ul>
@@ -108,7 +109,7 @@ import {Component} from &#39;&#64;angular/core&#39;;
 })
 export class AutoCompleteComponent {
   public labelAttribute:string;
-
+  
   public objects:any[];
 
   constructor() {
@@ -116,7 +117,7 @@ export class AutoCompleteComponent {
        ...
     ]
   }
-
+  
   protected filter(keyword) {
     keyword = keyword.toLowerCase();
 
@@ -133,15 +134,15 @@ export class AutoCompleteComponent {
 <ul>
 <li><p>When implementing an AutoCompleteService interface, you must implement two properties:</p>
 <ol>
-<li><p><strong>labelAttribute</strong> [string] - which is the name of the object&#39;s descriptive property (leaving it null is also an option for non-object results)</p>
-</li>
-<li><p><strong>getResults(keyword)</strong> [() =&gt; any] - which is the method responsible for getting the data from server which returns either an:</p>
-<ul>
+<li><strong>labelAttribute</strong> [string] - which is the name of the object&#39;s descriptive property (leaving it null is also an option for non-object results)</li>
+<li><strong>getResults(keyword)</strong> [() =&gt; any] - which is the method responsible for getting the data from server which returns either an:<ul>
 <li>an Observable that produces an array</li>
 <li>a Subject (like an Observable)</li>
 <li>a Promise that provides an array</li>
 <li>directly an array of values</li>
 </ul>
+</li>
+</ol>
 <div><pre class="line-numbers"><code class="language-none">import {Injectable} from &#39;&#64;angular/core&#39;;
 import {HttpClient} from &#39;&#64;angular/common/http&#39;;
 
@@ -152,99 +153,96 @@ import {AutoCompleteService} from &#39;ionic4-auto-complete&#39;;
 
 &#64;Injectable()
 export class SimpleService implements AutoCompleteService {
-labelAttribute = &#39;name&#39;;
+  labelAttribute = &#39;name&#39;;
 
-private countries:any[] = [];
+  private countries:any[] = [];
 
-constructor(private http:HttpClient) {
+  constructor(private http:HttpClient) {
 
-}
+  }
 
-getResults(keyword:string):Observable&lt;any[]&gt; {
- let observable:Observable&lt;any&gt;;
+  getResults(keyword:string):Observable&lt;any[]&gt; {
+    let observable:Observable&lt;any&gt;;
 
- if (this.countries.length === 0) {
-   observable = this.http.get(&#39;https://restcountries.eu/rest/v2/all&#39;);
- } else {
-   observable = of(this.countries);
- }
+    if (this.countries.length === 0) {
+      observable = this.http.get(&#39;https://restcountries.eu/rest/v2/all&#39;);
+    } else {
+      observable = of(this.countries);
+    }
 
- return observable.pipe(
-   map(
-     (result) =&gt; {
-       return result.filter(
-         (item) =&gt; {
-           return item.name.toLowerCase().startsWith(
-               keyword.toLowerCase()
-           );
-         }
-       );
-     }
-   )
- );
-}
+    return observable.pipe(
+      map(
+        (result) =&gt; {
+          return result.filter(
+            (item) =&gt; {
+              return item.name.toLowerCase().startsWith(
+                  keyword.toLowerCase()
+              );
+            }
+          );
+        }
+      )
+    );
+  }
 }</code></pre></div></li>
-</ol>
-</li>
 </ul>
 <h4 id="option-three-create-a-service-and-component-with-a-form">Option Three: Create a service and component with a form</h4>
 <ul>
 <li><p>To indicate that you don&#39;t want the label as value but another field of the country object returned by the REST service, you can specify the attribute <strong>formValueAttribute</strong> on your dataProvider. For example, we want to use the country numeric code as value and still use the country name as label.</p>
 </li>
 <li><p>Create a service which includes the <code>formValueAttribute</code> property.</p>
-<div><pre class="line-numbers"><code class="language-none">  import {Injectable} from &#39;&#64;angular/core&#39;;
-  import {map} from &#39;rxjs/operators&#39;;
+<div><pre class="line-numbers"><code class="language-none">import {Injectable} from &#39;&#64;angular/core&#39;;
+import {map} from &#39;rxjs/operators&#39;;
 
-  import {HttpClient} from &#39;&#64;angular/common/http&#39;;
+import {HttpClient} from &#39;&#64;angular/common/http&#39;;
 
-  import {AutoCompleteService} from &#39;ionic4-auto-complete&#39;;
+import {AutoCompleteService} from &#39;ionic4-auto-complete&#39;;
 
-  &#64;Injectable()
-  export class CompleteTestService implements AutoCompleteService {
-    labelAttribute = &#39;name&#39;;
-    formValueAttribute = &#39;numericCode&#39;;
+&#64;Injectable()
+export class CompleteTestService implements AutoCompleteService {
+  labelAttribute = &#39;name&#39;;
+  formValueAttribute = &#39;numericCode&#39;;
 
-    constructor(private http:HttpClient) {
+  constructor(private http:HttpClient) {
+  
+  }
 
-    }
+  getResults(keyword:string) {
+     if (!keyword) { return false; }
 
-    getResults(keyword:string) {
-       if (!keyword) { return false; }
-
-       return this.http.get(&#39;https://restcountries.eu/rest/v2/name/&#39; + keyword).pipe(map(
-          (result: any[]) =&gt; {
-             return result.filter(
-                (item) =&gt; {
-                   return item.name.toLowerCase().startsWith(
-                      keyword.toLowerCase()
-                   );
-                }
-             );
-          }
-       ));
-    }
-  }</code></pre></div></li>
+     return this.http.get(&#39;https://restcountries.eu/rest/v2/name/&#39; + keyword).pipe(map(
+        (result: any[]) =&gt; {
+           return result.filter(
+              (item) =&gt; {
+                 return item.name.toLowerCase().startsWith(
+                    keyword.toLowerCase()
+                 );
+              }
+           );
+        }
+     ));
+  }
+}</code></pre></div></li>
 <li><p>Once the form is submitted the <code>country</code> is the selected country&#39;s <strong>numericCode</strong> while the displayed name is the <code>labelAttribute</code>.</p>
 </li>
 <li><p>Create a component:</p>
-<div><pre class="line-numbers"><code class="language-none">   import {Component} from &#39;&#64;angular/core&#39;;
-   import {NavController} from &#39;ionic-angular&#39;;
-   import {CompleteTestService} from &#39;../../providers/CompleteTestService&#39;;
-   import {FormGroup, Validators, FormControl } from &#39;&#64;angular/forms&#39;
-
-</code></pre></div></li>
-</ul>
-<div><pre class="line-numbers"><code class="language-none"> &#64;Component({
+<div><pre class="line-numbers"><code class="language-none"> import {Component} from &#39;&#64;angular/core&#39;;
+ import {NavController} from &#39;ionic-angular&#39;;
+ import {CompleteTestService} from &#39;../../providers/CompleteTestService&#39;;
+ import {FormGroup, Validators, FormControl } from &#39;&#64;angular/forms&#39;
+ 
+ 
+ &#64;Component({
    selector: &#39;page-home&#39;,
    templateUrl: &#39;home.html&#39;
  })
  export class HomePage {
    myForm: FormGroup
-
+ 
    constructor(public navCtrl: NavController, public completeTestService: CompleteTestService) {
-
+   
    }
-
+ 
    ngOnInit(): void {
      this.myForm = new FormGroup({
        country: new FormControl(&#39;&#39;, [
@@ -252,13 +250,14 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
        ])
      })
    }
-
+ 
    submit(): void {
      let country = this.myForm.value.country
    }
-
- }
-```</code></pre></div><h3 id="html">HTML</h3>
+ 
+ }</code></pre></div></li>
+</ul>
+<h3 id="html">HTML</h3>
 <div><pre class="line-numbers"><code class="language-none">* Add `ion-auto-complete` within the HTML of your parent module.
 
 * Pass the data:
@@ -281,7 +280,7 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
                     &lt;ion-auto-complete [dataProvider]=&quot;completeTestService&quot; 
                                        formControlName=&quot;country&quot;&gt;&lt;/ion-auto-complete&gt;
                   &lt;/div&gt;
-
+                  
                   &lt;button ion-button 
                           type=&quot;submit&quot; 
                           block&gt;
@@ -299,17 +298,17 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
                 import {HttpClient} from &#39;&#64;angular/common/http&#39;;
                 import {Injectable} from &quot;&#64;angular/core&quot;;
                 import &#39;rxjs/add/operator/map&#39;
-
+                
                 &#64;Injectable()
                 export class CompleteTestService implements AutoCompleteService {
                   ...
-
+                  
                   formValueAttribute = &#39;&#39;
-
+                
                   constructor(private http:HttpClient) {
                      ...
                   }
-
+                
                   getResults(keyword:string) {
                      ...
                   }
@@ -331,7 +330,7 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 <li><p>Ionic4-auto-complete supports the regular Ionic&#39;s Searchbar properties, which are set to their default values as specified in the <a href="https://ionicframework.com/docs/api/searchbar#properties">docs</a>.</p>
 </li>
 <li><p>You can override these default values by adding the <code>[options]</code> attribute to the <code>&lt;ion-auto-complete&gt;</code> tag, for instance:</p>
-<div><pre class="line-numbers"><code class="language-none">    &lt;ion-auto-complete [dataProvider]=&quot;someProvider&quot; [options]=&quot;{ placeholder : &#39;Lorem Ipsum&#39; }&quot;&gt;&lt;/ion-auto-complete&gt;</code></pre></div></li>
+<div><pre class="line-numbers"><code class="language-none">  &lt;ion-auto-complete [dataProvider]=&quot;someProvider&quot; [options]=&quot;{ placeholder : &#39;Lorem Ipsum&#39; }&quot;&gt;&lt;/ion-auto-complete&gt;</code></pre></div></li>
 <li><p>Options include, but not limited to:</p>
 </li>
 <li><ul>
@@ -354,17 +353,15 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 <h3 id="styling">Styling</h3>
 <h4 id="label">Label</h4>
 <ul>
-<li><p>To use ion-label position you must enable ion-input (<code>[useIonInput]=&quot;true&quot;</code>)</p>
-<div><pre class="line-numbers"><code class="language-none">   &lt;ion-auto-complete [dataProvider]=&quot;service&quot; 
-                      [label]=&quot;&#39;This is a label&#39;&quot; 
-                      [labelPosition]=&quot;&#39;floating&#39;&quot;&gt;&lt;/ion-auto-complete&gt;</code></pre></div></li>
+<li>To use ion-label position you must enable ion-input (<code>[useIonInput]=&quot;true&quot;</code>)<div><pre class="line-numbers"><code class="language-none">&lt;ion-auto-complete [dataProvider]=&quot;service&quot; 
+                   [label]=&quot;&#39;This is a label&#39;&quot; 
+                   [labelPosition]=&quot;&#39;floating&#39;&quot;&gt;&lt;/ion-auto-complete&gt;</code></pre></div></li>
 </ul>
 <h4 id="resize">Resize</h4>
 <ul>
-<li><p>For best visual results use <code>viewport size / fixed size</code> ( in pixels).</p>
-<div><pre class="line-numbers"><code class="language-none">   ion-auto-complete {
-     width: 50vw;
-   }</code></pre></div></li>
+<li>For best visual results use <code>viewport size / fixed size</code> ( in pixels).<div><pre class="line-numbers"><code class="language-none">ion-auto-complete {
+  width: 50vw;
+}</code></pre></div></li>
 </ul>
 <h4 id="custom-templates">Custom Templates</h4>
 <ul>
@@ -377,53 +374,39 @@ getResults(keyword:string):Observable&lt;any[]&gt; {
 <li><p>For that, we use the <code>ng-template</code> directive, which let&#39;s us pass the template as an input to the component.</p>
 </li>
 <li><p>Within your component&#39;s HTML add the a template:</p>
-<div><pre class="line-numbers"><code class="language-none">  &lt;ng-template #withFlags let-attrs=&quot;attrs&quot;&gt;
-    &lt;img src=&quot;assets/image/flags/{{attrs.data.name}}.png&quot; 
-         class=&quot;flag&quot;/&gt;
-     &lt;span [innerHTML]=&quot;attrs.data.name | boldprefix:attrs.keyword&quot;&gt;&lt;/span&gt;
-  &lt;/ng-template&gt;
+<div><pre class="line-numbers"><code class="language-none">&lt;ng-template #withFlags let-attrs=&quot;attrs&quot;&gt;
+  &lt;img src=&quot;assets/image/flags/{{attrs.data.name}}.png&quot; 
+       class=&quot;flag&quot;/&gt;
+   &lt;span [innerHTML]=&quot;attrs.data.name | boldprefix:attrs.keyword&quot;&gt;&lt;/span&gt;
+&lt;/ng-template&gt;
 
-  &lt;ion-auto-complete [dataProvider]=&quot;service&quot; 
-                     [template]=&quot;withFlags&quot;&gt;&lt;/ion-auto-complete&gt;</code></pre></div></li>
+&lt;ion-auto-complete [dataProvider]=&quot;service&quot; 
+                   [template]=&quot;withFlags&quot;&gt;&lt;/ion-auto-complete&gt;</code></pre></div></li>
 <li><p><strong>IMPORTANT:</strong> The attribute <code>let-attrs</code> is required.</p>
 </li>
 </ul>
 <h4 id="component-options">Component Options</h4>
 <ul>
-<li><p>In addition to the searchbar options, <code>ion-auto-complete</code> also supports the following option attributes:</p>
-</li>
-<li><p><code>[styles]</code> (AutoCompleteStyles) - custom styles to be passed to <code>ngStyle</code> on elements within the Shadow DOM. Available element keys are: <code>list</code>; <code>listItem</code>; and <code>searchbar</code>.</p>
-</li>
-<li><p><code>[template]</code> (TemplateRef) - custom template reference for your auto complete items (see below).</p>
-</li>
-<li><p><code>[emptytemplate]</code> (TemplateRef) - custom template reference for your auto complete no items display.</p>
-</li>
-<li><p><code>[selectionTemplate]</code> (TemplateRef) - custom template reference for your own selection display when using multi.</p>
-</li>
-<li><p><code>[clearInvalidInput]</code> (boolean) - automatically clear the input field if a valid option is not selected from suggestions (Default <code>true</code>).</p>
-</li>
-<li><p><code>[showResultsFirst]</code> (boolean) - for small lists it might be nicer to show all options on first tap (you might need to modify your service to handle an empty <code>keyword</code>).</p>
-</li>
-<li><p><code>[maxResults]</code> (number) - limits the max number of suggestions shown (Default <code>8</code>).</p>
-</li>
-<li><p><code>[alwaysShowList]</code> (boolean) - always show the list - defaults to false).</p>
-</li>
-<li><p><code>[hideListOnSelection]</code> (boolean) - if allowing multiple selections, it might be nice not to dismiss the list after each selection - defaults to true).</p>
-</li>
-<li><p><code>[selectOnTabOut]</code> (boolean) - select the focused suggestion when the user presses the tab key (Default <code>true</code>)</p>
-</li>
-<li><p><code>[autoFocusSuggestion]</code> (boolean) - Highlights the first suggestion (Default <code>true</code>)</p>
-</li>
+<li>In addition to the searchbar options, <code>ion-auto-complete</code> also supports the following option attributes:</li>
+<li><code>[styles]</code> (AutoCompleteStyles) - custom styles to be passed to <code>ngStyle</code> on elements within the Shadow DOM. Available element keys are: <code>list</code>; <code>listItem</code>; and <code>searchbar</code>.</li>
+<li><code>[template]</code> (TemplateRef) - custom template reference for your auto complete items (see below).</li>
+<li><code>[emptytemplate]</code> (TemplateRef) - custom template reference for your auto complete no items display.</li>
+<li><code>[selectionTemplate]</code> (TemplateRef) - custom template reference for your own selection display when using multi.</li>
+<li><code>[clearInvalidInput]</code> (boolean) - automatically clear the input field if a valid option is not selected from suggestions (Default <code>true</code>).</li>
+<li><code>[showResultsFirst]</code> (boolean) - for small lists it might be nicer to show all options on first tap (you might need to modify your service to handle an empty <code>keyword</code>).</li>
+<li><code>[maxResults]</code> (number) - limits the max number of suggestions shown (Default <code>8</code>).</li>
+<li><code>[alwaysShowList]</code> (boolean) - always show the list - defaults to false).</li>
+<li><code>[hideListOnSelection]</code> (boolean) - if allowing multiple selections, it might be nice not to dismiss the list after each selection - defaults to true).</li>
+<li><code>[selectOnTabOut]</code> (boolean) - select the focused suggestion when the user presses the tab key (Default <code>true</code>)</li>
+<li><code>[autoFocusSuggestion]</code> (boolean) - Highlights the first suggestion (Default <code>true</code>)</li>
 </ul>
 <h3 id="searchbar-methods">Searchbar Methods</h3>
 <h4 id="access-searchbar">Access Searchbar</h4>
 <ul>
-<li><p>Within your component:</p>
-<div><pre class="line-numbers"><code class="language-none">    &#64;ViewChild(&#39;searchbar&#39;)
-    searchbar: AutoCompleteComponent;
-      ```</code></pre></div></li>
-<li><p>Add <code>#searchbar</code> within your component&#39;s HTML:</p>
-<div><pre class="line-numbers"><code class="language-none">  &lt;ion-auto-complete [dataProvider]=&quot;provider&quot; #searchbar&gt;&lt;/ion-auto-complete&gt;</code></pre></div></li>
+<li>Within your component:  ```<div><pre class="line-numbers"><code class="language-none">&#64;ViewChild(&#39;searchbar&#39;)
+searchbar: AutoCompleteComponent;
+  ```</code></pre></div></li>
+<li>Add <code>#searchbar</code> within your component&#39;s HTML:<div><pre class="line-numbers"><code class="language-none">&lt;ion-auto-complete [dataProvider]=&quot;provider&quot; #searchbar&gt;&lt;/ion-auto-complete&gt;</code></pre></div></li>
 </ul>
 <h4 id="available-methods">Available Methods</h4>
 <ul>
@@ -503,7 +486,7 @@ export class CompleteTestService implements AutoCompleteService {
   formValueAttribute = &quot;&quot;
 
   constructor(private http:HttpClient) {
-
+  
   }
 
   getResults(keyword:string) {
@@ -562,9 +545,9 @@ export class CompleteTestService implements AutoCompleteService {
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="./js/menu-wc.js" defer></script>
+       
+       <script type="module" src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 

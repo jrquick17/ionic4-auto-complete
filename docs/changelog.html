@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	      <link rel="stylesheet" href="./styles/style.css">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -36,6 +37,11 @@
 and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
 <h2 id="unreleased">[Unreleased]</h2>
 <h2 id="released">[Released]</h2>
+<h2 id="299">[2.9.9]</h2>
+<h3 id="updated">Updated</h3>
+<ul>
+<li>Support for ng 12 by <a href="https://github.com/jrquick17">jrquick17</a></li>
+</ul>
 <h2 id="298">[2.9.8]</h2>
 <h3 id="fixed">Fixed</h3>
 <ul>
@@ -81,7 +87,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Fix member-ordering for tslint by <a href="https://github.com/jrquick17">jrquick17</a></li>
 <li><code>autocomplete</code> option should accept &#39;off&#39; or a key by <a href="https://github.com/jrquick17">jrquick17</a></li>
 </ul>
-<h3 id="updated">Updated</h3>
+<h3 id="updated-1">Updated</h3>
 <ul>
 <li>Order of [dataProvider] and [model] should not matter by <a href="https://github.com/jrquick17">jrquick17</a></li>
 </ul>
@@ -115,12 +121,12 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <ul>
 <li>Data provider undefined by <a href="https://github.com/jrquick17">jrquick17</a></li>
 </ul>
-<h3 id="updated-1">Updated</h3>
+<h3 id="updated-2">Updated</h3>
 <ul>
 <li>Demo to Angular 10 and Ionic 5 by <a href="https://github.com/jrquick17">jrquick17</a></li>
 </ul>
 <h2 id="273">[2.7.3]</h2>
-<h3 id="updated-2">Updated</h3>
+<h3 id="updated-3">Updated</h3>
 <ul>
 <li>Compatibility to Angular 10 by <a href="https://github.com/spasma">spasma</a></li>
 </ul>
@@ -131,7 +137,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li>Export AutoCompleteStyles by <a href="https://github.com/Birdstown">Birdstown</a></li>
 </ul>
 <h2 id="271">[2.7.1]</h2>
-<h3 id="updated-3">Updated</h3>
+<h3 id="updated-4">Updated</h3>
 <ul>
 <li>Specify type of ModuleWithProviders by <a href="https://github.com/jrquick17">jrquick17</a></li>
 </ul>
@@ -257,7 +263,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 <li><code>maxResults</code> to allow limiting number of suggestions by <a href="https://github.com/jrquick17">jrquick17</a></li>
 <li><code>build:demo</code> command to make testing easier by <a href="https://github.com/jrquick17">jrquick17</a></li>
 </ul>
-<h3 id="updated-4">Updated</h3>
+<h3 id="updated-5">Updated</h3>
 <ul>
 <li>Included console logs in the demo for testing <code>Output()</code> events by <a href="https://github.com/jrquick17">jrquick17</a></li>
 <li>Deprecated fields for IonSearchBar&#39;s <code>showCancelButton</code> by <a href="https://github.com/jrquick17">jrquick17</a></li>
@@ -456,9 +462,9 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 
        <script src="./js/libs/custom-elements.min.js"></script>
        <script src="./js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="./js/menu-wc.js" defer></script>
+       
+       <script type="module" src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
 
        <script src="./js/libs/bootstrap-native.js"></script>
 

@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css" media="(prefers-color-scheme: dark)">
     </head>
     <body>
 
@@ -43,7 +44,9 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>AutoCompleteService</li>
+  <li
+  >
+  AutoCompleteService</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -66,6 +69,7 @@
 
 
 
+
         <section>
             <h3 id="index">Index</h3>
             <table class="table table-sm table-bordered index-table">
@@ -80,11 +84,17 @@
                             <ul class="index-list">
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#formValueAttribute">formValueAttribute</a>
+                                        <a href="#formValueAttribute" 
+>
+                                            formValueAttribute
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#labelAttribute">labelAttribute</a>
+                                        <a href="#labelAttribute" 
+>
+                                            labelAttribute
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -99,10 +109,16 @@
                             <ul class="index-list">
                                 <li>
                                         <span class="modifier">Optional</span>
-                                    <a href="#getItemLabel">getItemLabel</a>
+                                    <a href="#getItemLabel" 
+>
+                                        getItemLabel
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="#getResults">getResults</a>
+                                    <a href="#getResults" 
+>
+                                        getResults
+                                    </a>
                                 </li>
                             </ul>
                         </td>
@@ -122,10 +138,8 @@
                 <td class="col-md-4">
                     <a name="getItemLabel"></a>
                     <span class="name">
-                        <b>
-                            <span class="modifier">Optional</span>
-                            getItemLabel
-                        </b>
+                        <span class="modifier">Optional</span>
+                        <span ><b>getItemLabel</b></span>
                         <a href="#getItemLabel"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -196,9 +210,7 @@ the returned value is the displayed form of the result</p>
                 <td class="col-md-4">
                     <a name="getResults"></a>
                     <span class="name">
-                        <b>
-                            getResults
-                        </b>
+                        <span ><b>getResults</b></span>
                         <a href="#getResults"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
@@ -271,7 +283,11 @@ the returned value is the displayed form of the result</p>
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="formValueAttribute"></a>
-                                        <span class="name"><b>formValueAttribute</b><a href="#formValueAttribute"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>formValueAttribute</b>
+                                            <a href="#formValueAttribute">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -311,7 +327,11 @@ the returned value is the displayed form of the result</p>
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="labelAttribute"></a>
-                                        <span class="name"><b>labelAttribute</b><a href="#labelAttribute"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>labelAttribute</b>
+                                            <a href="#labelAttribute">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -408,9 +428,9 @@ the returned value is the displayed form of the result</p>
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="../js/menu-wc.js" defer></script>
+       
+       <script type="module" src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 
