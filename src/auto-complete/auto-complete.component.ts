@@ -9,11 +9,12 @@ import {
   HostListener,
   ElementRef,
   AfterViewChecked,
-  ViewContainerRef
+  ViewContainerRef,
+  OnDestroy
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
-import {from, Observable, Subject} from 'rxjs';
+import {from, Observable, Subject, Subscription, TimeoutError} from 'rxjs';
 import {finalize} from 'rxjs/operators';
 
 import {AutoCompleteOptions} from '../auto-complete-options.model';
@@ -34,14 +35,15 @@ import {AutoCompleteStyles} from '../auto-complete-styles.model';
   ],
   templateUrl: 'auto-complete.component.html'
 })
-export class AutoCompleteComponent implements AfterViewChecked, ControlValueAccessor, DoCheck {
+export class AutoCompleteComponent implements AfterViewChecked, ControlValueAccessor, DoCheck, OnDestroy {
   public autocompleteOptions:AutoCompleteOptions = new AutoCompleteOptions();
   public defaultOpts:AutoCompleteOptions;
   public hasFocus:boolean = false;
   public isLoading:boolean = false;
   public focusedOption:number = -1;
   public formValue:any;
-  public promise;
+  public promise: ReturnType<typeof setTimeout>;
+  public subscription?: Subscription;
   public selected:any|any[];
   public selection:any;
   public showSuggestions:boolean = false;
@@ -250,6 +252,10 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     this.suggestions = [];
   }
 
+  ngOnDestroy():void {
+    this.subscription?.unsubscribe();
+  }
+
   ngAfterViewChecked():void {
     if (this.showListChanged) {
       this.showListChanged = false;
@@ -379,6 +385,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     this.keyword = '';
     this.selection = null;
     this.formValue = null;
+    this.getItems();
 
     if (this.focusedOption > 0) {
       this.focusedOption = this.focusedOption - 1;
@@ -398,6 +405,11 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
 
     if (this.promise) {
       clearTimeout(this.promise);
+    }
+
+    if( this.subscription) {
+      this.subscription.unsubscribe();
+      this.subscription = undefined;
     }
 
     this.promise = setTimeout(
@@ -428,7 +440,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
           }
 
           if (result instanceof Observable) {
-            result.pipe(
+              this.subscription = result.pipe(
                 finalize(
                     () => {
                       this.isLoading = false;
@@ -528,7 +540,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   /**
    * Handles tab key press.
    * If `selectOnTabOut` is `true`, will select currently focused item
-   * 
+   *
    * @param event
    */
   public handleTabOut(event):void {
