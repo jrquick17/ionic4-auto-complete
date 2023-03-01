@@ -4,11 +4,10 @@
   "readme": "README.md",
   "homepage": "https://ionic4-auto-complete.jrquick.com",
   "scripts": {
-    "build": "ng-packagr -p package.json && cp src/auto-complete/auto-complete.component.scss dist/auto-complete.scss && cp -r src/assets dist/assets",
+    "build": "ng-packagr -p package.json && copy src/auto-complete/auto-complete.component.scss dist/auto-complete.scss && copy -r src/assets dist/assets",
     "build:link": "npm run build && cd dist/ && npm link",
     "demo": "cd demo && ionic serve",
-    "demo:build": "cd demo && npm install && ionic build --configuration production && cd ..",
-    "demo:test": "npm run build && cd demo && cp -fr ../dist/* node_modules/ionic4-auto-complete/ && cd .. && npm run demo",
+    "demo:build": "cd demo && ionic build && cd ..",
     "docs": "npm run docs:build",
     "docs:build": "compodoc -p tsconfig.json -n ionic4-auto-complete -d docs --hideGenerator",
     "docs:serve": "npm run docs:build -- -s",
@@ -96,7 +95,7 @@
     "ts-node": "~8.10.2",
     "tslib": "^2.5.0",
     "tslint": "~6.1.3",
-    "typescript": "^4.9.5",
+    "typescript": "4.3.5",
     "webpack": "^5.75.0",
     "zone.js": "^0.11.8"
   },

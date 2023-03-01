@@ -463,10 +463,11 @@ If you find any issues feel free to open a request in [the Issues tab](https://g
 
 #### Test ####
 
-* Copy `dist/` contents into `demo/node_modules/ionic4-auto-complete/`
-    * Run from root:  `cp -fr dist/* demo/node_modules/ionic4-auto-complete/`
+* Run `npm run build:link` in root directory
+* Run `npm link ionic4-auto-complete` in `demo/` or any external project
 * Run `ionic serve` from `demo/`
 * Run `ionic build --prod` from `demo/`
+* When done, run `npm unlink` in `demo/` or any external project
 
 #### NPM Release ####
 
