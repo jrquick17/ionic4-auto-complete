@@ -68,7 +68,7 @@
     "@compodoc/compodoc": "^1.1.19",
     "@ionic-native/core": "5.27.0",
     "@ionic/angular": "^5.9.4",
-    "@ionic/angular-toolkit": "^2.3.3",
+    "@ionic/angular-toolkit": "^8.0.0",
     "@ionic/pro": "2.0.4",
     "@ionic/storage": "2.3.0",
     "@types/core-js": "^2.5.5",
