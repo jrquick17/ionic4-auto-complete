@@ -86,6 +86,16 @@ npm run docs:build
 
 Gotchas, in order of how often they bite:
 
+- **The 2.x train builds on Node 18, not the Node 16 you'd expect from "Angular 12."** `.nvmrc`
+  and `engines.node` pin `^18.13.0 || >=20.9.0`. Framework packages (`@angular/core` etc.) are
+  `^12.2.17` and would tolerate an older Node, but `ng-packagr` and `@angular-devkit/build-angular`
+  are pinned to `^17.x` — three majors ahead, from unreviewed Dependabot security bumps (`6cfe7b2`,
+  `76734b2`), not a deliberate choice — and both require Node `^18.13.0 || >=20.9.0`. Since npm
+  hoists one top-level copy of `@angular-devkit/build-angular`, `ng test`/`ng lint`/`ng build` all
+  resolve against that v17 code too, so the whole toolchain needs Node 18+. Node 16 will likely
+  break `npm run build` outright. Don't downgrade `ng-packagr`/`build-angular` back to `^12` without
+  reading `.claude/ROADMAP.md` 0.1 first — that's tracked separately since it reintroduces the
+  patched CVEs the Dependabot bumps fixed.
 - **`npm run build` is Windows-only.** It shells out to `copy` / `copy -r`, which is `cmd.exe`
   syntax and fails under Git Bash or on macOS/Linux. Use PowerShell here, or invoke
   `npx ng-packagr -p package.json` directly and copy the SCSS/assets by hand.
