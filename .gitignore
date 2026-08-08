@@ -8,6 +8,9 @@ npm-debug.log
 *.d.ts
 !gulpfile.js
 
+# Claude Code
+.claude/
+
 # JetBrains
 .idea
 .project
