@@ -86,16 +86,18 @@ npm run docs:build
 
 Gotchas, in order of how often they bite:
 
-- **The 2.x train builds on Node 18, not the Node 16 you'd expect from "Angular 12."** `.nvmrc`
-  and `engines.node` pin `^18.13.0 || >=20.9.0`. Framework packages (`@angular/core` etc.) are
-  `^12.2.17` and would tolerate an older Node, but `ng-packagr` and `@angular-devkit/build-angular`
-  are pinned to `^17.x` — three majors ahead, from unreviewed Dependabot security bumps (`6cfe7b2`,
-  `76734b2`), not a deliberate choice — and both require Node `^18.13.0 || >=20.9.0`. Since npm
-  hoists one top-level copy of `@angular-devkit/build-angular`, `ng test`/`ng lint`/`ng build` all
-  resolve against that v17 code too, so the whole toolchain needs Node 18+. Node 16 will likely
-  break `npm run build` outright. Don't downgrade `ng-packagr`/`build-angular` back to `^12` without
-  reading `.claude/ROADMAP.md` 0.1 first — that's tracked separately since it reintroduces the
-  patched CVEs the Dependabot bumps fixed.
+- **`ng-packagr` and `@angular-devkit/build-angular` are pinned to `^12`, matching the
+  `@angular/*` framework packages (`^12.2.17`).** They briefly drifted to `^17.x` via unreviewed
+  Dependabot security bumps (`6cfe7b2`, `76734b2`), which three-majors-mismatched them against
+  Angular 12 and made `npm install` fail with an `ERESOLVE` conflict (`@angular-devkit/build-angular@17`
+  peer-requires `@angular/compiler-cli@^17`). Resolved by downgrading both back to `^12`
+  (`.claude/ROADMAP.md` 0.1, decided 2026-08-09/10) — don't bump them back to `^17` without reading
+  that decision record first; it reintroduces both the `ERESOLVE` conflict and the CVEs the
+  Dependabot bumps were fixing.
+- **`.nvmrc` and `engines.node` pin `^18.13.0 || >=20.9.0`**, set while the toolchain was still on
+  `ng-packagr@17` (which requires Node 18+). Now that it's back on `^12` — whose own `engines.node`
+  is `^12.14.1 || >=14.0.0` — the pin is stricter than the toolchain strictly needs, but it hasn't
+  been revisited; treat Node 18+ as the supported baseline until that's done deliberately.
 - **`npm run build` is Windows-only.** It shells out to `copy` / `copy -r`, which is `cmd.exe`
   syntax and fails under Git Bash or on macOS/Linux. Use PowerShell here, or invoke
   `npx ng-packagr -p package.json` directly and copy the SCSS/assets by hand.
@@ -126,8 +128,9 @@ Follow the existing style rather than a modern default — this codebase is deli
 - JSDoc block comments on public methods.
 - The component targets **TypeScript 4.3 / Angular 12 / Ionic 5** semantics and compiles to `es5`;
   no optional chaining sugar beyond what the toolchain supports, no standalone components, no
-  signals. Devtooling (`ng-packagr`, `@angular-devkit/build-angular`) is on v17 while the framework
-  packages are on v12 — this mismatch is intentional and load-bearing; don't "fix" it casually.
+  signals. Devtooling (`ng-packagr`, `@angular-devkit/build-angular`) matches the framework
+  packages on `^12` (see the Gotchas section above) — don't bump devtooling ahead of the framework
+  packages without reading `.claude/ROADMAP.md` 0.1.
 - Loops are written as indexed `for` loops with a cached length, not `forEach`. Match that.
 
 ## Making changes
