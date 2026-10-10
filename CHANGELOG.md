@@ -5,7 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+* Treat an empty (`undefined`/`null`/`false`) provider result as no suggestions instead of throwing by [jrquick17](https://github.com/jrquick17)
+* Remove every matching suggestion when removing duplicates of selected items by [jrquick17](https://github.com/jrquick17)
+
 ### Updated
+* Document wrapping callback-based APIs (e.g. Google Places) in a `Promise` by [jrquick17](https://github.com/jrquick17)
 * Pin supported Node version (`.nvmrc`, `engines.node`) to `^18.13.0 || >=20.9.0` by [jrquick17](https://github.com/jrquick17)
 
 ## [2.9.10]
