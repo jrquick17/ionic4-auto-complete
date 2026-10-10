@@ -480,8 +480,8 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
       return '';
     }
 
-    let attr = this.provider.formValueAttribute == null ?
-        this.provider.labelAttribute : this.provider.formValueAttribute;
+    let attr = this.provider.labelAttribute == null ?
+        this.provider.formValueAttribute : this.provider.labelAttribute;
 
     let value = selection;
 
