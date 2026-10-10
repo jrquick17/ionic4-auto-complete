@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * CSS custom properties (`--ion-auto-complete-list-background`, `--ion-auto-complete-item-color`, `--ion-auto-complete-item-border-color`, `--ion-auto-complete-item-focus-background`) for theming the suggestion list, e.g. dark mode by [jrquick17](https://github.com/jrquick17)
 
 ### Fixed
+* `labelAttribute` is now used for display when `formValueAttribute` is also set, instead of being overridden by it ([#88](https://github.com/jrquick17/ionic4-auto-complete/issues/88)) by [jrquick17](https://github.com/jrquick17)
 * Treat an empty (`undefined`/`null`/`false`) provider result as no suggestions instead of throwing by [jrquick17](https://github.com/jrquick17)
 * Remove every matching suggestion when removing duplicates of selected items by [jrquick17](https://github.com/jrquick17)
 * Unsubscribe from the previous provider request on each new search and on destroy, fixing a subscription leak with `Subject`-based providers by [waratah](https://github.com/waratah)
