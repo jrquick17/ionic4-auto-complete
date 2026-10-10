@@ -485,7 +485,7 @@ The suggestion list can be themed (e.g. for dark mode) without `::ng-deep` or in
 
 * `getValue()` returns the string value of the selected item.
   * Example: `this.searchbar.getValue()`
-* `getSelection()` returns the selected object.
+* `getSelection()` returns the selected object, or an array of the selected objects when `multi` is `true`.
   * Example: `this.searchbar.getSelection()`
 * `setFocus()` sets focus on the searchbar.
   * Example: `this.searchbar.setFocus()`
