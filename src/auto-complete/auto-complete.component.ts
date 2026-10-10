@@ -691,20 +691,21 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   public removeDuplicates(suggestions:any[]):any[] {
     const selectedCount = this.selected ? this.selected.length : 0;
 
-    const suggestionCount = suggestions.length;
-
     for (let i = 0; i < selectedCount; i++) {
       const selectedLabel = this.getLabel(
         this.selected[i]
       );
 
-      for (let j = 0; j < suggestionCount; j++) {
+      // The length is re-read every pass because splice shrinks the array
+      for (let j = 0; j < suggestions.length; j++) {
         const suggestedLabel = this.getLabel(
           suggestions[j]
         );
 
         if (selectedLabel === suggestedLabel) {
           suggestions.splice(j, 1);
+
+          j--;
         }
       }
     }
@@ -822,6 +823,10 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * @param show
    */
   public setSuggestions(suggestions:any[], show?:boolean):void {
+    if (!suggestions) {
+      suggestions = [];
+    }
+
     if (this.removeDuplicateSuggestions) {
       suggestions = this.removeDuplicates(suggestions);
       suggestions = this.removeExcluded(suggestions);
