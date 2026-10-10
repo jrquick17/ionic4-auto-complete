@@ -258,6 +258,39 @@ npm install ionic4-auto-complete --save
      }
   ```
 
+#### Option Four: Wrap a callback-based API (e.g. Google Places) ####
+
+* `getResults` must **return** an array, `Promise`, `Subject`, or `Observable`. APIs that deliver results through a callback, like the Google Places `AutocompleteService`, cannot be returned from inside the callback, so wrap the call in a `Promise`:
+
+    ```typescript
+    import {Injectable} from '@angular/core';
+
+    import {AutoCompleteService} from 'ionic4-auto-complete';
+
+    declare const google:any;
+
+    @Injectable()
+    export class PlacesService implements AutoCompleteService {
+      labelAttribute = 'description';
+
+      getResults(keyword:string):Promise<any[]> {
+        return new Promise(
+          (resolve) => {
+            new google.maps.places.AutocompleteService().getPlacePredictions(
+              {input: keyword},
+              (predictions) => {
+                // Google passes null when there are no results
+                resolve(predictions || []);
+              }
+            );
+          }
+        );
+      }
+    }
+    ```
+
+* A provider that returns (or emits) `undefined`, `null`, or `false` is treated as having no results.
+
 ### HTML ###
 
 * Add `ion-auto-complete` within the HTML of your parent module.
