@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * CSS custom properties (`--ion-auto-complete-list-background`, `--ion-auto-complete-item-color`, `--ion-auto-complete-item-border-color`, `--ion-auto-complete-item-focus-background`) for theming the suggestion list, e.g. dark mode by [jrquick17](https://github.com/jrquick17)
 
 ### Fixed
+* A value set programmatically on a form control (`setValue`/`patchValue`) is now shown in the input instead of being cleared on the next change detection ([#115](https://github.com/jrquick17/ionic4-auto-complete/issues/115)) by [jrquick17](https://github.com/jrquick17)
 * Restore the documented `getSelection()` method, which was removed in 2.9.1; it returns the selected item, or an array of items when `multi` is `true` ([#91](https://github.com/jrquick17/ionic4-auto-complete/issues/91)) by [jrquick17](https://github.com/jrquick17)
 * `labelAttribute` is now used for display when `formValueAttribute` is also set, instead of being overridden by it ([#88](https://github.com/jrquick17/ionic4-auto-complete/issues/88)) by [jrquick17](https://github.com/jrquick17)
 * Treat an empty (`undefined`/`null`/`false`) provider result as no suggestions instead of throwing by [jrquick17](https://github.com/jrquick17)

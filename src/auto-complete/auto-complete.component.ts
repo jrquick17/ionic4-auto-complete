@@ -920,6 +920,13 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
       this.selection = value || null;
       this.formValue = this.getFormValue(this.selection);
       this.keyword = this.getLabel(this.selection);
+
+      // Keep the selected items in sync, otherwise ngDoCheck sees a null selection and clears the keyword just written
+      if (this.multi) {
+        this.selected = Object.prototype.toString.call(value) === '[object Array]' ? value.slice() : [];
+      } else {
+        this.selected = this.selection === null ? null : [this.selection];
+      }
     }
   }
 }
