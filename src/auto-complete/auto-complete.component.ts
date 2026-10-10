@@ -9,11 +9,12 @@ import {
   HostListener,
   ElementRef,
   AfterViewChecked,
+  OnDestroy,
   ViewContainerRef
 } from '@angular/core';
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
 
-import {from, Observable, Subject} from 'rxjs';
+import {from, Observable, Subject, Subscription} from 'rxjs';
 import {finalize} from 'rxjs/operators';
 
 import {AutoCompleteOptions} from '../auto-complete-options.model';
@@ -34,7 +35,7 @@ import {AutoCompleteStyles} from '../auto-complete-styles.model';
   ],
   templateUrl: 'auto-complete.component.html'
 })
-export class AutoCompleteComponent implements AfterViewChecked, ControlValueAccessor, DoCheck {
+export class AutoCompleteComponent implements AfterViewChecked, ControlValueAccessor, DoCheck, OnDestroy {
   public autocompleteOptions:AutoCompleteOptions = new AutoCompleteOptions();
   public defaultOpts:AutoCompleteOptions;
   public hasFocus:boolean = false;
@@ -50,6 +51,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
   private onTouchedCallback:Function|false = false;
   private onChangeCallback:Function|false = false;
   private showListChanged:boolean = false;
+  private subscription:Subscription;
 
   @Input() public alwaysShowList:boolean = false;
   @Input() public autocomplete:string;
@@ -289,6 +291,14 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     }
   }
 
+  ngOnDestroy():void {
+    if (this.promise) {
+      clearTimeout(this.promise);
+    }
+
+    this.unsubscribe();
+  }
+
   /**
    * Get element's position on screen
    *
@@ -394,6 +404,9 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
    * @param show
    */
   public getItems(event?, show?:boolean):void {
+    // Drop any in-flight request first: `finalize` resets `isLoading` when it unsubscribes
+    this.unsubscribe();
+
     this.isLoading = true;
 
     if (this.promise) {
@@ -428,7 +441,7 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
           }
 
           if (result instanceof Observable) {
-            result.pipe(
+            this.subscription = result.pipe(
                 finalize(
                     () => {
                       this.isLoading = false;
@@ -849,6 +862,17 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     }
 
     this.showSuggestions = true;
+  }
+
+  /**
+   * Cancel the in-flight provider request, if any
+   */
+  private unsubscribe():void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+
+      this.subscription = null;
+    }
   }
 
   /**
