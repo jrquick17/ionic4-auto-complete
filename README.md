@@ -428,6 +428,26 @@ npm install ionic4-auto-complete --save
       <ion-auto-complete [dataProvider]="provider" #searchbar></ion-auto-complete>
       ```
 
+### Theming with CSS variables ###
+
+The suggestion list can be themed (e.g. for dark mode) without `::ng-deep` or inline styles by setting these CSS custom properties on `ion-auto-complete` or any ancestor (`:root`, `.dark`, etc.):
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `--ion-auto-complete-list-background` | `#FFF` | Background of the suggestion list |
+| `--ion-auto-complete-item-color` | `inherit` | Text color of suggestions |
+| `--ion-auto-complete-item-border-color` | `#c1c1c1` | Border between suggestions |
+| `--ion-auto-complete-item-focus-background` | `#f1f1f1` | Background of the focused/hovered suggestion |
+
+```css
+.dark ion-auto-complete {
+  --ion-auto-complete-list-background:       #222;
+  --ion-auto-complete-item-color:            #fff;
+  --ion-auto-complete-item-border-color:     #444;
+  --ion-auto-complete-item-focus-background: #333;
+}
+```
+
 #### Available Methods ####
 
 * `getValue()` returns the string value of the selected item.
