@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 * Treat an empty (`undefined`/`null`/`false`) provider result as no suggestions instead of throwing by [jrquick17](https://github.com/jrquick17)
 * Remove every matching suggestion when removing duplicates of selected items by [jrquick17](https://github.com/jrquick17)
+* Unsubscribe from the previous provider request on each new search and on destroy, fixing a subscription leak with `Subject`-based providers by [waratah](https://github.com/waratah)
 
 ### Updated
 * Document wrapping callback-based APIs (e.g. Google Places) in a `Promise` by [jrquick17](https://github.com/jrquick17)
