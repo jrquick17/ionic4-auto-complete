@@ -14,7 +14,7 @@ ion-auto-complete {
   ul {
     position:        absolute;
     margin-top:      0;
-    background:      #FFF;
+    background:      var(--ion-auto-complete-list-background, #FFF);
     list-style-type: none;
     padding:         0;
     left:            16px;
@@ -23,7 +23,8 @@ ion-auto-complete {
 
     li {
       padding:       15px;
-      border-bottom: 1px solid #c1c1c1;
+      border-bottom: 1px solid var(--ion-auto-complete-item-border-color, #c1c1c1);
+      color:         var(--ion-auto-complete-item-color, inherit);
     }
 
     ion-auto-complete-item {
@@ -35,9 +36,11 @@ ion-auto-complete {
       border: none;
     }
 
+    li:focus,
+    li.focus,
     li:hover {
       cursor:     pointer;
-      background: #f1f1f1
+      background: var(--ion-auto-complete-item-focus-background, #f1f1f1);
     }
   }
 
