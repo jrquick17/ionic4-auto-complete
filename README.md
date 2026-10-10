@@ -46,6 +46,10 @@ npm install ionic4-auto-complete@~2.8.2 --save
 npm install ionic4-auto-complete --save
 ```
 
+### Supported versions ###
+
+The package is published with Ivy partial compilation, so it can be compiled by Angular 12 and newer (including Angular 17). Ionic 5 or newer is required.
+
 ### Import assets ###
 
 * Add the following to the `assets` array in `angular.json`:

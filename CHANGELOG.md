@@ -18,6 +18,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 * Unsubscribe from the previous provider request on each new search and on destroy, fixing a subscription leak with `Subject`-based providers by [waratah](https://github.com/waratah)
 
 ### Updated
+* Publish the package with Ivy partial compilation (`compilationMode: "partial"`) so it links on Angular 13+, including Angular 17 ([#164](https://github.com/jrquick17/ionic4-auto-complete/issues/164)) by [jrquick17](https://github.com/jrquick17)
+* Add `peerDependencies` for `@angular/common`, `@angular/core`, `@angular/forms` and `@ionic/angular` by [jrquick17](https://github.com/jrquick17)
+* Re-pin `ng-packagr` and `@angular-devkit/build-angular` to `^12`, matching the Angular framework packages, fixing the `npm install` `ERESOLVE` conflict by [jrquick17](https://github.com/jrquick17)
 * Document the `~`-less stylesheet import (`@import "ionic4-auto-complete/auto-complete";`) for Angular 15+ ([#138](https://github.com/jrquick17/ionic4-auto-complete/issues/138)) by [jrquick17](https://github.com/jrquick17)
 * Document wrapping callback-based APIs (e.g. Google Places) in a `Promise` by [jrquick17](https://github.com/jrquick17)
 * Pin supported Node version (`.nvmrc`, `engines.node`) to `^18.13.0 || >=20.9.0` by [jrquick17](https://github.com/jrquick17)
