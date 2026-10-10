@@ -80,6 +80,10 @@ npm install ionic4-auto-complete --save
 
 * Import scss stylesheet from `node_modules` (i.e. `app.scss`, `global.scss`):
 
+    `@import "ionic4-auto-complete/auto-complete";`
+
+    On older, webpack-based Angular CLI versions (roughly 14 and earlier) use the `~` prefix instead:
+
     `@import "~ionic4-auto-complete/auto-complete";`
 
 ### Create provider ###
