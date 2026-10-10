@@ -416,7 +416,20 @@ export class AutoCompleteComponent implements AfterViewChecked, ControlValueAcce
     this.promise = setTimeout(
       () => {
         if (event) {
-          this.keyword = event.detail.target.value;
+          const detail = event.detail;
+
+          // Ionic 6+ emits `{ value }`; Ionic 5 and earlier emitted the native event as `detail`
+          if (detail && detail.value !== undefined) {
+            this.keyword = detail.value;
+          } else if (detail && detail.target) {
+            this.keyword = detail.target.value;
+          } else {
+            this.keyword = event.target ? event.target.value : '';
+          }
+
+          if (this.keyword === null || this.keyword === undefined) {
+            this.keyword = '';
+          }
         }
 
         let result;
